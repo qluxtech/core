@@ -1,12 +1,132 @@
+cat << 'EOF' > /var/www/qlux.tech/index.html
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>qlux-core</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qlux.tech - Quantum BSV Gateway</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --success: #10b981;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: var(--card-bg);
+            border: 1px solid #1f2937;
+            box-shadow: 0 0 30px var(--accent-glow);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .domain-tag {
+            color: #60a5fa;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+        .status-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 0.85rem;
+        }
+        .badge {
+            color: var(--success);
+            font-weight: bold;
+        }
+        .endpoint-box {
+            background: #1e293b;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #60a5fa;
+            word-break: break-all;
+            border-left: 4px solid var(--accent);
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-family: inherit;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
 <body>
-  <h1>System Online: Quantum Lux Core</h1>
-  <p>Infrastructure is active.</p>
+    <div class="container">
+        <h1>QUANTUM GATEWAY</h1>
+        <div class="domain-tag">qlux.tech</div>
+        <div class="subtitle">Distributed Micro-Payment Infrastructure</div>
+        
+        <div class="status-box">
+            <div class="status-row">
+                <span>System Core:</span>
+                <span>Nginx + FastAPI</span>
+            </div>
+            <div class="status-row">
+                <span>Network:</span>
+                <span>BSV Micro-Stream</span>
+            </div>
+            <div class="status-row">
+                <span>Status:</span>
+                <span class="badge">ACTIVE & DEPLOYED</span>
+            </div>
+        </div>
+
+        <div class="endpoint-box">
+            GET /api/v1/stream
+        </div>
+
+        <a href="/api/v1/stream" class="btn">Test API Endpoint</a>
+    </div>
 </body>
 </html>
-
+EOF
