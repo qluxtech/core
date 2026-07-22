@@ -88,28 +88,10 @@
         <pre id="api-result"></pre>
     </div>
 
-    <script>
-        async function testApi() {
-            const resultElement = document.getElementById('api-result');
-            resultElement.style.display = 'block';
-            resultElement.textContent = 'Connecting to EC2 FastAPI backend...';
-
-            // 直接EC2のパブリックIPまたはAPI Gatewayのエンドポイントを指定
+       <script>
+        function testApi() {
             const apiUrl = 'http://18.178.125.229/api/v1/stream';
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'BSV-Micropayment test-token-12345'
-                    }
-                });
-                
-                const data = await response.json();
-                resultElement.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                resultElement.textContent = 'Error: ' + error.message + '\n\n(Note: If the browser blocks HTTP from HTTPS, please ensure CORS or direct IP access is allowed.)';
-            }
+            window.open(apiUrl, '_blank');
         }
     </script>
 </body>
