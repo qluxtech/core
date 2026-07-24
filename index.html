@@ -1,8 +1,7 @@
 cd /home/ubuntu/quantum-gateway
 
-# 正しいHTMLコンテンツを index.html として書き出す
-cat << 'EOF' > core/index.html
-<!DOCTYPE html>
+python3 -c '
+html_code = """<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +20,7 @@ cat << 'EOF' > core/index.html
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: '\''Inter'\'', sans-serif;
             background-color: var(--bg-color);
             background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
             color: var(--text-main);
@@ -44,7 +43,7 @@ cat << 'EOF' > core/index.html
         }
         .badge {
             display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: '\''JetBrains Mono'\'', monospace;
             font-size: 0.7rem;
             color: var(--accent-cyan);
             background: rgba(6, 182, 212, 0.1);
@@ -56,7 +55,7 @@ cat << 'EOF' > core/index.html
             letter-spacing: 1px;
         }
         h1 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: '\''Orbitron'\'', sans-serif;
             font-size: 2rem;
             font-weight: 900;
             background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
@@ -65,7 +64,7 @@ cat << 'EOF' > core/index.html
             margin-bottom: 6px;
         }
         .sub {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: '\''JetBrains Mono'\'', monospace;
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-bottom: 28px;
@@ -78,7 +77,7 @@ cat << 'EOF' > core/index.html
             padding: 20px;
             margin-bottom: 24px;
             text-align: left;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: '\''JetBrains Mono'\'', monospace;
             font-size: 0.82rem;
         }
         .row {
@@ -95,7 +94,7 @@ cat << 'EOF' > core/index.html
             width: 100%;
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: white;
-            font-family: 'Orbitron', sans-serif;
+            font-family: '\''Orbitron'\'', sans-serif;
             font-size: 0.9rem;
             font-weight: 700;
             padding: 16px;
@@ -114,7 +113,7 @@ cat << 'EOF' > core/index.html
             border: 1px solid rgba(6, 182, 212, 0.3);
             border-radius: 10px;
             padding: 14px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: '\''JetBrains Mono'\'', monospace;
             font-size: 0.73rem;
             color: #38bdf8;
             text-align: left;
@@ -141,9 +140,11 @@ cat << 'EOF' > core/index.html
     </div>
 </body>
 </html>
-EOF
+"""
+with open("core/index.html", "w", encoding="utf-8") as f:
+    f.write(html_code)
+'
 
-# GitHubへ正しく反映させる
 git add core/index.html
-git commit -m "Fix core/index.html with proper BSV settlement UI template"
+git commit -m "Cleanly update core/index.html with pristine BSV micro-payment UI"
 git push origin main
