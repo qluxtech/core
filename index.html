@@ -241,34 +241,61 @@
     </div>
 
     <script>
-        function executeImprint() {
-            const box = document.getElementById('audit-log-box');
-            const time = new Date().toLocaleTimeString();
-            box.innerHTML = `[${time}] SUCCESS: OP_RETURN Immutable Imprint broadcasted to BSV Teranode. TXID: imm_hash_qlux99281...<br>` + box.innerHTML;
-            alert("✨ 認証データおよび演算コアの仕様パラメータがBSVブロックチェーン（OP_RETURN）へ永久刻印されました！");
-        }
+        // EC2バックエンドのベースURL（君のEC2のIPに書き換えてね）
+const API_BASE_URL = "http://<あなたのEC2のIP>:8000";
 
-        function trigger402Checkout(filename, sats) {
-            const paymail = "vlisdigitalassetlabs@handcash.io";
-            const confirmed = confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を以下のペイまいに送信して「${filename}」をアンロックしますか？\n宛先: ${paymail}`);
-            if (confirmed) {
+// 1. オンチェーン刻印のAPI連携
+async function executeImprint() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/v1/op-return-imprint`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await response.json();
+        
+        const box = document.getElementById('audit-log-box');
+        const time = new Date().toLocaleTimeString();
+        box.innerHTML = `[${time}] SUCCESS: ${data.status} on ${data.network}. TXID: ${data.txid}<br>` + box.innerHTML;
+        alert("✨ バックエンドサーバー経由でBSVブロックチェーンへの刻印命令が正常に送信されました！");
+    } catch (error) {
+        alert("❌ エラー: EC2バックエンドサーバーとの通信に失敗しました。CORS設定やセキュリティグループを確認してください。");
+    }
+}
+
+// 2. 402決済 & パッケージダウンロードのAPI連携
+async function trigger402Checkout(filename, sats) {
+    const paymail = "vlisdigitalassetlabs@handcash.io";
+    const confirmed = confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を以下のペイまいに送信して「${filename}」をアンロックしますか？\n宛先: ${paymail}`);
+    
+    if (confirmed) {
+        // テスト用のモックTXID（実際はウォレットから返されたTXIDを渡す）
+        const mockTxid = "txid_mock_" + Math.random().toString(36.substring(2, 9));
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/v1/verify-payment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    txid: mockTxid,
+                    sats: sats,
+                    filename: filename
+                })
+            });
+            
+            const data = await response.json();
+            if (response.ok) {
                 const box = document.getElementById('audit-log-box');
                 const time = new Date().toLocaleTimeString();
-                box.innerHTML = `[${time}] 402 PAYMENT RECEIVED: ${sats} SAT routed directly for ${filename}. Un-gated.<br>` + box.innerHTML;
-                alert(`🎉 決済が確認されました！ '${filename}' のダウンロードを開始します。`);
+                box.innerHTML = `[${time}] 402 VERIFIED: ${data.unlocked_file} un-gated. URL: ${data.download_url}<br>` + box.innerHTML;
+                alert(`🎉 サーバーでの決済検証が完了しました！ '${data.unlocked_file}' のダウンロードを許可します。`);
+            } else {
+                alert(`⚠️ 決済検証エラー: ${data.detail}`);
             }
+        } catch (error) {
+            alert("❌ サーバー通信エラーが発生しました。");
         }
-
-        function harvestRoyalties() {
-            const revenueDisplay = document.getElementById('revenue-display');
-            let currentSats = 2147780 + 15000;
-            revenueDisplay.innerText = currentSats.toLocaleString() + " SAT";
-            
-            const box = document.getElementById('audit-log-box');
-            const time = new Date().toLocaleTimeString();
-            box.innerHTML = `[${time}] ROYALTY HARVEST: Automated network dividends successfully swept to HandCash.<br>` + box.innerHTML;
-            alert("⚡ 全世界からのAI自動収益（ロイヤルティ）がHandCashウォレットへ直撃・回収されました！");
-        }
+    }
+}
     </script>
 </body>
 </html>
