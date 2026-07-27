@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,6 +60,28 @@
         .section-title { font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 6px; font-weight: 600; }
         .section-desc { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.4; }
         
+        /* 下部に配置する大迫力のアニメーションコア（動画）セクション */
+        .embedded-video-container {
+            width: 100%;
+            max-height: 480px;
+            background: #000;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .embedded-video-container video {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+        }
+
         .input-text {
             width: 100%;
             background: rgba(0, 0, 0, 0.4);
@@ -98,28 +120,6 @@
             color: var(--accent-cyan);
             overflow-y: auto;
         }
-
-        /* 動画を大きくダイナミックに表示するスタイル */
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-height: 550px;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-        }
-        .video-container video {
-            width: 100%;
-            height: auto;
-            max-height: 550px;
-            object-fit: contain;
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -153,11 +153,11 @@
         <button class="btn" onclick="trigger402Checkout('QLUX-DISTRIBUTED-NODE-CORE.zip', 500)">UNLOCK & DOWNLOAD (500 SAT)</button>
     </div>
 
-    <div class="section-card">
-        <div class="section-title">03. High-Speed Quantum Node Module (v4.2)</div>
-        <div class="section-desc">超低遅延のグローバル分散処理を実現する専用モジュールパッケージを即時取得します。</div>
-        <input type="text" class="input-text" value="QLUX-LIGHT-QUANTUM-NODE-v4.2.zip" readonly>
-        <button class="btn" onclick="trigger402Checkout('QLUX-LIGHT-QUANTUM-NODE-v4.2.zip', 500)">UNLOCK QUANTUM NODE (500 SAT)</button>
+    <div class="section-card" style="border-color: var(--accent-gold);">
+        <div class="section-title">03. Q-LUX 光速分散型量子演算ノード (High-Speed Quantum Node v4.2)</div>
+        <div class="section-desc">超低遅延かつ高スループットを実現する「Q-LUX光速分散型量子演算ノード」の専用パッケージです。HTTP 402マイクロペイメント決済により即座にライセンスを検証・アンロックします。</div>
+        <input type="text" class="input-text" value="QLUX-HIGH-SPEED-QUANTUM-NODE-v4.2.zip" readonly>
+        <button class="btn btn-gold" onclick="trigger402Checkout('QLUX-HIGH-SPEED-QUANTUM-NODE-v4.2.zip', 1000)">UNLOCK QUANTUM NODE (1,000 SAT)</button>
     </div>
 
     <div class="section-card">
@@ -187,11 +187,10 @@
     </div>
 
     <div class="section-card" style="border-color: var(--accent-cyan);">
-        <div class="section-title">06. Quantum Network Visual Stream</div>
-        <div class="section-desc">グローバル分散ノードと自律型AIペイメントネットワークの稼働状況を示すリアルタイム・ビジュアルフィード。</div>
-        
-        <div class="video-container">
-            <video src="9248.mp4" autoplay loop muted playsinline></video>
+        <div class="section-title">06. Real-Time Quantum Core Visualizer</div>
+        <div class="section-desc">分散ノードネットワークの同期状態および演算コアの稼働状況をリアルタイムに視覚化する専用ディスプレイフィード。</div>
+        <div class="embedded-video-container">
+            <video src="9248.mp4" autoplay loop muted playsinline controls></video>
         </div>
     </div>
 
@@ -225,7 +224,7 @@
                         body: JSON.stringify({ filename: filename, sats: sats })
                     });
                     const data = await response.json();
-                    alert(`✨ 決済が検証されました！パッケージのダウンロードを開始します。`);
+                    alert(`✨ 決済が検証されました！「${filename}」のダウンロードを開始します。`);
                 } catch (error) {
                     alert("❌ 決済サーバーとの通信に失敗しました。");
                 }
