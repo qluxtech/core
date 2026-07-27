@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -98,6 +98,28 @@
             color: var(--accent-cyan);
             overflow-y: auto;
         }
+
+        /* 動画を大きくダイナミックに表示するスタイル */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-height: 550px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            max-height: 550px;
+            object-fit: contain;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +129,6 @@
         <p class="subtitle">Global Distributed Computing & Enterprise Settlement Portal</p>
     </header>
 
-    <!-- スタッツ概要 -->
     <div class="metrics-grid">
         <div class="metric-card">
             <div class="metric-title">Live Direct Revenue</div>
@@ -119,14 +140,12 @@
         </div>
     </div>
 
-    <!-- セクション 01 -->
     <div class="section-card">
         <div class="section-title">01. Enterprise Data Imprinting & Tokenization</div>
         <div class="section-desc">分散型AIの演算結果や知的財産データを、高セキュリティなブロックチェーン上へ直接、改ざん不能な形で記録・証明します。</div>
         <button class="btn btn-gold" onclick="executeImprint()">EXECUTE ON-CHAIN IMPRINT</button>
     </div>
 
-    <!-- セクション 02 -->
     <div class="section-card">
         <div class="section-title">02. Secure Node Package Download (v10)</div>
         <div class="section-desc">最新のQ-LUX分散ノードパッケージ（v10）を即時アンロックしてダウンロードします。主要なクレジットカード決済およびBSVダイレクト決済に対応しています。</div>
@@ -134,7 +153,6 @@
         <button class="btn" onclick="trigger402Checkout('QLUX-DISTRIBUTED-NODE-CORE.zip', 500)">UNLOCK & DOWNLOAD (500 SAT)</button>
     </div>
 
-    <!-- セクション 03 -->
     <div class="section-card">
         <div class="section-title">03. High-Speed Quantum Node Module (v4.2)</div>
         <div class="section-desc">超低遅延のグローバル分散処理を実現する専用モジュールパッケージを即時取得します。</div>
@@ -142,30 +160,25 @@
         <button class="btn" onclick="trigger402Checkout('QLUX-LIGHT-QUANTUM-NODE-v4.2.zip', 500)">UNLOCK QUANTUM NODE (500 SAT)</button>
     </div>
 
-    <!-- セクション 04 -->
     <div class="section-card">
         <div class="section-title">04. Autonomous AI Revenue Stream</div>
         <div class="section-desc">稼働中のAIエージェントおよび自動化ネットワークから発生したマイクロペイメント収益を、指定の宛先へ一括で自動送金・回収します。</div>
         <button class="btn" onclick="harvestRoyalties()">HARVEST ALL NETWORK ROYALTIES</button>
     </div>
 
-    <!-- セクション 06: Sovereign Wallet & Paymail Gateway (QRコード付き・超企業風デザイン) -->
     <div class="section-card" style="border-color: var(--accent-blue);">
         <div class="section-title">05. Sovereign Payment Gateway & QR Settlement</div>
         <div class="section-desc">HandCashエコシステムおよび公式ペイメントゲートウェイを通じたダイレクト決済・送金受付窓口です。</div>
         
         <div style="margin-top: 15px; text-align: center;">
-            <!-- Paymail直リンクボタン -->
             <a href="paymail:vlisdigitalassetlabs@handcash.io" class="btn" style="margin-bottom: 15px; text-decoration: none; display: block;">
                 🔗 Paymailで送金 (vlisdigitalassetlabs@handcash.io)
             </a>
 
-            <!-- QRコード表示エリア -->
             <div style="background: #ffffff; padding: 12px; display: inline-block; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95" alt="BSV Wallet QR Code" style="display: block; width: 140px; height: 140px;">
             </div>
 
-            <!-- レガシーアドレス表示 -->
             <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; border: 1px dashed var(--accent-gold); text-align: left;">
                 <span style="font-size: 0.65rem; color: var(--text-sub); display: block; margin-bottom: 2px;">Legacy Address (BSV Network Only):</span>
                 <code style="color: var(--accent-gold); font-size: 0.75rem; word-break: break-all;">1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95</code>
@@ -173,9 +186,17 @@
         </div>
     </div>
 
-    <!-- セクション 05 (監査ログ) -->
+    <div class="section-card" style="border-color: var(--accent-cyan);">
+        <div class="section-title">06. Quantum Network Visual Stream</div>
+        <div class="section-desc">グローバル分散ノードと自律型AIペイメントネットワークの稼働状況を示すリアルタイム・ビジュアルフィード。</div>
+        
+        <div class="video-container">
+            <video src="9248.mp4" autoplay loop muted playsinline></video>
+        </div>
+    </div>
+
     <div class="section-card">
-        <div class="section-title">06. Real-Time On-Chain Audit Archive</div>
+        <div class="section-title">07. Real-Time On-Chain Audit Archive</div>
         <div class="section-desc">ネットワーク上のすべてのトランザクション履歴、グローバルな相互作用、およびリアルタイムの収益ストリームを透明性高く監視・記録します。</div>
         <div class="data-box" id="audit-log-box">[SYSTEM READY] Listening to BSV Teranode mempool for incoming AGI 402 micro-payments...</div>
     </div>
@@ -191,7 +212,7 @@
                 box.innerHTML = `[${new Date().toLocaleTimeString()}] SUCCESS: ${data.txid}<br>` + box.innerHTML;
                 alert("✨ オンチェーン刻印命令が正常に送信されました！");
             } catch (error) {
-                alert("❌ エラー: バックエンドサーバーとの通信に失敗しました。CORS設定やセキュリティグループを確認してください。");
+                alert("❌ エラー: バックエンドサーバーとの通信に失敗しました。");
             }
         }
 
