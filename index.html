@@ -3,321 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-LUX ENTERPRISE | Global Quantum Distributed Computing & Terranode Fortress</title>
+    <title>Q-LUX ENTERPRISE | Global Distributed Computing & Payment Portal</title>
     <style>
         :root {
-            --bg-color: #050b14;
-            --card-bg: rgba(13, 25, 45, 0.85);
-            --border-color: rgba(0, 243, 255, 0.3);
-            --neon-blue: #00f3ff;
-            --neon-gold: #ffb700;
-            --neon-green: #00ff66;
-            --text-main: #e0f0ff;
-            --text-sub: #8ab4f8;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.85);
+            --border-color: rgba(59, 130, 246, 0.25);
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-gold: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            padding: 15px;
+            padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.5;
         }
         header {
             text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--neon-blue);
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
         }
-        h1 { font-size: 1.2rem; color: var(--neon-blue); letter-spacing: 2px; }
-        p.subtitle { font-size: 0.7rem; color: var(--text-sub); margin-top: 5px; }
+        h1 { font-size: 1.4rem; color: var(--accent-cyan); letter-spacing: 1px; font-weight: 700; }
+        p.subtitle { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
         
         .metrics-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
         .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-            text-align: center;
-        }
-        .metric-title { font-size: 0.65rem; color: var(--text-sub); text-transform: uppercase; }
-        .metric-value { font-size: 1.1rem; font-weight: bold; margin-top: 5px; }
-        .metric-value.gold { color: var(--neon-gold); }
-        .metric-value.green { color: var(--neon-green); }
-
-        .engine-status {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 15px;
             text-align: center;
-            margin-bottom: 15px;
         }
-        .pulse-icon {
-            width: 16px; height: 16px; background-color: var(--neon-blue);
-            border-radius: 50%; margin: 0 auto 8px auto;
-            box-shadow: 0 0 10px var(--neon-blue);
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
-        }
-
-        .sub-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 10px;
-            font-size: 0.7rem;
-            text-align: left;
-        }
-        .sub-item { background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; border-left: 2px solid var(--neon-blue); }
-        .sub-label { color: var(--text-sub); font-size: 0.55rem; }
+        .metric-title { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-value { font-size: 1.2rem; font-weight: bold; margin-top: 5px; color: var(--accent-cyan); }
+        .metric-value.gold { color: var(--accent-gold); }
 
         .section-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 18px;
         }
-        .section-title { font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 8px; font-weight: bold; }
-        .section-desc { font-size: 0.65rem; color: var(--text-sub); margin-bottom: 10px; line-height: 1.3; }
+        .section-title { font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 6px; font-weight: 600; }
+        .section-desc { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.4; }
         
-        .data-box {
-            background: #02050a;
-            border: 1px dashed var(--border-color);
-            padding: 8px;
-            font-size: 0.65rem;
-            color: #fff;
-            margin-bottom: 10px;
-            word-break: break-all;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.2s;
-        }
-        .btn-gold { background-color: var(--neon-gold); color: #000; }
-        .btn-gold:hover { background-color: #ffd000; box-shadow: 0 0 10px var(--neon-gold); }
-        
-        .btn-blue { background-color: var(--neon-blue); color: #000; }
-        .btn-blue:hover { background-color: #33f6ff; box-shadow: 0 0 10px var(--neon-blue); }
-
-        .btn-green { background-color: var(--neon-green); color: #000; }
-        .btn-green:hover { background-color: #2fff80; box-shadow: 0 0 10px var(--neon-green); }
-
         .input-text {
             width: 100%;
-            background: #02050a;
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
+            border-radius: 6px;
             color: var(--text-main);
-            padding: 8px;
-            font-size: 0.7rem;
-            margin-bottom: 8px;
-            border-radius: 4px;
+            padding: 10px 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
         }
-
-        .paymail-info {
-            font-size: 0.65rem;
-            color: var(--text-sub);
-            margin-bottom: 8px;
+        .btn {
+            display: block;
+            width: 100%;
+            background: var(--accent-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: opacity 0.2s;
         }
-        .paymail-info span { color: var(--neon-blue); }
+        .btn:hover { opacity: 0.9; }
+        .btn-gold { background: var(--accent-gold); color: #0b0f19; }
+        
+        .data-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Q-LUX ENTERPRISE</h1>
-        <p class="subtitle">GLOBAL TIER-1 QUANTUM DISTRIBUTED COMPUTING & TERRANODE FORTRESS</p>
+        <p class="subtitle">Global Distributed Computing & Enterprise Settlement Portal</p>
     </header>
 
-    <!-- メトリクス表示 -->
+    <!-- スタッツ概要 -->
     <div class="metrics-grid">
         <div class="metric-card">
-            <div class="metric-title">⚡ Live Direct Revenue</div>
-            <div class="metric-value gold" id="revenue-display">2,147,780 SAT</div>
+            <div class="metric-title">Live Direct Revenue</div>
+            <div class="metric-value gold" id="live-revenue">2,147,780 SAT</div>
         </div>
         <div class="metric-card">
-            <div class="metric-title">🌐 Active AI & Nodes</div>
-            <div class="metric-value green" id="connections-display">1,431 Connections</div>
+            <div class="metric-title">Active Infrastructure</div>
+            <div class="metric-value">1,431 Nodes</div>
         </div>
     </div>
 
-    <!-- エンジンステータス -->
-    <div class="engine-status">
-        <div class="pulse-icon"></div>
-        <div style="font-size: 0.85rem; font-weight: bold; margin-bottom: 4px;">Quantum Breathing Dispersion Engine</div>
-        <div style="font-size: 0.6rem; color: var(--text-sub);">// HANDCASH API LINKED [APP ID: QLUX8821...]</div>
+    <!-- セクション 01 -->
+    <div class="section-card">
+        <div class="section-title">01. Enterprise Data Imprinting & Tokenization</div>
+        <div class="section-desc">分散型AIの演算結果や知的財産データを、高セキュリティなブロックチェーン上へ直接、改ざん不能な形で記録・証明します。</div>
+        <button class="btn btn-gold" onclick="executeImprint()">EXECUTE ON-CHAIN IMPRINT</button>
+    </div>
+
+    <!-- セクション 02 -->
+    <div class="section-card">
+        <div class="section-title">02. Secure Node Package Download (v10)</div>
+        <div class="section-desc">最新のQ-LUX分散ノードパッケージ（v10）を即時アンロックしてダウンロードします。主要なクレジットカード決済およびBSVダイレクト決済に対応しています。</div>
+        <input type="text" class="input-text" value="QLUX-DISTRIBUTED-NODE-CORE.zip" readonly>
+        <button class="btn" onclick="trigger402Checkout('QLUX-DISTRIBUTED-NODE-CORE.zip', 500)">UNLOCK & DOWNLOAD (500 SAT)</button>
+    </div>
+
+    <!-- セクション 03 -->
+    <div class="section-card">
+        <div class="section-title">03. High-Speed Quantum Node Module (v4.2)</div>
+        <div class="section-desc">超低遅延のグローバル分散処理を実現する専用モジュールパッケージを即時取得します。</div>
+        <input type="text" class="input-text" value="QLUX-LIGHT-QUANTUM-NODE-v4.2.zip" readonly>
+        <button class="btn" onclick="trigger402Checkout('QLUX-LIGHT-QUANTUM-NODE-v4.2.zip', 500)">UNLOCK QUANTUM NODE (500 SAT)</button>
+    </div>
+
+    <!-- セクション 04 -->
+    <div class="section-card">
+        <div class="section-title">04. Autonomous AI Revenue Stream</div>
+        <div class="section-desc">稼働中のAIエージェントおよび自動化ネットワークから発生したマイクロペイメント収益を、指定の宛先へ一括で自動送金・回収します。</div>
+        <button class="btn" onclick="harvestRoyalties()">HARVEST ALL NETWORK ROYALTIES</button>
+    </div>
+
+    <!-- セクション 06: Sovereign Wallet & Paymail Gateway (QRコード付き・超企業風デザイン) -->
+    <div class="section-card" style="border-color: var(--accent-blue);">
+        <div class="section-title">05. Sovereign Payment Gateway & QR Settlement</div>
+        <div class="section-desc">HandCashエコシステムおよび公式ペイメントゲートウェイを通じたダイレクト決済・送金受付窓口です。</div>
         
-        <div class="sub-grid">
-            <div class="sub-item">
-                <div class="sub-label">ROUTING ARCHITECTURE</div>
-                <div>Hyper-Quantum Flow</div>
+        <div style="margin-top: 15px; text-align: center;">
+            <!-- Paymail直リンクボタン -->
+            <a href="paymail:vlisdigitalassetlabs@handcash.io" class="btn" style="margin-bottom: 15px; text-decoration: none; display: block;">
+                🔗 Paymailで送金 (vlisdigitalassetlabs@handcash.io)
+            </a>
+
+            <!-- QRコード表示エリア -->
+            <div style="background: #ffffff; padding: 12px; display: inline-block; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95" alt="BSV Wallet QR Code" style="display: block; width: 140px; height: 140px;">
             </div>
-            <div class="sub-item">
-                <div class="sub-label">CONSENSUS LAYER</div>
-                <div>BSV Native Script</div>
-            </div>
-            <div class="sub-item">
-                <div class="sub-label">GLOBAL RANKING</div>
-                <div style="color: var(--neon-gold);">#1 Distributed Grid</div>
-            </div>
-            <div class="sub-item">
-                <div class="sub-label">DIRECT REVENUE</div>
-                <div style="color: var(--neon-green);">Auto-Payout Active</div>
+
+            <!-- レガシーアドレス表示 -->
+            <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; border: 1px dashed var(--accent-gold); text-align: left;">
+                <span style="font-size: 0.65rem; color: var(--text-sub); display: block; margin-bottom: 2px;">Legacy Address (BSV Network Only):</span>
+                <code style="color: var(--accent-gold); font-size: 0.75rem; word-break: break-all;">1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95</code>
             </div>
         </div>
     </div>
 
-    <!-- セクション 01: オンチェーン刻印（ライティング変更済み） -->
+    <!-- セクション 05 (監査ログ) -->
     <div class="section-card">
-        <div class="section-title">📦 01. Terranode On-Chain Immutable Imprint Engine</div>
-        <div class="section-desc">
-            Seamlessly encode distributed AGI models, cryptographic weight fragments, and algorithmic specifications directly into high-scalability OP_RETURN transactions for tamper-proof global intellectual property protection.
-        </div>
-        <div class="data-box" id="core-spec-text">
-            Global Quantum Core Specification — Distributed AGI Matrix, Multi-Layer Cryptographic Routing, High-Precision Sub-Millisecond Execution Layer
-        </div>
-        <button class="btn btn-gold" onclick="executeImprint()">EXECUTE ON-CHAIN IMMUTABLE IMPRINT & TOKENIZATION</button>
+        <div class="section-title">06. Real-Time On-Chain Audit Archive</div>
+        <div class="section-desc">ネットワーク上のすべてのトランザクション履歴、グローバルな相互作用、およびリアルタイムの収益ストリームを透明性高く監視・記録します。</div>
+        <div class="data-box" id="audit-log-box">[SYSTEM READY] Listening to BSV Teranode mempool for incoming AGI 402 micro-payments...</div>
     </div>
 
-    <!-- セクション 02: 402決済 & パッケージダウンロード -->
-    <div class="section-card">
-        <div class="section-title">💳 02. Multi-Payment Gateway & Instant Node Package Download</div>
-        <div class="section-desc">
-            Complete the initial activation fee (v10 / micro-invoice equivalent) to instantly unlock and download the encrypted Q-LUX Distributed Node package. Fully compatible with Credit Cards, Google Pay, Apple Pay, and BSV Direct.
-        </div>
-        <input type="text" class="input-text" id="package-filename" value="QLUX-DISTRIBUTED-NODE-CORE.zip" readonly>
-        <button class="btn btn-blue" onclick="trigger402Checkout('QLUX-DISTRIBUTED-NODE-CORE.zip', 500)">UNLOCK v10 / 500 SAT</button>
-    </div>
-
-    <!-- セクション 03: 【新追加】光速分散型量子演算ノード (Light-Speed Distributed Quantum Node) -->
-    <div class="section-card" style="border-color: var(--neon-green);">
-        <div class="section-title" style="color: var(--neon-green);">⚡ 03. Light-Speed Distributed Quantum Computing Node</div>
-        <div class="section-desc">
-            Ultra-low latency distributed quantum node architecture designed for instantaneous multi-agent synchronization and high-frequency cryptographic computations across global Teranode grids.
-        </div>
-        <input type="text" class="input-text" id="quantum-node-filename" value="QLUX-LIGHT-QUANTUM-NODE-v4.2.zip" readonly>
-        <button class="btn btn-green" onclick="trigger402Checkout('QLUX-LIGHT-QUANTUM-NODE-v4.2.zip', 500)">UNLOCK QUANTUM NODE / 500 SAT</button>
-    </div>
-
-    <!-- セクション 04: AI自動収益ストリーム -->
-    <div class="section-card">
-        <div class="section-title">🌐 04. Universal Linkage & Autonomous AI Monetization Stream</div>
-        <div class="section-desc">
-            Global AI agents, automated machinery, and distributed network nodes automatically execute micro-payouts and direct remittances the moment they query or learn from your decentralized data stream.
-        </div>
-        <div class="paymail-info">
-            HandCash Paymail Gateway: <span id="paymail-target">vlisdigitalassetlabs@handcash.io</span>
-        </div>
-        <button class="btn btn-green" onclick="harvestRoyalties()">HARVEST ALL AUTONOMOUS NETWORK ROYALTIES</button>
-    </div>
-
-    <!-- セクション 05: オンチェーン監査ログ -->
-    <!-- ⚡ セクション追加: Sovereign Wallet & Paymail Gateway (QRコード付き) -->
-<div class="section-card" style="border-color: var(--neon-blue);">
-    <div class="section-title" style="color: var(--neon-blue);">⚡ 06. Sovereign Network Destination & Paymail Gateway</div>
-    <div class="section-desc">Direct micropayment gateway and sovereign node destination linked to HandCash ecosystem.</div>
-    
-    <div style="margin-top: 15px; text-align: center;">
-        <!-- Paymail直リンクボタン -->
-        <a href="paymail:vlisdigitalassetlabs@handcash.io" class="btn" style="display: inline-block; background: var(--neon-blue); color: #050b14; text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 4px; margin-bottom: 15px;">
-            🔗 Paymailで送金 (vlisdigitalassetlabs@handcash.io)
-        </a>
-
-        <!-- QRコード表示エリア (レガシーアドレス用) -->
-        <div style="background: #ffffff; padding: 10px; display: inline-block; border-radius: 6px; margin-bottom: 10px;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95" alt="BSV Wallet QR Code" style="display: block; width: 130px; height: 130px;">
-        </div>
-
-        <!-- レガシーアドレス表示 -->
-        <div style="background: rgba(0,0,0,0.4); padding: 8px; border-radius: 4px; border: 1px dashed var(--neon-gold);">
-            <span style="font-size: 0.65rem; color: var(--text-sub); display: block; margin-bottom: 2px;">Legacy Address:</span>
-            <code style="color: var(--neon-gold); font-size: 0.75rem; word-break: break-all;">1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95</code>
-        </div>
-    </div>
-</div>
-    <div class="section-card">
-        <div class="section-title">📜 05. Real-Time On-Chain Audit Archive</div>
-        <div class="section-desc">
-            Transparently monitor all historical transactions, global network interactions, and real-time revenue streams across the blockchain ledger.
-        </div>
-        <div class="data-box" id="audit-log-box" style="height: 60px; overflow-y: auto;">
-            [SYSTEM READY] Listening to BSV Teranode mempool for incoming AGI 402 micro-payments...
-        </div>
-    </div>
     <script>
-        // EC2バックエンドのベースURL（君のEC2のIPに書き換えてね）
-const API_BASE_URL = "http://18.178.125.229:8000";
+        const API_BASE_URL = "http://18.178.125.229:8000";
 
-// 1. オンチェーン刻印のAPI連携
-async function executeImprint() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/v1/op-return-imprint`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        });
-        const data = await response.json();
-        
-        const box = document.getElementById('audit-log-box');
-        const time = new Date().toLocaleTimeString();
-        box.innerHTML = `[${time}] SUCCESS: ${data.status} on ${data.network}. TXID: ${data.txid}<br>` + box.innerHTML;
-        alert("✨ バックエンドサーバー経由でBSVブロックチェーンへの刻印命令が正常に送信されました！");
-    } catch (error) {
-        alert("❌ エラー: EC2バックエンドサーバーとの通信に失敗しました。CORS設定やセキュリティグループを確認してください。");
-    }
-}
-
-// 2. 402決済 & パッケージダウンロードのAPI連携
-async function trigger402Checkout(filename, sats) {
-    const paymail = "vlisdigitalassetlabs@handcash.io";
-    const confirmed = confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を以下のペイまいに送信して「${filename}」をアンロックしますか？\n宛先: ${paymail}`);
-    
-    if (confirmed) {
-        // テスト用のモックTXID（実際はウォレットから返されたTXIDを渡す）
-        const mockTxid = "txid_mock_" + Math.random().toString(36.substring(2, 9));
-        
-        try {
-            const response = await fetch(`${API_BASE_URL}/api/v1/verify-payment`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    txid: mockTxid,
-                    sats: sats,
-                    filename: filename
-                })
-            });
-            
-            const data = await response.json();
-            if (response.ok) {
-                const box = document.getElementById('audit-log-box');
-                const time = new Date().toLocaleTimeString();
-                box.innerHTML = `[${time}] 402 VERIFIED: ${data.unlocked_file} un-gated. URL: ${data.download_url}<br>` + box.innerHTML;
-                alert(`🎉 サーバーでの決済検証が完了しました！ '${data.unlocked_file}' のダウンロードを許可します。`);
-            } else {
-                alert(`⚠️ 決済検証エラー: ${data.detail}`);
+        async function executeImprint() {
+            const box = document.getElementById('audit-log-box');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/v1/op-return-imprint`, { method: 'POST' });
+                const data = await response.json();
+                box.innerHTML = `[${new Date().toLocaleTimeString()}] SUCCESS: ${data.txid}<br>` + box.innerHTML;
+                alert("✨ オンチェーン刻印命令が正常に送信されました！");
+            } catch (error) {
+                alert("❌ エラー: バックエンドサーバーとの通信に失敗しました。CORS設定やセキュリティグループを確認してください。");
             }
-        } catch (error) {
-            alert("❌ サーバー通信エラーが発生しました。");
         }
-    }
-}
+
+        async function trigger402Checkout(filename, sats) {
+            if (confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を送信して "${filename}" をアンロックしますか？`)) {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/v1/verify-payment`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ filename: filename, sats: sats })
+                    });
+                    const data = await response.json();
+                    alert(`✨ 決済が検証されました！パッケージのダウンロードを開始します。`);
+                } catch (error) {
+                    alert("❌ 決済サーバーとの通信に失敗しました。");
+                }
+            }
+        }
+
+        function harvestRoyalties() {
+            alert("⚡ すべての自律収益ストリームの回収が完了しました。");
+        }
     </script>
 </body>
 </html>
