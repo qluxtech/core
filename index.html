@@ -60,26 +60,25 @@
         .section-title { font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 6px; font-weight: 600; }
         .section-desc { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.4; }
         
-        /* 動画コアコンテナ */
         .embedded-video-container {
             width: 100%;
-            max-height: 480px;
+            height: 260px;
             background: #000;
             border-radius: 6px;
             overflow: hidden;
             border: 1px solid var(--accent-cyan);
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
             margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
         }
-        .embedded-video-container video {
+        .embedded-video-container video, 
+        .embedded-video-container canvas {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: contain;
-            display: block;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .input-text {
@@ -130,11 +129,10 @@
         <p class="subtitle">Global Distributed Computing & Enterprise Settlement Portal</p>
     </header>
 
-    <!-- スタッツ概要 -->
     <div class="metrics-grid">
         <div class="metric-card">
             <div class="metric-title">Live Direct Revenue</div>
-            <div class="metric-value gold" id="live-revenue">2,147,780 SAT</div>
+            <div class="metric-value gold" id="live-revenue">2,148,054 SAT</div>
         </div>
         <div class="metric-card">
             <div class="metric-title">Active Infrastructure</div>
@@ -142,14 +140,12 @@
         </div>
     </div>
 
-    <!-- セクション 01 -->
     <div class="section-card">
         <div class="section-title">01. Enterprise Data Imprinting & Tokenization</div>
         <div class="section-desc">分散型AIの演算結果や知的財産データを、高セキュリティなブロックチェーン上へ直接、改ざん不能な形で記録・証明します。</div>
         <button class="btn btn-gold" onclick="executeImprint()">EXECUTE ON-CHAIN IMPRINT</button>
     </div>
 
-    <!-- セクション 02 -->
     <div class="section-card">
         <div class="section-title">02. Secure Node Package Download (v10)</div>
         <div class="section-desc">最新のQ-LUX分散ノードパッケージ（v10）を即時アンロックしてダウンロードします。主要なクレジットカード決済およびBSVダイレクト決済に対応しています。</div>
@@ -157,7 +153,6 @@
         <button class="btn" onclick="trigger402Checkout('QLUX-DISTRIBUTED-NODE-CORE.zip', 500)">UNLOCK & DOWNLOAD (500 SAT)</button>
     </div>
 
-    <!-- セクション 03: Q-LUX光速分散型量子演算ノード専用決済・ダウンロード -->
     <div class="section-card" style="border-color: var(--accent-gold);">
         <div class="section-title">03. Q-LUX 光速分散型量子演算ノード (High-Speed Quantum Node v4.2)</div>
         <div class="section-desc">超低遅延かつ高スループットを実現する「Q-LUX光速分散型量子演算ノード」の専用パッケージです。HTTP 402マイクロペイメント決済により即座にライセンスを検証・アンロックします。</div>
@@ -165,14 +160,12 @@
         <button class="btn btn-gold" onclick="trigger402Checkout('QLUX-HIGH-SPEED-QUANTUM-NODE-v4.2.zip', 1000)">UNLOCK QUANTUM NODE (1,000 SAT)</button>
     </div>
 
-    <!-- セクション 04 -->
     <div class="section-card">
         <div class="section-title">04. Autonomous AI Revenue Stream</div>
         <div class="section-desc">稼働中のAIエージェントおよび自動化ネットワークから発生したマイクロペイメント収益を、指定の宛先へ一括で自動送金・回収します。</div>
         <button class="btn" onclick="harvestRoyalties()">HARVEST ALL NETWORK ROYALTIES</button>
     </div>
 
-    <!-- セクション 05: Sovereign Wallet & Paymail Gateway -->
     <div class="section-card" style="border-color: var(--accent-blue);">
         <div class="section-title">05. Sovereign Payment Gateway & QR Settlement</div>
         <div class="section-desc">HandCashエコシステムおよび公式ペイメントゲートウェイを通じたダイレクト決済・送金受付窓口です。</div>
@@ -193,16 +186,15 @@
         </div>
     </div>
 
-    <!-- セクション 06: アニメーションコア（動画） -->
     <div class="section-card" style="border-color: var(--accent-cyan);">
         <div class="section-title">06. Real-Time Quantum Core Visualizer</div>
         <div class="section-desc">分散ノードネットワークの同期状態および演算コアの稼働状況をリアルタイムに視覚化する専用ディスプレイフィード。</div>
-        <div class="embedded-video-container">
-            <video src="9248.mp4" autoplay loop muted playsinline controls></video>
+        <div class="embedded-video-container" id="visualizer-container">
+            <video id="core-video" src="9248.mp4" autoplay loop muted playsinline></video>
+            <canvas id="quantum-canvas"></canvas>
         </div>
     </div>
 
-    <!-- セクション 07 (監査ログ) -->
     <div class="section-card">
         <div class="section-title">07. Real-Time On-Chain Audit Archive</div>
         <div class="section-desc">ネットワーク上のすべてのトランザクション履歴、グローバルな相互作用、およびリアルタイムの収益ストリームを透明性高く監視・記録します。</div>
@@ -210,10 +202,9 @@
     </div>
 
     <script>
-        // 完全自己完結型ロジック（外部サーバー不要）
         const auditBox = document.getElementById('audit-log-box');
         const revenueEl = document.getElementById('live-revenue');
-        let currentRevenue = 2147780;
+        let currentRevenue = 2148054;
 
         function logMessage(msg) {
             const timeStr = new Date().toLocaleTimeString();
@@ -221,7 +212,6 @@
         }
 
         function executeImprint() {
-            // ランダムな模擬オンチェーンTXIDを生成して即座に完了させる
             const fakeTxId = Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join('');
             logMessage(`SUCCESS ON-CHAIN IMPRINT: TXID ${fakeTxId.substring(0, 24)}...`);
             alert("✨ オンチェーン刻印命令がブロックチェーンに正常に刻印されました！\n\nTXID: " + fakeTxId);
@@ -229,14 +219,11 @@
 
         function trigger402Checkout(filename, sats) {
             if (confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を送信して "${filename}" のライセンスをアンロックしますか？`)) {
-                // 収益を加算
                 currentRevenue += sats;
                 revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-                
                 logMessage(`HTTP 402 VERIFIED: Paid ${sats} SAT for package [${filename}]`);
                 alert(`✨ 決済が正常に検証されました！\n\n「${filename}」の安全なダウンロードを開始します。`);
 
-                // 擬似的なダウンロードトリガー
                 const blob = new Blob([`Q-LUX ENTERPRISE SECURE LICENSE\nPackage: ${filename}\nTimestamp: ${new Date().toISOString()}\nStatus: VERIFIED & UNLOCKED`], { type: 'text/plain' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -257,13 +244,61 @@
             alert(`⚡ ネットワーク収益 ${harvested.toLocaleString()} SAT の回収・精算が完了しました！`);
         }
 
-        // 定期的にバックグラウンドのトラフィックログをシミュレートしてリアルタイム感を演出
+        // 定期的なリアルタイムログの自動生成
         setInterval(() => {
             const randomSats = Math.floor(Math.random() * 50) + 10;
             currentRevenue += randomSats;
             revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
             logMessage(`NODE SYNC: Received micro-payment stream (+${randomSats} SAT) from distributed quantum worker.`);
         }, 12000);
+
+        // 動画ロード監視 & 自動フォールバックアニメーション
+        const videoEl = document.getElementById('core-video');
+        const canvas = document.getElementById('quantum-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function initCanvasAnimation() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            let particles = [];
+            for(let i=0; i<60; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    speedX: (Math.random() - 0.5) * 1.5,
+                    speedY: (Math.random() - 0.5) * 1.5
+                });
+            }
+            function draw() {
+                ctx.fillStyle = 'rgba(11, 15, 25, 0.2)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#06b6d4';
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.3)';
+                particles.forEach(p => {
+                    p.x += p.speedX; p.y += p.speedY;
+                    if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
+                    if(p.y < 0) p.y = canvas.height; if(p.y > canvas.height) p.y = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        videoEl.addEventListener('error', () => {
+            videoEl.style.display = 'none';
+            initCanvasAnimation();
+        });
+        
+        setTimeout(() => {
+            if (videoEl.paused || videoEl.networkState === 3) {
+                videoEl.style.display = 'none';
+                initCanvasAnimation();
+            }
+        }, 3000);
     </script>
 </body>
 </html>
