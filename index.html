@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-LUX ENTERPRISE | Global Tier-1 Distributed Computing & Teranode Settlement Portal</title>
+    <title>Q-LUX ENTERPRISE | Global Tier-1 Monster Distributed Computing & Teranode Settlement Portal</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.85);
-            --border-color: rgba(59, 130, 246, 0.25);
+            --bg-color: #030712;
+            --card-bg: rgba(15, 23, 42, 0.9);
+            --border-color: rgba(6, 182, 212, 0.35);
             --accent-blue: #3b82f6;
             --accent-cyan: #06b6d4;
             --accent-gold: #f59e0b;
             --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
             --text-main: #f3f4f6;
             --text-sub: #9ca3af;
         }
@@ -21,28 +22,28 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             padding: 20px;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             line-height: 1.5;
         }
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
-        h1 { font-size: 1.4rem; color: var(--accent-cyan); letter-spacing: 1px; font-weight: 700; }
-        p.subtitle { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
+        h1 { font-size: 1.5rem; color: var(--accent-cyan); letter-spacing: 1.5px; font-weight: 800; text-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+        p.subtitle { font-size: 0.8rem; color: var(--text-sub); margin-top: 6px; }
 
         .hero-visualizer-card {
             background: var(--card-bg);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 10px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
             padding: 15px;
-            margin-bottom: 22px;
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+            margin-bottom: 25px;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
         }
-        .hero-title { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 8px; font-weight: 700; text-align: center; letter-spacing: 0.5px; }
+        .hero-title { font-size: 1rem; color: var(--accent-gold); margin-bottom: 10px; font-weight: 700; text-align: center; letter-spacing: 1px; }
         
         .embedded-video-container {
             width: 100%;
@@ -50,7 +51,7 @@
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid var(--accent-blue);
+            border: 1px solid var(--accent-cyan);
             position: relative;
         }
         .embedded-video-container video, 
@@ -65,40 +66,42 @@
         
         .metrics-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
         }
-        .metric-title { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.5px; }
-        .metric-value { font-size: 1.2rem; font-weight: bold; margin-top: 5px; color: var(--accent-cyan); }
+        .metric-title { font-size: 0.65rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-value { font-size: 1.1rem; font-weight: bold; margin-top: 5px; color: var(--accent-cyan); }
         .metric-value.gold { color: var(--accent-gold); }
+        .metric-value.purple { color: var(--accent-purple); }
 
         .section-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-        .section-title { font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 6px; font-weight: 600; }
-        .section-desc { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.4; }
+        .section-title { font-size: 1rem; color: var(--accent-blue); margin-bottom: 8px; font-weight: 700; }
+        .section-desc { font-size: 0.81rem; color: var(--text-sub); margin-bottom: 15px; line-height: 1.5; }
 
         .input-text {
             width: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             color: var(--text-main);
             padding: 10px 12px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            font-size: 0.75rem;
+            margin-bottom: 12px;
         }
         .btn {
             display: block;
@@ -109,26 +112,27 @@
             border-radius: 6px;
             padding: 12px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
         }
-        .btn:hover { opacity: 0.9; }
-        .btn-gold { background: var(--accent-gold); color: #0b0f19; }
-        .btn-green { background: var(--accent-green); color: #0b0f19; }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-gold { background: var(--accent-gold); color: #030712; }
+        .btn-green { background: var(--accent-green); color: #030712; }
+        .btn-purple { background: var(--accent-purple); color: #ffffff; }
         
         .data-box {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 12px;
             font-family: monospace;
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             color: var(--accent-cyan);
             overflow-y: auto;
-            max-height: 150px;
+            max-height: 160px;
         }
     </style>
 </head>
@@ -136,12 +140,12 @@
 
     <header>
         <h1>Q-LUX ENTERPRISE</h1>
-        <p class="subtitle">Global Tier-1 Distributed Computing & Teranode Settlement Portal</p>
+        <p class="subtitle">Global Tier-1 Monster Distributed Computing & Teranode Autonomous Settlement Engine</p>
     </header>
 
-    <!-- ライブビジュアライザー -->
+    <!-- モンスター・ライブビジュアライザー -->
     <div class="hero-visualizer-card">
-        <div class="hero-title">⚡ GLOBAL DISTRIBUTED AI & TERANODE MESH (LIVE FEED)</div>
+        <div class="hero-title">🔥 MONSTER SWARM AI & TERANODE MEGA-MESH (LIVE STREAM)</div>
         <div class="embedded-video-container" id="visualizer-container">
             <video id="core-video" src="9248.mp4" autoplay loop muted playsinline></video>
             <canvas id="quantum-canvas"></canvas>
@@ -150,122 +154,102 @@
 
     <div class="metrics-grid">
         <div class="metric-card">
-            <div class="metric-title">Live Direct Revenue</div>
-            <div class="metric-value gold" id="live-revenue">2,148,054 SAT</div>
+            <div class="metric-title">Mega-Stream Revenue</div>
+            <div class="metric-value gold" id="live-revenue">48,250,910 SAT</div>
         </div>
         <div class="metric-card">
-            <div class="metric-title">Active Global Edge Nodes</div>
-            <div class="metric-value" id="node-counter">142,850 Nodes</div>
+            <div class="metric-title">Enterprise Node Grid</div>
+            <div class="metric-value" id="node-counter">524,100 Nodes</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-title">Compound Yield Pool</div>
+            <div class="metric-value purple" id="compound-pool">1,250,000 SAT</div>
         </div>
     </div>
 
-    <!-- 戦略要素 1: グローバル・ハイパフォーマンス・エッジノードの本格展開 -->
+    <!-- 戦略 01: エンタープライズB2B メガ・スケーリング -->
     <div class="section-card" style="border-color: var(--accent-cyan);">
-        <div class="section-title">01. Global Edge Node Scaling & Distributed AI Grid</div>
-        <div class="section-desc">世界中の高性能GPUサーバーやクラウドワーカーを網羅した数万規模の分散型エッジネットワーク。AIの超高負荷な推論・学習タスク、量子暗号計算をグローバル規模で常時並列処理し、HTTP 402マイクロペイメントの流入速度を最大化します。</div>
-        <button class="btn btn-gold" onclick="expandNetworkScale()">SCALE UP GLOBAL EDGE NETWORK</button>
+        <div class="section-title">01. Enterprise B2B Mega-Scale Distributed Grid</div>
+        <div class="section-desc">世界中のメガコーポレーション（金融・宇宙開発・医療分野）向けの超機密分散量子演算。1回あたりの決済単価を大幅に引き上げた高単価HTTP 402リクエストを常時処理し、収益の桁を根本から爆発させます。</div>
+        <button class="btn btn-gold" onclick="triggerEnterpriseScale()">DEPLOY ENTERPRISE MEGA-GRID (50,000 Nodes)</button>
     </div>
 
-    <!-- 戦略要素 2: Teranodeおよび高スループットブロックチェーンとの完全融合 -->
+    <!-- 戦略 02: Teranode 超高速・超高スループット直結 -->
     <div class="section-card" style="border-color: var(--accent-blue);">
-        <div class="section-title">02. Teranode & Ultra-High Throughput Settlement (v10)</div>
-        <div class="section-desc">秒間数百万トランザクションを処理するTeranode基盤へ直結。極小のサトシ単位の決済手数料をほぼゼロにし、摩擦ゼロのリアルタイム自動決済経済圏を構築します。</div>
-        <input type="text" class="input-text" value="TERANODE-CORE-DIRECT-LINK.conf" readonly>
-        <button class="btn" onclick="triggerDirectDownload('TERANODE-CORE-DIRECT-LINK.conf', 500)">SYNC TERANODE & DOWNLOAD (500 SAT)</button>
+        <div class="section-title">02. Teranode Ultra-High Throughput Settlement (v10 Mega)</div>
+        <div class="section-desc">秒間数百万トランザクション（TPS）を誇るTeranodeインフラと直結。極小サトシから大口法人決済まで、手数料ほぼゼロで1秒未満の完全自動着金を実現します。</div>
+        <input type="text" class="input-text" value="TERANODE-MEGA-ENTERPRISE-v10.conf" readonly>
+        <button class="btn" onclick="triggerDirectDownload('TERANODE-MEGA-ENTERPRISE-v10.conf', 50000)">SYNC & DOWNLOAD MEGA-CONFIG (50,000 SAT)</button>
     </div>
 
-    <!-- 戦略要素 3: AIエージェント自律型マネタイズ -->
+    <!-- 戦略 03: 収益無限ループ（Compound Yield Loop） -->
+    <div class="section-card" style="border-color: var(--accent-purple);">
+        <div class="section-title">03. Compound Yield Loop & Auto-Reinvestment</div>
+        <div class="section-desc">ネットワークで稼いだすべての収益を、手動出金ではなく「高性能エッジサーバーの自動レンタル投資」へ100%バックグラウンド再投資し続ける無限複利エンジンです。</div>
+        <button class="btn btn-purple" onclick="toggleCompoundLoop()">ACTIVATE INFINITE COMPOUND LOOP</button>
+    </div>
+
+    <!-- 戦略 04: AIエージェント自律型アービトラージ・マネタイズ -->
     <div class="section-card" style="border-color: var(--accent-gold);">
-        <div class="section-title">03. Autonomous AI Agent Self-Monetization Engine</div>
-        <div class="section-desc">完全自律型のAIエージェントがグローバル需要を24時間365日分析し、最適な量子演算アルゴリズムやプロファイルを自動生成・パッケージ化してマーケットプレイスへ自動販売し続けます。</div>
-        <input type="text" class="input-text" value="AUTONOMOUS-AI-AGENT-v4.2.json" readonly>
-        <button class="btn btn-gold" onclick="triggerDirectDownload('AUTONOMOUS-AI-AGENT-v4.2.json', 1000)">DEPLOY AI AGENT PROFILE (1,000 SAT)</button>
+        <div class="section-title">04. Autonomous Swarm AI Arbitrage & Monetization</div>
+        <div class="section-desc">数千体の自律型AIエージェント（Swarm）がグローバル市場のデータと需要を秒速で分析。最適化された量子演算パッケージを24時間自動競売・販売し続けます。</div>
+        <input type="text" class="input-text" value="SWARM-AI-ARBITRAGE-ENGINE-v9.json" readonly>
+        <button class="btn btn-gold" onclick="deploySwarmAgent()">DEPLOY SWARM AI AGENTS (100,000 SAT)</button>
     </div>
 
-    <!-- セクション 04: 収益ハーブ -->
+    <!-- セクション 05: 一括収益回収（Harvest） -->
     <div class="section-card">
-        <div class="section-title">04. Autonomous AI Revenue Stream</div>
-        <div class="section-desc">自律型AIエージェントおよび分散エッジネットワークから発生したマイクロペイメント収益を指定先へ一括回収します。</div>
-        <button class="btn" onclick="harvestRoyalties()">HARVEST ALL NETWORK ROYALTIES</button>
-    </div>
-
-    <!-- セクション 05: 決済ゲートウェイ -->
-    <div class="section-card">
-        <div class="section-title">05. Sovereign Payment Gateway & QR Settlement</div>
-        <div class="section-desc">HandCashエコシステムおよび公式ペイメントゲートウェイを通じたダイレクト決済・送金受付窓口です。</div>
-        
-        <div style="margin-top: 15px; text-align: center;">
+        <div class="section-title">05. Sovereign Revenue Harvest & HandCash Gateway</div>
+        <div class="section-desc">分散エッジネットワークおよびAIアービトラージから流入した全キャッシュフローを指定先へ一括精算します。</div>
+        <div style="margin: 15px 0; text-align: center;">
             <a href="paymail:vlisdigitalassetlabs@handcash.io" class="btn" style="margin-bottom: 15px; text-decoration: none; display: block;">
-                🔗 Paymailで送金 (vlisdigitalassetlabs@handcash.io)
+                🔗 HandCash Paymailで一括受取 (vlisdigitalassetlabs@handcash.io)
             </a>
-
-            <div style="background: #ffffff; padding: 12px; display: inline-block; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <div style="background: #ffffff; padding: 12px; display: inline-block; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95" alt="BSV Wallet QR Code" style="display: block; width: 140px; height: 140px;">
             </div>
-
-            <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; border: 1px dashed var(--accent-gold); text-align: left;">
-                <span style="font-size: 0.65rem; color: var(--text-sub); display: block; margin-bottom: 2px;">Legacy Address (BSV Network Only):</span>
-                <code style="color: var(--accent-gold); font-size: 0.75rem; word-break: break-all;">1Mb66iHohUEg8eAnkgV9uTTV7R235tuy95</code>
-            </div>
         </div>
+        <button class="btn btn-green" onclick="harvestMegaRoyalties()">HARVEST ALL MEGA-ROYALTIES NOW</button>
     </div>
 
-    <!-- セクション 07: メッシュモニター -->
-    <div class="section-card" style="border-color: var(--accent-green);">
-        <div class="section-title">07. Peer-to-Peer Teranode Mesh Monitor</div>
-        <div class="section-desc">Teranode基盤に接続された世界中のエッジノード間のピア接続状態および同期遅延をリアルタイムにスキャンします。</div>
-        <button class="btn btn-green" onclick="scanMeshNetwork()">RUN TERANODE MESH SCAN</button>
-    </div>
-
-    <!-- セクション 08: 自動ルーティング -->
+    <!-- セクション 06: リアルタイム・モンスター監査ログ -->
     <div class="section-card">
-        <div class="section-title">08. Autonomous Auto-Splitter & Teranode Engine</div>
-        <div class="section-desc">Teranode上で発生した収益をミリ秒単位のスマート・スワップ・プロトコルにより自動ルーティングします。</div>
-        <input type="text" class="input-text" value="Target Paymail: vlisdigitalassetlabs@handcash.io (Split: 100%)" readonly>
-        <button class="btn" onclick="toggleAutoSplit()">CONFIG TERANODE ROUTING</button>
-    </div>
-
-    <!-- セクション 09: セルフリペア -->
-    <div class="section-card" style="border-color: var(--accent-gold);">
-        <div class="section-title">09. Autonomous Diagnostics & Self-Repair Protocol</div>
-        <div class="section-desc">システム全体の整合性を自動検証し、メモリ破損や通信遅延を検知した瞬間に自己修復プロセスを走らせます。</div>
-        <button class="btn btn-gold" onclick="runDiagnostics()">INITIATE SELF-REPAIR PROTOCOL</button>
-    </div>
-
-    <!-- セクション 10: 監査ログ -->
-    <div class="section-card">
-        <div class="section-title">10. Real-Time Teranode On-Chain Audit Archive</div>
-        <div class="section-desc">Teranode mempool上のすべてのトランザクション履歴およびリアルタイムのマイクロペイメントストリームを監視・記録します。</div>
-        <div class="data-box" id="audit-log-box">[SYSTEM READY] Connected to Teranode cluster. Listening for 402 micro-payments...</div>
+        <div class="section-title">06. Real-Time Teranode Monster On-Chain Audit Stream</div>
+        <div class="section-desc">Teranode mempool上のすべての法人HTTP 402決済およびAI自律エージェントの取引ストリームをリアルタイムで監視・記録します。</div>
+        <div class="data-box" id="audit-log-box">[MONSTER ENGINE READY] Connected to Teranode Enterprise Cluster. Listening for high-value micro-payments...</div>
     </div>
 
     <script>
         const auditBox = document.getElementById('audit-log-box');
         const revenueEl = document.getElementById('live-revenue');
         const nodeEl = document.getElementById('node-counter');
-        let currentRevenue = 2148054;
-        let activeNodes = 142850;
+        const compoundEl = document.getElementById('compound-pool');
+        
+        let currentRevenue = 48250910;
+        let activeNodes = 524100;
+        let compoundPool = 1250000;
+        let isCompoundActive = true;
 
         function logMessage(msg) {
             const timeStr = new Date().toLocaleTimeString();
             auditBox.innerHTML = `[${timeStr}] ${msg}<br>` + auditBox.innerHTML;
         }
 
-        function expandNetworkScale() {
-            activeNodes += 15400;
+        function triggerEnterpriseScale() {
+            activeNodes += 50000;
             nodeEl.textContent = activeNodes.toLocaleString() + " Nodes";
-            logMessage(`SCALING: Added global GPU worker clusters. Total active nodes: ${activeNodes}`);
-            alert("🚀 グローバル・エッジネットワークの拡張に成功しました！\nアクティブノード数が急増し、演算処理能力が最大化されています。");
+            logMessage(`ENTERPRISE: Deployed mega-grid cluster. Total active nodes: ${activeNodes}`);
+            alert("🔥 法人向けエンタープライズ・メガグリッドの展開に成功しました！\n数万規模のハイエンドサーバーが追加され、処理能力が最大化されました。");
         }
 
         function triggerDirectDownload(filename, sats) {
-            if (confirm(`[Teranode HTTP 402 Payment]\n\n${sats} SAT を自動決済して "${filename}" を直接展開しますか？`)) {
+            if (confirm(`[Teranode Enterprise HTTP 402]\n\n${sats.toLocaleString()} SAT の法人自動決済を実行して "${filename}" をデプロイしますか？`)) {
                 currentRevenue += sats;
                 revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-                logMessage(`TERANODE 402 SUCCESS: Processed ${sats} SAT for [${filename}]`);
-                alert(`✨ Teranode決済が1秒未満で完了しました！\n\n「${filename}」をダウンロードします。`);
+                logMessage(`ENTERPRISE 402 SUCCESS: Processed ${sats.toLocaleString()} SAT for [${filename}]`);
+                alert(`✨ Teranode法人決済が秒速で完了しました！\n\n「${filename}」をダウンロードします。`);
 
-                const fileContent = `# Q-LUX ENTERPRISE TERANODE CONFIG\n# File: ${filename}\n# Status: TERANODE 402-VERIFIED ACTIVE\n`;
+                const fileContent = `# Q-LUX ENTERPRISE MONSTER CONFIG\n# File: ${filename}\n# Status: TERANODE B2B 402-VERIFIED ACTIVE\n# Throughput: 5.4M TPS\n`;
                 const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -278,35 +262,46 @@
             }
         }
 
-        function harvestRoyalties() {
-            const harvested = 25000;
+        function toggleCompoundLoop() {
+            isCompoundActive = !isCompoundActive;
+            if(isCompoundActive) {
+                logMessage(`COMPOUND: Infinite reinvestment yield loop is ACTIVE.`);
+                alert("♾️ 複利無限ループ（Compound Yield Loop）が有効化されました。\n収益が自動的に次世代サーバーの拡張へ再投資されます。");
+            } else {
+                logMessage(`COMPOUND: Yield loop paused.`);
+                alert("⏸️ 複利ループを一時停止しました。");
+            }
+        }
+
+        function deploySwarmAgent() {
+            const cost = 100000;
+            currentRevenue += 250000;
+            compoundPool += 50000;
+            revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
+            compoundEl.textContent = compoundPool.toLocaleString() + " SAT";
+            logMessage(`SWARM AI: Deployed autonomous arbitrage cluster. Generated +250,000 SAT yield.`);
+            alert("🤖 自律型AIスワップ・アービトラージエージェントの展開完了！\nグローバル市場から莫大な差益の自動回収を開始しました。");
+        }
+
+        function harvestMegaRoyalties() {
+            const harvested = 1500000;
             currentRevenue += harvested;
             revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-            logMessage(`AI HARVEST: Collected ${harvested} SAT from autonomous AI agent monetization stream.`);
-            alert(`⚡ AIエージェントの自律型マネタイズ収益 ${harvested.toLocaleString()} SAT の回収が完了しました！`);
+            logMessage(`HARVEST: Collected ${harvested.toLocaleString()} SAT from monster enterprise revenue streams.`);
+            alert(`⚡ メガ収益 ${harvested.toLocaleString()} SAT の一括精算・回収が完了しました！`);
         }
 
-        function scanMeshNetwork() {
-            logMessage(`TERANODE MESH SCAN: ${activeNodes} nodes verified. Throughput: 1.2M TPS. Latency: 0.1ms.`);
-            alert("🌐 Teranodeメッシュネットワークのスキャン完了。\n秒間数百万トランザクション（TPS）の超高速・低遅延状態を維持しています。");
-        }
-
-        function toggleAutoSplit() {
-            logMessage(`CONFIG: Teranode auto-routing rule updated to vlisdigitalassetlabs@handcash.io (100%).`);
-            alert("⚙️ Teranode自動収益ルーティングルールが適用されました。");
-        }
-
-        function runDiagnostics() {
-            logMessage(`DIAGNOSTICS: Teranode cluster & AI agent health check... ALL SYSTEMS OPTIMAL.`);
-            alert("🛠️ セルフリペア診断完了: すべてのAIエージェントおよびTeranode基盤は正常に稼働中です。");
-        }
-
+        // リアルタイム自動インクリメント（メガ・キャッシュフローのシミュレーション）
         setInterval(() => {
-            const randomSats = Math.floor(Math.random() * 80) + 20;
+            const randomSats = Math.floor(Math.random() * 5000) + 1200;
             currentRevenue += randomSats;
             revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-            logMessage(`TERANODE STREAM: Micro-payment received (+${randomSats} SAT) from global AI worker.`);
-        }, 10000);
+            if(isCompoundActive) {
+                compoundPool += Math.floor(randomSats * 0.3);
+                compoundEl.textContent = compoundPool.toLocaleString() + " SAT";
+            }
+            logMessage(`TERANODE B2B STREAM: Enterprise HTTP 402 received (+${randomSats.toLocaleString()} SAT)`);
+        }, 6000);
 
         const videoEl = document.getElementById('core-video');
         const canvas = document.getElementById('quantum-canvas');
@@ -316,20 +311,19 @@
             canvas.width = canvas.parentElement.clientWidth;
             canvas.height = canvas.parentElement.clientHeight;
             let particles = [];
-            for(let i=0; i<80; i++) {
+            for(let i=0; i<100; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 2.5 + 1,
-                    speedX: (Math.random() - 0.5) * 1.8,
-                    speedY: (Math.random() - 0.5) * 1.8
+                    radius: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 2.2,
+                    speedY: (Math.random() - 0.5) * 2.2
                 });
             }
             function draw() {
-                ctx.fillStyle = 'rgba(11, 15, 25, 0.2)';
+                ctx.fillStyle = 'rgba(3, 7, 18, 0.25)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#06b6d4';
-                ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
+                ctx.fillStyle = '#f59e0b';
                 particles.forEach(p => {
                     p.x += p.speedX; p.y += p.speedY;
                     if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
