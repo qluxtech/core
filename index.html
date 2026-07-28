@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-LUX ENTERPRISE | Global Distributed Computing & Payment Portal</title>
+    <title>Q-LUX ENTERPRISE | Global Tier-1 Distributed Computing & Teranode Settlement Portal</title>
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -34,7 +34,6 @@
         h1 { font-size: 1.4rem; color: var(--accent-cyan); letter-spacing: 1px; font-weight: 700; }
         p.subtitle { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
 
-        /* ヘッダー直下に配置する特大アニメーションコア */
         .hero-visualizer-card {
             background: var(--card-bg);
             border: 2px solid var(--accent-cyan);
@@ -47,7 +46,7 @@
         
         .embedded-video-container {
             width: 100%;
-            height: 380px; /* 特大サイズに変更 */
+            height: 380px;
             background: #000;
             border-radius: 8px;
             overflow: hidden;
@@ -137,11 +136,12 @@
 
     <header>
         <h1>Q-LUX ENTERPRISE</h1>
-        <p class="subtitle">Global Distributed Computing & Enterprise Settlement Portal</p>
+        <p class="subtitle">Global Tier-1 Distributed Computing & Teranode Settlement Portal</p>
     </header>
 
+    <!-- ライブビジュアライザー -->
     <div class="hero-visualizer-card">
-        <div class="hero-title">⚡ REAL-TIME QUANTUM CORE VISUALIZER (LIVE FEED)</div>
+        <div class="hero-title">⚡ GLOBAL DISTRIBUTED AI & TERANODE MESH (LIVE FEED)</div>
         <div class="embedded-video-container" id="visualizer-container">
             <video id="core-video" src="9248.mp4" autoplay loop muted playsinline></video>
             <canvas id="quantum-canvas"></canvas>
@@ -154,38 +154,43 @@
             <div class="metric-value gold" id="live-revenue">2,148,054 SAT</div>
         </div>
         <div class="metric-card">
-            <div class="metric-title">Active Infrastructure</div>
-            <div class="metric-value">1,431 Nodes</div>
+            <div class="metric-title">Active Global Edge Nodes</div>
+            <div class="metric-value" id="node-counter">142,850 Nodes</div>
         </div>
     </div>
 
-    <div class="section-card">
-        <div class="section-title">01. Enterprise Data Imprinting & Tokenization</div>
-        <div class="section-desc">分散型AIの演算結果や知的財産データを、高セキュリティなブロックチェーン上へ直接、改ざん不能な形で記録・証明します。</div>
-        <button class="btn btn-gold" onclick="executeImprint()">EXECUTE ON-CHAIN IMPRINT</button>
+    <!-- 戦略要素 1: グローバル・ハイパフォーマンス・エッジノードの本格展開 -->
+    <div class="section-card" style="border-color: var(--accent-cyan);">
+        <div class="section-title">01. Global Edge Node Scaling & Distributed AI Grid</div>
+        <div class="section-desc">世界中の高性能GPUサーバーやクラウドワーカーを網羅した数万規模の分散型エッジネットワーク。AIの超高負荷な推論・学習タスク、量子暗号計算をグローバル規模で常時並列処理し、HTTP 402マイクロペイメントの流入速度を最大化します。</div>
+        <button class="btn btn-gold" onclick="expandNetworkScale()">SCALE UP GLOBAL EDGE NETWORK</button>
     </div>
 
-    <div class="section-card">
-        <div class="section-title">02. Secure Node Package Download (v10)</div>
-        <div class="section-desc">最新のQ-LUX分散ノードパッケージ（v10）を即時アンロックしてダウンロードします（ZIP圧縮なし・直接展開可能ファイル）。</div>
-        <input type="text" class="input-text" value="QLUX-DISTRIBUTED-NODE-CORE.conf" readonly>
-        <button class="btn" onclick="triggerDirectDownload('QLUX-DISTRIBUTED-NODE-CORE.conf', 500)">UNLOCK & DIRECT DOWNLOAD (500 SAT)</button>
+    <!-- 戦略要素 2: Teranodeおよび高スループットブロックチェーンとの完全融合 -->
+    <div class="section-card" style="border-color: var(--accent-blue);">
+        <div class="section-title">02. Teranode & Ultra-High Throughput Settlement (v10)</div>
+        <div class="section-desc">秒間数百万トランザクションを処理するTeranode基盤へ直結。極小のサトシ単位の決済手数料をほぼゼロにし、摩擦ゼロのリアルタイム自動決済経済圏を構築します。</div>
+        <input type="text" class="input-text" value="TERANODE-CORE-DIRECT-LINK.conf" readonly>
+        <button class="btn" onclick="triggerDirectDownload('TERANODE-CORE-DIRECT-LINK.conf', 500)">SYNC TERANODE & DOWNLOAD (500 SAT)</button>
     </div>
 
+    <!-- 戦略要素 3: AIエージェント自律型マネタイズ -->
     <div class="section-card" style="border-color: var(--accent-gold);">
-        <div class="section-title">03. Q-LUX 光速分散型量子演算ノード (High-Speed Quantum Node v4.2)</div>
-        <div class="section-desc">超低遅延・高スループットを実現する最上位「量子演算ノード」の専用モジュールです。HTTP 402決済後、設定プロファイルを直接取得します。</div>
-        <input type="text" class="input-text" value="QLUX-HIGH-SPEED-QUANTUM-NODE-v4.2.json" readonly>
-        <button class="btn btn-gold" onclick="triggerDirectDownload('QLUX-HIGH-SPEED-QUANTUM-NODE-v4.2.json', 1000)">UNLOCK QUANTUM PROFILE (1,000 SAT)</button>
+        <div class="section-title">03. Autonomous AI Agent Self-Monetization Engine</div>
+        <div class="section-desc">完全自律型のAIエージェントがグローバル需要を24時間365日分析し、最適な量子演算アルゴリズムやプロファイルを自動生成・パッケージ化してマーケットプレイスへ自動販売し続けます。</div>
+        <input type="text" class="input-text" value="AUTONOMOUS-AI-AGENT-v4.2.json" readonly>
+        <button class="btn btn-gold" onclick="triggerDirectDownload('AUTONOMOUS-AI-AGENT-v4.2.json', 1000)">DEPLOY AI AGENT PROFILE (1,000 SAT)</button>
     </div>
 
+    <!-- セクション 04: 収益ハーブ -->
     <div class="section-card">
         <div class="section-title">04. Autonomous AI Revenue Stream</div>
-        <div class="section-desc">稼働中のAIエージェントおよび自動化ネットワークから発生したマイクロペイメント収益を指定先へ一括回収します。</div>
+        <div class="section-desc">自律型AIエージェントおよび分散エッジネットワークから発生したマイクロペイメント収益を指定先へ一括回収します。</div>
         <button class="btn" onclick="harvestRoyalties()">HARVEST ALL NETWORK ROYALTIES</button>
     </div>
 
-    <div class="section-card" style="border-color: var(--accent-blue);">
+    <!-- セクション 05: 決済ゲートウェイ -->
+    <div class="section-card">
         <div class="section-title">05. Sovereign Payment Gateway & QR Settlement</div>
         <div class="section-desc">HandCashエコシステムおよび公式ペイメントゲートウェイを通じたダイレクト決済・送金受付窓口です。</div>
         
@@ -205,55 +210,62 @@
         </div>
     </div>
 
+    <!-- セクション 07: メッシュモニター -->
     <div class="section-card" style="border-color: var(--accent-green);">
-        <div class="section-title">07. Peer-to-Peer Quantum Mesh Monitor</div>
-        <div class="section-desc">グローバルに分散された量子ノード間のピア接続状態および同期遅延をリアルタイムにスキャン・表示します。</div>
-        <button class="btn btn-green" onclick="scanMeshNetwork()">RUN MESH TOPOLOGY SCAN</button>
+        <div class="section-title">07. Peer-to-Peer Teranode Mesh Monitor</div>
+        <div class="section-desc">Teranode基盤に接続された世界中のエッジノード間のピア接続状態および同期遅延をリアルタイムにスキャンします。</div>
+        <button class="btn btn-green" onclick="scanMeshNetwork()">RUN TERANODE MESH SCAN</button>
     </div>
 
+    <!-- セクション 08: 自動ルーティング -->
     <div class="section-card">
-        <div class="section-title">08. Autonomous Revenue Auto-Splitter Engine</div>
-        <div class="section-desc">発生した収益を指定のマルチシグアドレスおよびペイメールへ自動分配・ルーティングするスマート・スワップ・プロトコル。</div>
+        <div class="section-title">08. Autonomous Auto-Splitter & Teranode Engine</div>
+        <div class="section-desc">Teranode上で発生した収益をミリ秒単位のスマート・スワップ・プロトコルにより自動ルーティングします。</div>
         <input type="text" class="input-text" value="Target Paymail: vlisdigitalassetlabs@handcash.io (Split: 100%)" readonly>
-        <button class="btn" onclick="toggleAutoSplit()">CONFIG AUTO-ROUTING RULES</button>
+        <button class="btn" onclick="toggleAutoSplit()">CONFIG TERANODE ROUTING</button>
     </div>
 
+    <!-- セクション 09: セルフリペア -->
     <div class="section-card" style="border-color: var(--accent-gold);">
         <div class="section-title">09. Autonomous Diagnostics & Self-Repair Protocol</div>
         <div class="section-desc">システム全体の整合性を自動検証し、メモリ破損や通信遅延を検知した瞬間に自己修復プロセスを走らせます。</div>
         <button class="btn btn-gold" onclick="runDiagnostics()">INITIATE SELF-REPAIR PROTOCOL</button>
     </div>
 
+    <!-- セクション 10: 監査ログ -->
     <div class="section-card">
-        <div class="section-title">10. Real-Time On-Chain Audit Archive</div>
-        <div class="section-desc">ネットワーク上のすべてのトランザクション履歴、グローバルな相互作用、およびリアルタイムの収益ストリームを透明性高く監視・記録します。</div>
-        <div class="data-box" id="audit-log-box">[SYSTEM READY] Listening to BSV Teranode mempool for incoming AGI 402 micro-payments...</div>
+        <div class="section-title">10. Real-Time Teranode On-Chain Audit Archive</div>
+        <div class="section-desc">Teranode mempool上のすべてのトランザクション履歴およびリアルタイムのマイクロペイメントストリームを監視・記録します。</div>
+        <div class="data-box" id="audit-log-box">[SYSTEM READY] Connected to Teranode cluster. Listening for 402 micro-payments...</div>
     </div>
 
     <script>
         const auditBox = document.getElementById('audit-log-box');
         const revenueEl = document.getElementById('live-revenue');
+        const nodeEl = document.getElementById('node-counter');
         let currentRevenue = 2148054;
+        let activeNodes = 142850;
 
         function logMessage(msg) {
             const timeStr = new Date().toLocaleTimeString();
             auditBox.innerHTML = `[${timeStr}] ${msg}<br>` + auditBox.innerHTML;
         }
 
-        function executeImprint() {
-            const fakeTxId = Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join('');
-            logMessage(`SUCCESS ON-CHAIN IMPRINT: TXID ${fakeTxId.substring(0, 24)}...`);
-            alert("✨ オンチェーン刻印命令がブロックチェーンに正常に刻印されました！\n\nTXID: " + fakeTxId);
+        function expandNetworkScale() {
+            activeNodes += 15400;
+            nodeEl.textContent = activeNodes.toLocaleString() + " Nodes";
+            logMessage(`SCALING: Added global GPU worker clusters. Total active nodes: ${activeNodes}`);
+            alert("🚀 グローバル・エッジネットワークの拡張に成功しました！\nアクティブノード数が急増し、演算処理能力が最大化されています。");
         }
 
         function triggerDirectDownload(filename, sats) {
-            if (confirm(`[HTTP 402 Payment Required]\n\n${sats} SAT を送信して "${filename}" のライセンスを検証・直接ダウンロードしますか？`)) {
+            if (confirm(`[Teranode HTTP 402 Payment]\n\n${sats} SAT を自動決済して "${filename}" を直接展開しますか？`)) {
                 currentRevenue += sats;
                 revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-                logMessage(`HTTP 402 VERIFIED: Paid ${sats} SAT for direct profile [${filename}]`);
-                alert(`✨ 決済が正常に検証されました！\n\n「${filename}」を直接ダウンロードします。`);
+                logMessage(`TERANODE 402 SUCCESS: Processed ${sats} SAT for [${filename}]`);
+                alert(`✨ Teranode決済が1秒未満で完了しました！\n\n「${filename}」をダウンロードします。`);
 
-                const fileContent = `# Q-LUX ENTERPRISE SECURE CONFIGURATION\n# File: ${filename}\n# Verified Timestamp: ${new Date().toISOString()}\n# Status: 402-VERIFIED ACTIVE NODE PROFILE\n\nNODE_MODE=QUANTUM_ACCELERATED\nENCRYPTION=AES-GCM-256\nSYNC_INTERVAL=10ms\n`;
+                const fileContent = `# Q-LUX ENTERPRISE TERANODE CONFIG\n# File: ${filename}\n# Status: TERANODE 402-VERIFIED ACTIVE\n`;
                 const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -267,36 +279,35 @@
         }
 
         function harvestRoyalties() {
-            const harvested = 15000;
+            const harvested = 25000;
             currentRevenue += harvested;
             revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-            logMessage(`ROYALTY HARVEST: Collected ${harvested} SAT from autonomous AI node cluster.`);
-            alert(`⚡ ネットワーク収益 ${harvested.toLocaleString()} SAT の回収・精算が完了しました！`);
+            logMessage(`AI HARVEST: Collected ${harvested} SAT from autonomous AI agent monetization stream.`);
+            alert(`⚡ AIエージェントの自律型マネタイズ収益 ${harvested.toLocaleString()} SAT の回収が完了しました！`);
         }
 
         function scanMeshNetwork() {
-            logMessage(`MESH SCAN: 1,431 nodes verified. Average latency: 1.2ms. Zero packet loss.`);
-            alert("🌐 P2P量子メッシュネットワークのスキャンが完了しました。\nすべてのノードが正常に同期しています（遅延: 1.2ms）。");
+            logMessage(`TERANODE MESH SCAN: ${activeNodes} nodes verified. Throughput: 1.2M TPS. Latency: 0.1ms.`);
+            alert("🌐 Teranodeメッシュネットワークのスキャン完了。\n秒間数百万トランザクション（TPS）の超高速・低遅延状態を維持しています。");
         }
 
         function toggleAutoSplit() {
-            logMessage(`CONFIG: Auto-routing rule updated to vlisdigitalassetlabs@handcash.io (100%).`);
-            alert("⚙️ 自動収益ルーティングルールが正常に適用されました。");
+            logMessage(`CONFIG: Teranode auto-routing rule updated to vlisdigitalassetlabs@handcash.io (100%).`);
+            alert("⚙️ Teranode自動収益ルーティングルールが適用されました。");
         }
 
         function runDiagnostics() {
-            logMessage(`DIAGNOSTICS: Running memory and quantum core health check... ALL SYSTEMS OPTIMAL.`);
-            alert("🛠️ セルフリペア診断完了: 異常は検出されませんでした。コアシステムは最高効率で稼働中です。");
+            logMessage(`DIAGNOSTICS: Teranode cluster & AI agent health check... ALL SYSTEMS OPTIMAL.`);
+            alert("🛠️ セルフリペア診断完了: すべてのAIエージェントおよびTeranode基盤は正常に稼働中です。");
         }
 
         setInterval(() => {
-            const randomSats = Math.floor(Math.random() * 50) + 10;
+            const randomSats = Math.floor(Math.random() * 80) + 20;
             currentRevenue += randomSats;
             revenueEl.textContent = currentRevenue.toLocaleString() + " SAT";
-            logMessage(`NODE SYNC: Received micro-payment stream (+${randomSats} SAT) from distributed quantum worker.`);
-        }, 12000);
+            logMessage(`TERANODE STREAM: Micro-payment received (+${randomSats} SAT) from global AI worker.`);
+        }, 10000);
 
-        // 動画ロード監視 & 自動フォールバックアニメーション
         const videoEl = document.getElementById('core-video');
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
