@@ -27,12 +27,42 @@
         }
         header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
         }
         h1 { font-size: 1.4rem; color: var(--accent-cyan); letter-spacing: 1px; font-weight: 700; }
         p.subtitle { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
+
+        /* ヘッダー直下に配置する特大アニメーションコア */
+        .hero-visualizer-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+        }
+        .hero-title { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 8px; font-weight: 700; text-align: center; letter-spacing: 0.5px; }
+        
+        .embedded-video-container {
+            width: 100%;
+            height: 380px; /* 特大サイズに変更 */
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent-blue);
+            position: relative;
+        }
+        .embedded-video-container video, 
+        .embedded-video-container canvas {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
         
         .metrics-grid {
             display: grid;
@@ -60,27 +90,6 @@
         }
         .section-title { font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 6px; font-weight: 600; }
         .section-desc { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.4; }
-        
-        .embedded-video-container {
-            width: 100%;
-            height: 260px;
-            background: #000;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-            margin-top: 10px;
-            position: relative;
-        }
-        .embedded-video-container video, 
-        .embedded-video-container canvas {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
 
         .input-text {
             width: 100%;
@@ -130,6 +139,14 @@
         <h1>Q-LUX ENTERPRISE</h1>
         <p class="subtitle">Global Distributed Computing & Enterprise Settlement Portal</p>
     </header>
+
+    <div class="hero-visualizer-card">
+        <div class="hero-title">⚡ REAL-TIME QUANTUM CORE VISUALIZER (LIVE FEED)</div>
+        <div class="embedded-video-container" id="visualizer-container">
+            <video id="core-video" src="9248.mp4" autoplay loop muted playsinline></video>
+            <canvas id="quantum-canvas"></canvas>
+        </div>
+    </div>
 
     <div class="metrics-grid">
         <div class="metric-card">
@@ -188,36 +205,27 @@
         </div>
     </div>
 
-    <div class="section-card" style="border-color: var(--accent-cyan);">
-        <div class="section-title">06. Real-Time Quantum Core Visualizer</div>
-        <div class="section-desc">分散ノードネットワークの同期状態および演算コアの稼働状況をリアルタイムに視覚化する専用ディスプレイフィード。</div>
-        <div class="embedded-video-container" id="visualizer-container">
-            <video id="core-video" src="9248.mp4" autoplay loop muted playsinline></video>
-            <canvas id="quantum-canvas"></canvas>
-        </div>
-    </div>
-
     <div class="section-card" style="border-color: var(--accent-green);">
-        <div class="section-title">08. Peer-to-Peer Quantum Mesh Monitor</div>
+        <div class="section-title">07. Peer-to-Peer Quantum Mesh Monitor</div>
         <div class="section-desc">グローバルに分散された量子ノード間のピア接続状態および同期遅延をリアルタイムにスキャン・表示します。</div>
         <button class="btn btn-green" onclick="scanMeshNetwork()">RUN MESH TOPOLOGY SCAN</button>
     </div>
 
     <div class="section-card">
-        <div class="section-title">09. Autonomous Revenue Auto-Splitter Engine</div>
+        <div class="section-title">08. Autonomous Revenue Auto-Splitter Engine</div>
         <div class="section-desc">発生した収益を指定のマルチシグアドレスおよびペイメールへ自動分配・ルーティングするスマート・スワップ・プロトコル。</div>
         <input type="text" class="input-text" value="Target Paymail: vlisdigitalassetlabs@handcash.io (Split: 100%)" readonly>
         <button class="btn" onclick="toggleAutoSplit()">CONFIG AUTO-ROUTING RULES</button>
     </div>
 
     <div class="section-card" style="border-color: var(--accent-gold);">
-        <div class="section-title">10. Autonomous Diagnostics & Self-Repair Protocol</div>
+        <div class="section-title">09. Autonomous Diagnostics & Self-Repair Protocol</div>
         <div class="section-desc">システム全体の整合性を自動検証し、メモリ破損や通信遅延を検知した瞬間に自己修復プロセスを走らせます。</div>
         <button class="btn btn-gold" onclick="runDiagnostics()">INITIATE SELF-REPAIR PROTOCOL</button>
     </div>
 
     <div class="section-card">
-        <div class="section-title">11. Real-Time On-Chain Audit Archive</div>
+        <div class="section-title">10. Real-Time On-Chain Audit Archive</div>
         <div class="section-desc">ネットワーク上のすべてのトランザクション履歴、グローバルな相互作用、およびリアルタイムの収益ストリームを透明性高く監視・記録します。</div>
         <div class="data-box" id="audit-log-box">[SYSTEM READY] Listening to BSV Teranode mempool for incoming AGI 402 micro-payments...</div>
     </div>
@@ -245,7 +253,6 @@
                 logMessage(`HTTP 402 VERIFIED: Paid ${sats} SAT for direct profile [${filename}]`);
                 alert(`✨ 決済が正常に検証されました！\n\n「${filename}」を直接ダウンロードします。`);
 
-                // ZIPなしの直接ファイル（テキスト・コンフィグ形式）として生成してダウンロード
                 const fileContent = `# Q-LUX ENTERPRISE SECURE CONFIGURATION\n# File: ${filename}\n# Verified Timestamp: ${new Date().toISOString()}\n# Status: 402-VERIFIED ACTIVE NODE PROFILE\n\nNODE_MODE=QUANTUM_ACCELERATED\nENCRYPTION=AES-GCM-256\nSYNC_INTERVAL=10ms\n`;
                 const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
@@ -298,20 +305,20 @@
             canvas.width = canvas.parentElement.clientWidth;
             canvas.height = canvas.parentElement.clientHeight;
             let particles = [];
-            for(let i=0; i<60; i++) {
+            for(let i=0; i<80; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 2 + 1,
-                    speedX: (Math.random() - 0.5) * 1.5,
-                    speedY: (Math.random() - 0.5) * 1.5
+                    radius: Math.random() * 2.5 + 1,
+                    speedX: (Math.random() - 0.5) * 1.8,
+                    speedY: (Math.random() - 0.5) * 1.8
                 });
             }
             function draw() {
                 ctx.fillStyle = 'rgba(11, 15, 25, 0.2)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = '#06b6d4';
-                ctx.strokeStyle = 'rgba(59, 130, 246, 0.3)';
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
                 particles.forEach(p => {
                     p.x += p.speedX; p.y += p.speedY;
                     if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
