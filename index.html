@@ -323,9 +323,15 @@
             isCompoundActive = !isCompoundActive;
             logMessage(isCompoundActive ? 'ダイレクト複利ループ: 再開 (自動再投資アクティブ)' : 'ダイレクト複利ループ: 一時停止');
         }
+            const WS_URL = 'ws://18.178.125.229:8000';
+    const API_BASE_URL = 'http://18.178.125.229:8000';
 
-        // 4. AIアービトラージ
-        function triggerAiArbitrage(sats) {
+    // 4. AIアービトラージ
+    function triggerAiArbitrage(sats) {
+    
+        logMessage('AIアービトラージ・エージェント起動中...');
+        setTimeout(() => {
+
             logMessage('AIアービトラージ・エージェント起動中...');
             setTimeout(() => {
                 currentRevenue += sats;
