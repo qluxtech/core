@@ -277,7 +277,29 @@
         </div>
     </div>
 
-    <script>
+            // 既存の関数たちのすぐ下、あるいはスクリプトの一番最後
+            currentRevenue += sats;
+            compoundPool += 25000;
+            revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+            compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
+            logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
+        }, 800);
+    }
+
+    // ⭐ ここにWebSocketの接続コードをペーストする！
+    function connectWebSocket() {
+        const ws = new WebSocket(WS_URL);
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
+                currentRevenue = data.revenue;
+                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+            }
+        };
+        ws.onclose = () => setTimeout(connectWebSocket, 3000);
+    }
+    connectWebSocket();
+
         const auditBox = document.getElementById('auditBox');
         const revenueEl = document.getElementById('revenue');
         const nodeEl = document.getElementById('activeNodes');
