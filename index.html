@@ -1,15 +1,15 @@
- <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-LUX ENTERPRISE | Autonomous Teranode Infrastructure</title>
+    <title>Q-LUX ENTERPRISE (2026) | Autonomous Teranode Gateway</title>
     <style>
         :root {
             --bg-primary: #030712;
             --bg-card: #0b0f19;
             --border-color: rgba(31, 41, 55, 0.8);
-            --border-glow: rgba(16, 185, 129, 0.25);
+            --border-glow: rgba(16, 185, 129, 0.3);
             --accent-green: #10b981;
             --accent-green-hover: #059669;
             --text-main: #f3f4f6;
@@ -54,7 +54,7 @@
             margin-top: 4px;
         }
 
-        /* ライブストリームCanvasモニター（右側画像の配置・サイズ感を忠実に再現） */
+        /* ライブストリームCanvasモニター */
         #canvas-container {
             position: relative;
             width: 100%;
@@ -65,8 +65,6 @@
             border: 2px solid var(--accent-green);
             box-shadow: 0 0 15px var(--border-glow);
             overflow: hidden;
-            transform: scale(1.02);
-            transform-origin: center center;
         }
         #quantum-canvas {
             display: block;
@@ -101,7 +99,7 @@
             font-family: var(--font-mono);
         }
 
-        /* モジュールカード（右側画像のテーマに統一） */
+        /* モジュールカード（セクションカラー統一） */
         .module-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -122,7 +120,7 @@
             line-height: 1.4;
         }
 
-        /* 入力フィールド・コード表示 */
+        /* コード・入力欄 */
         .code-input {
             width: 100%;
             background: #010409;
@@ -136,7 +134,7 @@
             text-align: center;
         }
 
-        /* ボタンデザイン（右側画像のグリーン基調） */
+        /* ボタン */
         .btn {
             width: 100%;
             padding: 10px;
@@ -180,6 +178,16 @@
             height: 90px;
             overflow-y: auto;
         }
+
+        /* 2026年表記・フッター */
+        footer {
+            text-align: center;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-family: var(--font-mono);
+        }
     </style>
 </head>
 <body>
@@ -187,7 +195,7 @@
     <div class="container">
         <header>
             <div class="brand-logo">Q-LUX ENTERPRISE</div>
-            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway</div>
+            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway (2026 Edition)</div>
         </header>
 
         <!-- 🚀 ライブストリーム・アニメーションモニター -->
@@ -241,7 +249,7 @@
             <button class="btn" onclick="triggerAiArbitrage(100000)">AIダイレクトエージェント起動 (100,000 SAT)</button>
         </div>
 
-        <!-- Module 05 & 06 -->
+        <!-- Module 05 -->
         <div class="module-card">
             <div class="module-title">HandCash ゲートウェイ & メガロイヤルティー一括回収</div>
             <div class="module-desc">指定先 (vlisdigitalassetlabs@handcash.io) へのダイレクト受型および全ネットワーク収益の一括回収。</div>
@@ -254,9 +262,13 @@
 
         <!-- システムログ -->
         <div class="module-card">
-            <div class="module-title" style="font-size: 0.75rem;">リアルタイム・ダイレクトイン監査ログ</div>
+            <div class="module-title" style="font-size: 0.75rem;">リアルタイム・ダイレクトイン監査ログ (2026.07)</div>
             <div id="auditBox" class="logs-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
         </div>
+
+        <footer>
+            &copy; 2026 Q-LUX ENTERPRISE. All Rights Reserved. Teranode Mainnet Active.
+        </footer>
     </div>
 
     <script>
@@ -299,13 +311,13 @@
             setTimeout(() => {
                 activeNodes += 1500;
                 nodeEl.textContent = activeNodes.toLocaleString();
-                logMessage('【同期完了】Teranodeメインネット網の接続数を拡大しました。');
+                logMessage('【2026同期完了】Teranodeメインネット網の接続数を拡大しました。');
             }, 600);
         }
 
         function triggerTeranodeCheckout(sats) {
-            if (confirm('【 HandCash 決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
-                logMessage('HandCash APIへ決済リクエストを送信しました (+ sats * SATY);');
+            if (confirm('【 HandCash 2026決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
+                logMessage('HandCash APIへ決済リクエストを送信しました');
                 setTimeout(() => {
                     currentRevenue += sats;
                     revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
@@ -326,7 +338,7 @@
                 compoundPool += 25000;
                 revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
                 compoundEl.textContent = compoundPool.toLocaleString() + ' SAT';
-                logMessage('【AI収益直結】AIエージェントがスプレッドを特定、+' + sats.toLocaleString() + ' SAT をウォレットへ自動送金しました (Direct-In)。');
+                logMessage('【AI収益直結】AIエージェントがスプレッドを特定、+' + sats.toLocaleString() + ' SAT をウォレットへ自動送金しました。');
             }, 800);
         }
 
@@ -353,39 +365,38 @@
             }
         }, 4000);
 
-        // --- Canvasパーティクル・アニメーション ---
+        // --- Canvas パーティクル＆ネットワークアニメーション（起動確認版） ---
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
 
-        function resizeCanvas() {
+        function initCanvas() {
             const container = document.getElementById('canvas-container');
-            canvas.width = container.clientWidth * 2;
-            canvas.height = container.clientHeight * 2;
-            ctx.scale(2, 2);
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
 
         let particles = [];
-        const numParticles = 80;
+        const numParticles = 70;
 
         class Particle {
             constructor() { this.reset(); }
             reset() {
-                this.x = Math.random() * (canvas.width / 2);
-                this.y = Math.random() * (canvas.height / 2);
-                this.size = Math.random() * 1.5;
-                this.speedX = (Math.random() - 0.5) * 1.0;
-                this.speedY = (Math.random() * 0.5 + 0.1) * 1.0;
-                this.opacity = Math.random() * 0.5 + 0.2;
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.8;
+                this.speedY = (Math.random() - 0.5) * 0.8;
+                this.opacity = Math.random() * 0.6 + 0.2;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
-                    this.reset();
-                    this.y = -10;
-                }
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
             }
             draw() {
                 ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`;
@@ -399,17 +410,17 @@
             particles.push(new Particle());
         }
 
-        function draw() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.4)';
-            ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
+        function animate() {
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.35)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 45) {
-                        ctx.strokeStyle = `rgba(16, 185, 129, ${0.12 * (1 - dist / 45)})`;
+                    if (dist < 55) {
+                        ctx.strokeStyle = `rgba(16, 185, 129, ${0.18 * (1 - dist / 55)})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
@@ -420,9 +431,10 @@
             }
 
             particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(draw);
+            requestAnimationFrame(animate);
         }
-        draw();
+        
+        animate();
     </script>
 </body>
 </html>
