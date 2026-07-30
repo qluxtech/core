@@ -1,233 +1,199 @@
-// 既存の関数たちのすぐ下、あるいはスクリプトの一番最後
-currentRevenue += sats;
-compoundPool += 25000;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
-logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
-}, 800);
-}
-
-function connectWebSocket() {
-const ws = new WebSocket(WS_URL);
-ws.onmessage = (event) => {
-const data = JSON.parse(event.data);
-if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
-currentRevenue = data.revenue;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-}
-};
-ws.onclose = () => setTimeout(connectWebSocket, 3000);
-}
-connectWebSocket();
-
-const auditBox = document.getElementById('auditBox');
-const revenueEl = document.getElementById('revenue');
-const nodeEl = document.getElementById('nodeEl');
-const compoundEl = document.getElementById('compoundPool');
-
-let currentRevenue = 48255528;
-let activeNodes = 524100;
-let compoundPool = 1251385;
-let isCompoundActive = true;
-const targetPaymail = 'vlisdigitalassetlabs@handcash.io';
-
-function logMessage(msg) {
-const timeStr = new Date().toLocaleTimeString();
-auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
-}
-
-// 1. 量子演算ノード同期
-async function triggerLiveQuantumSync() {
-logMessage('量子演算ノード同期リクエスト送信中...');
-setTimeout(() => {
-activeNodes += 1500;
-nodeEl.textContent = activeNodes.toLocaleString();
-logMessage('【同期完了】Teranodeメインネット網の接続数を拡大しました。');
-}, 600);
-}
-
-// 2. HandCash決済 & コンフィグ取得
-async function triggerTeranodeCheckout(sats) {
-if (confirm('【 HandCash ライブ決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
-logMessage('HandCash APIへ決済リクエストを送信しました (+ sats + ' SAT)');
-// バックエンドのコンフィグ取得エンドポイントを呼び出し
-window.location.href = '/api/config/download';
-setTimeout(() => {
-currentRevenue += sats;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-logMessage('【決済成功】コンフィグファイルのダウンロードおよび収益加算完了。');
-}, 1000);
-}
-}
-
-// 3. 複利ループ切替
-function toggleLiveCompoundLoop() {
-isCompoundActive = !isCompoundActive;
-logMessage(isCompoundActive ? 'ダイレクト複利ループ: 再開 (自動再投資アクティブ)' : 'ダイレクト複利ループ: 一時停止');
-}
-
-// 4. AIエージェント自律型ダイレクト・アービトラージ
-const WS_URL = 'ws://18.178.125.229:8000';
-const API_BASE_URL = 'http://18.178.125.229:8000';
-
-function triggerAiArbitrage(sats) {
-logMessage('AIアービトラージ・エージェント起動中...');
-setTimeout(() => {
-logMessage('【AI収益直結】AIエージェントがスプレッドを特定、+' + sats.toLocaleString() + ' SAT をウォレットへ自動送金しました (Direct-In)。');
-setTimeout(() => {
-currentRevenue += sats;
-compoundPool += 25000;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
-logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
-}, 800);
-}
-, 800);
-}
-// 6. メガロイヤルティー一括回収
-async function triggerMegaCollect() {
-logMessage('【全ネットワークからのメガロイヤルティー一括回収を実行中...');
-setTimeout(() => {
-const collected = compoundPool;
-currentRevenue += collected;
-compoundPool = 0;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
-logMessage('【一括回収完了】+' + collected.toLocaleString() + ' SAT -> ' + targetPaymail);
-alert('✨ メガロイヤルティーの一括回収が正常に完了しました！✨');
-}, 1000);
-}
-// バックエンド・シミュレーション (WebSocket連動模倣)
-setInterval(() => {
-if(isCompoundActive) {
-const randomSats = Math.floor(Math.random() * 3000) + 800;
-currentRevenue += randomSats;
-revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-logMessage('ライブストリーム受信: ' + randomSats.toLocaleString() + ' SAT -> ' + targetPaymail);
-}
-}, 4000);
-
-// -----------------------------------------------------
-// 📱【修正ここから】スマホ向け表示調整 & Canvasアニメーション
-// -----------------------------------------------------
-</script>
-
-<style>
-/* Canvas全体のコンテナ設定 */
-#canvas-container {
-  position: relative;
-  width: 100%;       /* コンテナの幅は親要素いっぱい */
-  height: 180px;      /* 高さは適度に固定 */
-  margin-bottom: 20px; /* 下に少し余白 */
-  background: #030712; /* 背景色 */
-  border-radius: 8px;  /* 角丸 */
-  border: 2px solid #2f855a; /* 緑の枠線 */
-  box-shadow: 0 0 15px rgba(47, 133, 90, 0.3); /* 枠線の光彩 */
-  overflow: hidden;    /* はみ出しを隠す */
-}
-
-/* 実際のCanvas要素の設定 */
-#quantum-canvas {
-  display: block;
-  width: 100%;  /* コンテナ幅に対して100%（レスポンシブ） */
-  height: 100%; /* コンテナ高さに対して100% */
-}
-
-/* コンテナに微妙な拡大（スケーリング）をかける */
-#canvas-container {
-  transform: scale(1.03); /* 横方向に丁度良く拡大（限界まで広げない） */
-  transform-origin: center center; /* 中心を基準に拡大 */
-}
-
-/* ダッシュボード全体の幅を少し狭めて、画面端に余白を作る */
-body {
-  max-width: 600px;   /* 画面の最大幅を制限 */
-  margin: 0 auto;     /* 画面中央に配置 */
-  padding: 10px;      /* スマホ画面の端に少し余白 */
-  box-sizing: border-box;
-}
-
-/* 各セクションカードの調整 */
-.data-card, .module-card {
-  margin-bottom: 15px; /* カード間の余白 */
-}
-</style>
-
-<div id="canvas-container">
-  <canvas id="quantum-canvas"></canvas>
-</div>
-
-<script>
-// --- Canvasアニメーションのロジック ---
-const canvas = document.getElementById('quantum-canvas');
-const ctx = canvas.getContext('2d');
-
-// キャンバスの解像度を設定（表示サイズとは別に高精細にする）
-function resizeCanvas() {
-    const container = document.getElementById('canvas-container');
-    canvas.width = container.clientWidth * 2;
-    canvas.height = container.clientHeight * 2;
-    // CSSで引き伸ばされるので、描画サイズを補正
-    ctx.scale(2, 2);
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-let particles = [];
-const numParticles = 120; // パーティクルの数
-const particleMaxSize = 1.5;
-const speedFactor = 1.2; // 動きの速さ
-
-class Particle {
-    constructor() {
-        this.reset();
-    }
-
-    reset() {
-        this.x = Math.random() * (canvas.width / 2);
-        this.y = Math.random() * (canvas.height / 2);
-        this.size = Math.random() * particleMaxSize;
-        this.speedX = (Math.random() - 0.5) * speedFactor;
-        this.speedY = (Math.random() * 0.5 + 0.1) * speedFactor; // 上方向に流れる
-        this.opacity = Math.random() * 0.5 + 0.2;
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // 画面外に出たらリセット
-        if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
-            this.reset();
-            this.y = -10; // 画面上部から再登場
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-LUX ENTERPRISE | Autonomous Teranode Infrastructure</title>
+    <style>
+        :root {
+            --bg-primary: #030712;
+            --bg-card: #0b0f19;
+            --border-color: rgba(31, 41, 55, 0.8);
+            --border-glow: rgba(16, 185, 129, 0.25);
+            --accent-green: #10b981;
+            --accent-green-hover: #059669;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
-    }
 
-    draw() {
-        ctx.fillStyle = `rgba(47, 133, 90, ${this.opacity})`; // 緑色のパーティクル
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-// 初期パーティクル生成
-for (let i = 0; i < numParticles; i++) {
-    particles.push(new Particle());
-}
+        .container {
+            width: 100%;
+            max-width: 480px;
+        }
 
-// アニメーションループ
-function draw() {
-    // 画面をクリア（軌跡を残すため、半透明の黒で塗りつぶす）
-    ctx.fillStyle = 'rgba(3, 7, 18, 0.4)'; // 半透明の背景色
-    ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
+        /* Canvasコンテナ（丁度良い拡大調整） */
+        #canvas-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            margin-bottom: 20px;
+            background: #030712;
+            border-radius: 8px;
+            border: 2px solid #2f855a;
+            box-shadow: 0 0 15px rgba(47, 133, 90, 0.3);
+            overflow: hidden;
+            transform: scale(1.03);
+            transform-origin: center center;
+        }
+        #quantum-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-    requestAnimationFrame(draw);
-}
+        .data-card, .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 15px;
+        }
 
-draw();
+        .logs-box {
+            background: #010409;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            height: 100px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="brand-logo">Q-LUX ENTERPRISE</div>
+            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway</div>
+        </header>
+
+        <!-- Canvas アニメーションモニター -->
+        <div id="canvas-container">
+            <canvas id="quantum-canvas"></canvas>
+        </div>
+
+        <div class="data-card">
+            <div id="auditBox" class="logs-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
+        </div>
+    </div>
+
+    <script>
+        const WS_URL = 'ws://18.178.125.229:8000';
+        const API_BASE_URL = 'http://18.178.125.229:8000';
+
+        const auditBox = document.getElementById('auditBox');
+        let currentRevenue = 48255528;
+        let activeNodes = 524100;
+        let compoundPool = 1251385;
+        let isCompoundActive = true;
+        const targetPaymail = 'vlisdigitalassetlabs@handcash.io';
+
+        function logMessage(msg) {
+            const timeStr = new Date().toLocaleTimeString();
+            auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
+        }
+
+        function connectWebSocket() {
+            const ws = new WebSocket(WS_URL);
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
+                    currentRevenue = data.revenue;
+                }
+            };
+            ws.onclose = () => setTimeout(connectWebSocket, 3000);
+        }
+        connectWebSocket();
+
+        // Canvasアニメーション設定
+        const canvas = document.getElementById('quantum-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            const container = document.getElementById('canvas-container');
+            canvas.width = container.clientWidth * 2;
+            canvas.height = container.clientHeight * 2;
+            ctx.scale(2, 2);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let particles = [];
+        const numParticles = 120;
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * (canvas.width / 2);
+                this.y = Math.random() * (canvas.height / 2);
+                this.size = Math.random() * 1.5;
+                this.speedX = (Math.random() - 0.5) * 1.2;
+                this.speedY = (Math.random() * 0.5 + 0.1) * 1.2;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
+                    this.reset();
+                    this.y = -10;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(47, 133, 90, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle());
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.4)';
+            ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+</body>
+</html>
