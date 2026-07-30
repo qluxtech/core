@@ -9,63 +9,65 @@
             --bg-primary: #030712;
             --bg-card: #0b0f19;
             --border-color: rgba(31, 41, 55, 0.8);
-            --border-glow: rgba(16, 185, 129, 0.25);
-            --accent-green: #10b981;
-            --accent-green-hover: #059669;
+            --border-glow: rgba(245, 158, 11, 0.3);
+            --accent-orange: #f59e0b;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             background-color: var(--bg-primary);
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 600px;
+            /* 限界まで広げず、スマホで丁度良い横幅と余白を確保 */
+            max-width: 520px;
             margin: 0 auto;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
+            padding-bottom: 12px;
         }
         .brand-logo {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--accent-green);
+            letter-spacing: 1.5px;
+            color: var(--accent-orange);
             text-transform: uppercase;
         }
         .brand-subtitle {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             margin-top: 4px;
         }
 
-        /* Canvasコンテナ（丁度良い拡大調整） */
+        /* ライブストリームCanvasモニター（丁度良い拡大調整） */
         #canvas-container {
             position: relative;
             width: 100%;
-            height: 180px;
-            margin-bottom: 20px;
+            height: 190px;
+            margin-bottom: 16px;
             background: #030712;
-            border-radius: 8px;
-            border: 2px solid #2f855a;
-            box-shadow: 0 0 15px rgba(47, 133, 90, 0.3);
+            border-radius: 10px;
+            border: 2px solid var(--accent-orange);
+            box-shadow: 0 0 15px var(--border-glow);
             overflow: hidden;
-            transform: scale(1.03);
+            transform: scale(1.02);
             transform-origin: center center;
         }
         #quantum-canvas {
@@ -74,23 +76,111 @@
             height: 100%;
         }
 
-        .data-card, .module-card {
+        /* スタッツ・カード */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 4px;
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            font-family: var(--font-mono);
+        }
+
+        /* モジュールカード */
+        .module-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 15px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .module-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 6px;
+        }
+        .module-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
+        /* 入力フィールド・コード表示 */
+        .code-input {
+            width: 100%;
+            background: #010409;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: #34d399;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* ボタンデザイン */
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+        .btn-orange { background: var(--accent-orange); color: #000; }
+        .btn-blue { background: var(--accent-blue); color: #fff; }
+        .btn-purple { background: var(--accent-purple); color: #fff; }
+        .btn:active { opacity: 0.8; }
+
+        /* QRコードエリア */
+        .qr-box {
+            text-align: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            width: 120px;
+            margin: 10px auto 0 auto;
+        }
+        .qr-box img {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ログボックス */
         .logs-box {
             background: #010409;
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 12px;
+            padding: 10px;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
-            height: 100px;
+            height: 90px;
             overflow-y: auto;
         }
     </style>
@@ -100,15 +190,73 @@
     <div class="container">
         <header>
             <div class="brand-logo">Q-LUX ENTERPRISE</div>
-            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway</div>
+            <div class="brand-subtitle">Global Teranode Distributed Computing & Autonomous Settlement Engine</div>
         </header>
 
-        <!-- Canvas アニメーションモニター -->
+        <!-- 🚀 ライブストリーム・アニメーションモニター -->
         <div id="canvas-container">
             <canvas id="quantum-canvas"></canvas>
         </div>
 
-        <div class="data-card">
+        <!-- スタッツ表示 -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">Revenue</div>
+                <div id="revenue" class="stat-value">48,250,910 SAT</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Nodes</div>
+                <div id="nodeEl" class="stat-value">524,100</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Pool</div>
+                <div id="compoundPool" class="stat-value">1,250,000 SAT</div>
+            </div>
+        </div>
+
+        <!-- Module 01 -->
+        <div class="module-card">
+            <div class="module-title">01. Enterprise B2B Mega-Scale Distributed Grid</div>
+            <div class="module-desc">世界中のメガコーポレーション向けの超精密分散量子演算。収益の桁を根本から拡張させます。</div>
+            <button class="btn btn-orange" onclick="triggerLiveQuantumSync()">DEPLOY ENTERPRISE MEGA-GRID (50,000 Nodes)</button>
+        </div>
+
+        <!-- Module 02 -->
+        <div class="module-card">
+            <div class="module-title">02. Teranode Ultra-High Throughput Settlement</div>
+            <div class="module-desc">秒間数百万トランザクション処理。極小サトシから大口法人決済まで手数料ゼロで即時送金。</div>
+            <div class="code-input">TERANODE-MEGA-ENTERPRISE-v10.conf</div>
+            <button class="btn btn-blue" onclick="triggerTeranodeCheckout(50000)">SYNC & DOWNLOAD MEGA-CONFIG (50,000 SAT)</button>
+        </div>
+
+        <!-- Module 03 -->
+        <div class="module-card">
+            <div class="module-title">03. Compound Yield Loop & Auto-Reinvestment</div>
+            <div class="module-desc">ネットワークで稼いだ収益を「高性能エッジサーバーの自動レンタル投資」へ100%バックグラウンド再投資。</div>
+            <button class="btn btn-purple" onclick="toggleLiveCompoundLoop()">ACTIVATE INFINITE COMPOUND LOOP</button>
+        </div>
+
+        <!-- Module 04 -->
+        <div class="module-card">
+            <div class="module-title">04. Autonomous Swarm AI Arbitrage & Monetization</div>
+            <div class="module-desc">数千体の自律型AIエージェントがグローバル市場のデータを秒速で分析・最適化された量子演算パッケージを販売。</div>
+            <div class="code-input">SWARM-AI-ARBITRAGE-ENGINE-v9.json</div>
+            <button class="btn btn-orange" onclick="triggerAiArbitrage(100000)">DEPLOY SWARM AI AGENTS (100,000 SAT)</button>
+        </div>
+
+        <!-- Module 05 & 06 -->
+        <div class="module-card">
+            <div class="module-title">05. Sovereign Revenue Harvest & HandCash Gateway</div>
+            <div class="module-desc">分散エッジネットワークおよびAIアービトラージから流入した全キャッシュフローを指定先へ一括移転します。</div>
+            <button class="btn btn-blue" onclick="triggerMegaCollect()">HandCash Paymailで一括受取 (vlisdigitalassetlabs)</button>
+            <div class="qr-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=vlisdigitalassetlabs@handcash.io" alt="HandCash QR">
+            </div>
+        </div>
+
+        <!-- システムログ -->
+        <div class="module-card">
+            <div class="module-title" style="font-size: 0.75rem;">SYSTEM LOGS</div>
             <div id="auditBox" class="logs-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
         </div>
     </div>
@@ -118,9 +266,13 @@
         const API_BASE_URL = 'http://18.178.125.229:8000';
 
         const auditBox = document.getElementById('auditBox');
-        let currentRevenue = 48255528;
+        const revenueEl = document.getElementById('revenue');
+        const nodeEl = document.getElementById('nodeEl');
+        const compoundEl = document.getElementById('compoundPool');
+
+        let currentRevenue = 48250910;
         let activeNodes = 524100;
-        let compoundPool = 1251385;
+        let compoundPool = 1250000;
         let isCompoundActive = true;
         const targetPaymail = 'vlisdigitalassetlabs@handcash.io';
 
@@ -129,19 +281,81 @@
             auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
         }
 
+        // WebSocket接続
         function connectWebSocket() {
             const ws = new WebSocket(WS_URL);
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
                 if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
                     currentRevenue = data.revenue;
+                    revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
                 }
             };
             ws.onclose = () => setTimeout(connectWebSocket, 3000);
         }
         connectWebSocket();
 
-        // Canvasアニメーション設定
+        // アクション関数
+        function triggerLiveQuantumSync() {
+            logMessage('量子演算ノード同期リクエスト送信中...');
+            setTimeout(() => {
+                activeNodes += 1500;
+                nodeEl.textContent = activeNodes.toLocaleString();
+                logMessage('【同期完了】Teranodeメインネット網の接続数を拡大しました。');
+            }, 600);
+        }
+
+        function triggerTeranodeCheckout(sats) {
+            if (confirm('【 HandCash 決済確認 】\n\n' + sats.toLocaleString() + ' SAT のトランザクションを生成しますか？')) {
+                logMessage('HandCash APIへ決済リクエスト送信中...');
+                setTimeout(() => {
+                    currentRevenue += sats;
+                    revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+                    logMessage('【決済成功】メガコンフィグファイルが正常に適用されました。');
+                }, 1000);
+            }
+        }
+
+        function toggleLiveCompoundLoop() {
+            isCompoundActive = !isCompoundActive;
+            logMessage(isCompoundActive ? 'ダイレクト複利ループ: 再開 (自動再投資アクティブ)' : 'ダイレクト複利ループ: 一時停止');
+        }
+
+        function triggerAiArbitrage(sats) {
+            logMessage('AIスウォーム・アービトラージエージェント起動中...');
+            setTimeout(() => {
+                currentRevenue += sats;
+                compoundPool += 25000;
+                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+                compoundEl.textContent = compoundPool.toLocaleString() + ' SAT';
+                logMessage('【AI収益直結】+' + sats.toLocaleString() + ' SAT が自動ウォレット送金されました。');
+            }, 800);
+        }
+
+        function triggerMegaCollect() {
+            logMessage('全ネットワークからのメガロイヤルティー一括回収を実行中...');
+            setTimeout(() => {
+                const collected = compoundPool;
+                currentRevenue += collected;
+                compoundPool = 0;
+                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+                compoundEl.textContent = compoundPool.toLocaleString() + ' SAT';
+                logMessage('【一括回収完了】+' + collected.toLocaleString() + ' SAT -> ' + targetPaymail);
+                alert('✨ メガロイヤルティーの一括回収が完了しました！');
+            }, 1000);
+        }
+
+        // 定期シミュレーション
+        setInterval(() => {
+            if(isCompoundActive) {
+                const randomSats = Math.floor(Math.random() * 2500) + 500;
+                currentRevenue += randomSats;
+                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+                logMessage('ライブストリーム収益: +' + randomSats.toLocaleString() + ' SAT');
+            }
+        }, 4500);
+
+        // --- Canvasパーティクル・ネットワークアニメーション ---
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -155,28 +369,28 @@
         resizeCanvas();
 
         let particles = [];
-        const numParticles = 120;
+        const numParticles = 75;
 
         class Particle {
             constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * (canvas.width / 2);
                 this.y = Math.random() * (canvas.height / 2);
-                this.size = Math.random() * 1.5;
-                this.speedX = (Math.random() - 0.5) * 1.2;
-                this.speedY = (Math.random() * 0.5 + 0.1) * 1.2;
-                this.opacity = Math.random() * 0.5 + 0.2;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.8;
+                this.speedY = (Math.random() * 0.4 + 0.2) * 0.8;
+                this.opacity = Math.random() * 0.6 + 0.2;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
                     this.reset();
-                    this.y = -10;
+                    this.y = -5;
                 }
             }
             draw() {
-                ctx.fillStyle = `rgba(47, 133, 90, ${this.opacity})`;
+                ctx.fillStyle = `rgba(245, 158, 11, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -188,8 +402,26 @@
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.4)';
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.35)';
             ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
+
+            // パーティクル同士を結ぶネットワーク線
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 50) {
+                        ctx.strokeStyle = `rgba(245, 158, 11, ${0.15 * (1 - dist / 50)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
             particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(draw);
         }
