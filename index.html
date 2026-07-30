@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+         <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,8 @@
             --bg-primary: #030712;
             --bg-card: #0b0f19;
             --border-color: rgba(31, 41, 55, 0.8);
-            --border-glow: rgba(16, 185, 129, 0.3);
+            --border-glow: rgba(16, 185, 129, 0.4);
             --accent-green: #10b981;
-            --accent-green-hover: #059669;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -37,7 +36,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
         }
@@ -54,16 +53,16 @@
             margin-top: 4px;
         }
 
-        /* ライブストリームCanvasモニター */
+        /* 🚀 ライブストリームCanvasモニター（高さを拡大） */
         #canvas-container {
             position: relative;
             width: 100%;
-            height: 180px;
+            height: 230px;
             margin-bottom: 16px;
             background: #030712;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 2px solid var(--accent-green);
-            box-shadow: 0 0 15px var(--border-glow);
+            box-shadow: 0 0 20px var(--border-glow);
             overflow: hidden;
         }
         #quantum-canvas {
@@ -99,7 +98,7 @@
             font-family: var(--font-mono);
         }
 
-        /* モジュールカード（セクションカラー統一） */
+        /* モジュールカード */
         .module-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -179,7 +178,7 @@
             overflow-y: auto;
         }
 
-        /* 2026年表記・フッター */
+        /* フッター */
         footer {
             text-align: center;
             font-size: 0.65rem;
@@ -198,7 +197,7 @@
             <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway (2026 Edition)</div>
         </header>
 
-        <!-- 🚀 ライブストリーム・アニメーションモニター -->
+        <!-- 🚀 拡大されたライブストリーム・アニメーションモニター -->
         <div id="canvas-container">
             <canvas id="quantum-canvas"></canvas>
         </div>
@@ -273,8 +272,6 @@
 
     <script>
         const WS_URL = 'ws://18.178.125.229:8000';
-        const API_BASE_URL = 'http://18.178.125.229:8000';
-
         const auditBox = document.getElementById('auditBox');
         const revenueEl = document.getElementById('revenue');
         const nodeEl = document.getElementById('nodeEl');
@@ -291,21 +288,6 @@
             auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
         }
 
-        // WebSocket接続
-        function connectWebSocket() {
-            const ws = new WebSocket(WS_URL);
-            ws.onmessage = (event) => {
-                const data = JSON.parse(event.data);
-                if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
-                    currentRevenue = data.revenue;
-                    revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                }
-            };
-            ws.onclose = () => setTimeout(connectWebSocket, 3000);
-        }
-        connectWebSocket();
-
-        // アクション関数
         function triggerLiveQuantumSync() {
             logMessage('量子演算ノード同期リクエスト送信中...');
             setTimeout(() => {
@@ -355,7 +337,6 @@
             }, 1000);
         }
 
-        // 定期シミュレーション
         setInterval(() => {
             if(isCompoundActive) {
                 const randomSats = Math.floor(Math.random() * 3000) + 800;
@@ -365,7 +346,7 @@
             }
         }, 4000);
 
-        // --- Canvas パーティクル＆ネットワークアニメーション（起動確認版） ---
+        // --- 拡大アニメーション＆高密度パーティクル描画 ---
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -378,17 +359,17 @@
         initCanvas();
 
         let particles = [];
-        const numParticles = 70;
+        const numParticles = 85; // 粒子の数を増やしてリッチに
 
         class Particle {
             constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.8;
-                this.speedY = (Math.random() - 0.5) * 0.8;
-                this.opacity = Math.random() * 0.6 + 0.2;
+                this.size = Math.random() * 2 + 0.8; // サイズを少し大きく拡大
+                this.speedX = (Math.random() - 0.5) * 1.0;
+                this.speedY = (Math.random() - 0.5) * 1.0;
+                this.opacity = Math.random() * 0.7 + 0.3;
             }
             update() {
                 this.x += this.speedX;
@@ -411,7 +392,7 @@
         }
 
         function animate() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.35)';
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.3)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < particles.length; i++) {
@@ -419,9 +400,9 @@
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 55) {
-                        ctx.strokeStyle = `rgba(16, 185, 129, ${0.18 * (1 - dist / 55)})`;
-                        ctx.lineWidth = 0.5;
+                    if (dist < 70) { // 接続距離を広げてダイナミックに
+                        ctx.strokeStyle = `rgba(16, 185, 129, ${0.22 * (1 - dist / 70)})`;
+                        ctx.lineWidth = 0.7;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
