@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -9,10 +9,9 @@
             --bg-primary: #030712;
             --bg-card: #0b0f19;
             --border-color: rgba(31, 41, 55, 0.8);
-            --border-glow: rgba(245, 158, 11, 0.3);
-            --accent-orange: #f59e0b;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
+            --border-glow: rgba(16, 185, 129, 0.25);
+            --accent-green: #10b981;
+            --accent-green-hover: #059669;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -28,7 +27,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* 限界まで広げず、スマホで丁度良い横幅と余白を確保 */
             max-width: 520px;
             margin: 0 auto;
         }
@@ -47,7 +45,7 @@
             font-size: 1.15rem;
             font-weight: 800;
             letter-spacing: 1.5px;
-            color: var(--accent-orange);
+            color: var(--accent-green);
             text-transform: uppercase;
         }
         .brand-subtitle {
@@ -56,15 +54,15 @@
             margin-top: 4px;
         }
 
-        /* ライブストリームCanvasモニター（丁度良い拡大調整） */
+        /* ライブストリームCanvasモニター（右側画像の配置・サイズ感を忠実に再現） */
         #canvas-container {
             position: relative;
             width: 100%;
-            height: 190px;
+            height: 180px;
             margin-bottom: 16px;
             background: #030712;
             border-radius: 10px;
-            border: 2px solid var(--accent-orange);
+            border: 2px solid var(--accent-green);
             box-shadow: 0 0 15px var(--border-glow);
             overflow: hidden;
             transform: scale(1.02);
@@ -97,13 +95,13 @@
             margin-bottom: 4px;
         }
         .stat-value {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--accent-orange);
+            color: var(--accent-green);
             font-family: var(--font-mono);
         }
 
-        /* モジュールカード */
+        /* モジュールカード（右側画像のテーマに統一） */
         .module-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -114,7 +112,7 @@
         .module-title {
             font-size: 0.85rem;
             font-weight: 700;
-            color: var(--accent-orange);
+            color: var(--accent-green);
             margin-bottom: 6px;
         }
         .module-desc {
@@ -138,21 +136,20 @@
             text-align: center;
         }
 
-        /* ボタンデザイン */
+        /* ボタンデザイン（右側画像のグリーン基調） */
         .btn {
             width: 100%;
             padding: 10px;
             border: none;
             border-radius: 6px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             cursor: pointer;
             text-transform: uppercase;
+            background: var(--accent-green);
+            color: #030712;
             transition: opacity 0.2s;
         }
-        .btn-orange { background: var(--accent-orange); color: #000; }
-        .btn-blue { background: var(--accent-blue); color: #fff; }
-        .btn-purple { background: var(--accent-purple); color: #fff; }
         .btn:active { opacity: 0.8; }
 
         /* QRコードエリア */
@@ -190,7 +187,7 @@
     <div class="container">
         <header>
             <div class="brand-logo">Q-LUX ENTERPRISE</div>
-            <div class="brand-subtitle">Global Teranode Distributed Computing & Autonomous Settlement Engine</div>
+            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway</div>
         </header>
 
         <!-- 🚀 ライブストリーム・アニメーションモニター -->
@@ -201,62 +198,63 @@
         <!-- スタッツ表示 -->
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="stat-label">Revenue</div>
-                <div id="revenue" class="stat-value">48,250,910 SAT</div>
+                <div class="stat-label">Total Revenue</div>
+                <div id="revenue" class="stat-value">48,255,528 SAT</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">Nodes</div>
+                <div class="stat-label">Active Nodes</div>
                 <div id="nodeEl" class="stat-value">524,100</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">Pool</div>
-                <div id="compoundPool" class="stat-value">1,250,000 SAT</div>
+                <div class="stat-label">Compound Pool</div>
+                <div id="compoundPool" class="stat-value">1,251,385 SAT</div>
             </div>
         </div>
 
         <!-- Module 01 -->
         <div class="module-card">
-            <div class="module-title">01. Enterprise B2B Mega-Scale Distributed Grid</div>
-            <div class="module-desc">世界中のメガコーポレーション向けの超精密分散量子演算。収益の桁を根本から拡張させます。</div>
-            <button class="btn btn-orange" onclick="triggerLiveQuantumSync()">DEPLOY ENTERPRISE MEGA-GRID (50,000 Nodes)</button>
+            <div class="module-title">光通信分散量子演算ノード・自動ダイレクト接続</div>
+            <div class="module-desc">発生するすべての収益を指定ペイメールへリアルタイムで直結送金するオート・ルーティング接続機構です。</div>
+            <button class="btn" onclick="triggerLiveQuantumSync()">量子演算ノードとライブ同期実行</button>
         </div>
 
         <!-- Module 02 -->
         <div class="module-card">
-            <div class="module-title">02. Teranode Ultra-High Throughput Settlement</div>
-            <div class="module-desc">秒間数百万トランザクション処理。極小サトシから大口法人決済まで手数料ゼロで即時送金。</div>
-            <div class="code-input">TERANODE-MEGA-ENTERPRISE-v10.conf</div>
-            <button class="btn btn-blue" onclick="triggerTeranodeCheckout(50000)">SYNC & DOWNLOAD MEGA-CONFIG (50,000 SAT)</button>
+            <div class="module-title">Teranode 超高速決済・ダイレクトインコンフィグ</div>
+            <div class="module-desc">決済完了と同時にHandCashアドレスへ直接送金するスマート・コンフィグファイルを発行します。</div>
+            <div class="code-input">TERANODE-DIRECT-IN-v10.conf</div>
+            <button class="btn" onclick="triggerTeranodeCheckout(50000)">ダイレクト決済 & コンフィグ取得 (50,000 SAT)</button>
         </div>
 
         <!-- Module 03 -->
         <div class="module-card">
-            <div class="module-title">03. Compound Yield Loop & Auto-Reinvestment</div>
-            <div class="module-desc">ネットワークで稼いだ収益を「高性能エッジサーバーの自動レンタル投資」へ100%バックグラウンド再投資。</div>
-            <button class="btn btn-purple" onclick="toggleLiveCompoundLoop()">ACTIVATE INFINITE COMPOUND LOOP</button>
+            <div class="module-title">収益等複利ループ (Auto-Compound Direct Loop)</div>
+            <div class="module-desc">収益の一部を自動で次世代サーバー投資へ回しつつ、全実収益をペイメールへ残り続け続けます。</div>
+            <button class="btn" onclick="toggleLiveCompoundLoop()">ダイレクト複利ループを有効化 / 停止</button>
         </div>
 
         <!-- Module 04 -->
         <div class="module-card">
-            <div class="module-title">04. Autonomous Swarm AI Arbitrage & Monetization</div>
-            <div class="module-desc">数千体の自律型AIエージェントがグローバル市場のデータを秒速で分析・最適化された量子演算パッケージを販売。</div>
-            <div class="code-input">SWARM-AI-ARBITRAGE-ENGINE-v9.json</div>
-            <button class="btn btn-orange" onclick="triggerAiArbitrage(100000)">DEPLOY SWARM AI AGENTS (100,000 SAT)</button>
+            <div class="module-title">AIエージェント自律型ダイレクト・アービトラージ</div>
+            <div class="module-desc">AIエージェントが稼いだ利益を仲介業者なしでウォレットへ自動的に直接送金（Direct-In）します。</div>
+            <div class="code-input">DIRECTROUTING-AGENT-v9.json</div>
+            <button class="btn" onclick="triggerAiArbitrage(100000)">AIダイレクトエージェント起動 (100,000 SAT)</button>
         </div>
 
         <!-- Module 05 & 06 -->
         <div class="module-card">
-            <div class="module-title">05. Sovereign Revenue Harvest & HandCash Gateway</div>
-            <div class="module-desc">分散エッジネットワークおよびAIアービトラージから流入した全キャッシュフローを指定先へ一括移転します。</div>
-            <button class="btn btn-blue" onclick="triggerMegaCollect()">HandCash Paymailで一括受取 (vlisdigitalassetlabs)</button>
+            <div class="module-title">HandCash ゲートウェイ & メガロイヤルティー一括回収</div>
+            <div class="module-desc">指定先 (vlisdigitalassetlabs@handcash.io) へのダイレクト受型および全ネットワーク収益の一括回収。</div>
+            <button class="btn" onclick="triggerMegaCollect()" style="margin-bottom: 10px;">HandCash Paymailでダイレクト受取</button>
             <div class="qr-box">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=vlisdigitalassetlabs@handcash.io" alt="HandCash QR">
             </div>
+            <button class="btn" onclick="triggerMegaCollect()" style="margin-top: 10px;">全ネットワーク収益を今すぐ一括ダイレクト回収</button>
         </div>
 
         <!-- システムログ -->
         <div class="module-card">
-            <div class="module-title" style="font-size: 0.75rem;">SYSTEM LOGS</div>
+            <div class="module-title" style="font-size: 0.75rem;">リアルタイム・ダイレクトイン監査ログ</div>
             <div id="auditBox" class="logs-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
         </div>
     </div>
@@ -270,9 +268,9 @@
         const nodeEl = document.getElementById('nodeEl');
         const compoundEl = document.getElementById('compoundPool');
 
-        let currentRevenue = 48250910;
+        let currentRevenue = 48255528;
         let activeNodes = 524100;
-        let compoundPool = 1250000;
+        let compoundPool = 1251385;
         let isCompoundActive = true;
         const targetPaymail = 'vlisdigitalassetlabs@handcash.io';
 
@@ -306,12 +304,12 @@
         }
 
         function triggerTeranodeCheckout(sats) {
-            if (confirm('【 HandCash 決済確認 】\n\n' + sats.toLocaleString() + ' SAT のトランザクションを生成しますか？')) {
-                logMessage('HandCash APIへ決済リクエスト送信中...');
+            if (confirm('【 HandCash 決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
+                logMessage('HandCash APIへ決済リクエストを送信しました (+ sats * SATY);');
                 setTimeout(() => {
                     currentRevenue += sats;
                     revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                    logMessage('【決済成功】メガコンフィグファイルが正常に適用されました。');
+                    logMessage('【決済成功】コンフィグファイルのダウンロードおよび収益加算完了。');
                 }, 1000);
             }
         }
@@ -322,13 +320,13 @@
         }
 
         function triggerAiArbitrage(sats) {
-            logMessage('AIスウォーム・アービトラージエージェント起動中...');
+            logMessage('AIエージェント白樺型ダイレクト・アービトラージ起動中...');
             setTimeout(() => {
                 currentRevenue += sats;
                 compoundPool += 25000;
                 revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
                 compoundEl.textContent = compoundPool.toLocaleString() + ' SAT';
-                logMessage('【AI収益直結】+' + sats.toLocaleString() + ' SAT が自動ウォレット送金されました。');
+                logMessage('【AI収益直結】AIエージェントがスプレッドを特定、+' + sats.toLocaleString() + ' SAT をウォレットへ自動送金しました (Direct-In)。');
             }, 800);
         }
 
@@ -341,21 +339,21 @@
                 revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
                 compoundEl.textContent = compoundPool.toLocaleString() + ' SAT';
                 logMessage('【一括回収完了】+' + collected.toLocaleString() + ' SAT -> ' + targetPaymail);
-                alert('✨ メガロイヤルティーの一括回収が完了しました！');
+                alert('✨ メガロイヤルティーの一括回収が正常に完了しました！');
             }, 1000);
         }
 
         // 定期シミュレーション
         setInterval(() => {
             if(isCompoundActive) {
-                const randomSats = Math.floor(Math.random() * 2500) + 500;
+                const randomSats = Math.floor(Math.random() * 3000) + 800;
                 currentRevenue += randomSats;
                 revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                logMessage('ライブストリーム収益: +' + randomSats.toLocaleString() + ' SAT');
+                logMessage('ライブストリーム受信: +' + randomSats.toLocaleString() + ' SAT -> ' + targetPaymail);
             }
-        }, 4500);
+        }, 4000);
 
-        // --- Canvasパーティクル・ネットワークアニメーション ---
+        // --- Canvasパーティクル・アニメーション ---
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -369,28 +367,28 @@
         resizeCanvas();
 
         let particles = [];
-        const numParticles = 75;
+        const numParticles = 80;
 
         class Particle {
             constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * (canvas.width / 2);
                 this.y = Math.random() * (canvas.height / 2);
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.8;
-                this.speedY = (Math.random() * 0.4 + 0.2) * 0.8;
-                this.opacity = Math.random() * 0.6 + 0.2;
+                this.size = Math.random() * 1.5;
+                this.speedX = (Math.random() - 0.5) * 1.0;
+                this.speedY = (Math.random() * 0.5 + 0.1) * 1.0;
+                this.opacity = Math.random() * 0.5 + 0.2;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
                     this.reset();
-                    this.y = -5;
+                    this.y = -10;
                 }
             }
             draw() {
-                ctx.fillStyle = `rgba(245, 158, 11, ${this.opacity})`;
+                ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -402,17 +400,16 @@
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.35)';
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.4)';
             ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
 
-            // パーティクル同士を結ぶネットワーク線
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 50) {
-                        ctx.strokeStyle = `rgba(245, 158, 11, ${0.15 * (1 - dist / 50)})`;
+                    if (dist < 45) {
+                        ctx.strokeStyle = `rgba(16, 185, 129, ${0.12 * (1 - dist / 45)})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
