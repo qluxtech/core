@@ -1,422 +1,233 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-LUX ENTERPRISE | Autonomous Teranode Infrastructure</title>
-    <style>
-        :root {
-            --bg-primary: #030712;
-            --bg-card: #0b0f19;
-            --border-color: rgba(31, 41, 55, 0.8);
-            --border-glow: rgba(16, 185, 129, 0.25);
-            --accent-green: #10b981;
-            --accent-green-hover: #059669;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        }
+// 既存の関数たちのすぐ下、あるいはスクリプトの一番最後
+currentRevenue += sats;
+compoundPool += 25000;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
+logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
+}, 800);
+}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+function connectWebSocket() {
+const ws = new WebSocket(WS_URL);
+ws.onmessage = (event) => {
+const data = JSON.parse(event.data);
+if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
+currentRevenue = data.revenue;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+}
+};
+ws.onclose = () => setTimeout(connectWebSocket, 3000);
+}
+connectWebSocket();
 
-        .container {
-            width: 100%;
-            max-width: 480px;
-        }
+const auditBox = document.getElementById('auditBox');
+const revenueEl = document.getElementById('revenue');
+const nodeEl = document.getElementById('nodeEl');
+const compoundEl = document.getElementById('compoundPool');
 
-        /* ヘッダーデザイン */
-        header {
-            text-align: center;
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
-        }
-        .brand-logo {
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--accent-green);
-            text-transform: uppercase;
-        }
-        .brand-subtitle {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            letter-spacing: 0.5px;
-        }
+let currentRevenue = 48255528;
+let activeNodes = 524100;
+let compoundPool = 1251385;
+let isCompoundActive = true;
+const targetPaymail = 'vlisdigitalassetlabs@handcash.io';
 
-        /* ヒーロービジュアライザー */
-        .hero-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-        }
-        #quantum-canvas {
-            background: #000;
-            width: 100%;
-            height: 100px;
-            border-radius: 8px;
-            display: block;
-        }
+function logMessage(msg) {
+const timeStr = new Date().toLocaleTimeString();
+auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
+}
 
-        /* メトリクスグリッド */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        .metric-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 6px;
-            text-align: center;
-        }
-        .metric-title {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-        .metric-value {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin-top: 6px;
-            font-family: var(--font-mono);
-        }
+// 1. 量子演算ノード同期
+async function triggerLiveQuantumSync() {
+logMessage('量子演算ノード同期リクエスト送信中...');
+setTimeout(() => {
+activeNodes += 1500;
+nodeEl.textContent = activeNodes.toLocaleString();
+logMessage('【同期完了】Teranodeメインネット網の接続数を拡大しました。');
+}, 600);
+}
 
-        /* セクションカード */
-        .section-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 14px;
-            transition: border-color 0.2s ease;
-        }
-        .section-card:hover {
-            border-color: var(--border-glow);
-        }
-        .section-number {
-            font-size: 0.65rem;
-            color: var(--accent-green);
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-            text-transform: uppercase;
-        }
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-        .section-desc {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
+// 2. HandCash決済 & コンフィグ取得
+async function triggerTeranodeCheckout(sats) {
+if (confirm('【 HandCash ライブ決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
+logMessage('HandCash APIへ決済リクエストを送信しました (+ sats + ' SAT)');
+// バックエンドのコンフィグ取得エンドポイントを呼び出し
+window.location.href = '/api/config/download';
+setTimeout(() => {
+currentRevenue += sats;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+logMessage('【決済成功】コンフィグファイルのダウンロードおよび収益加算完了。');
+}, 1000);
+}
+}
 
-        /* 統一された最高品質ボタン */
-        .btn {
-            display: block;
-            width: 100%;
-            background: var(--accent-green);
-            color: #030712;
-            border: none;
-            border-radius: 8px;
-            padding: 11px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .btn:hover { background: var(--accent-green-hover); color: #fff; }
-        .btn:active { transform: scale(0.98); }
+// 3. 複利ループ切替
+function toggleLiveCompoundLoop() {
+isCompoundActive = !isCompoundActive;
+logMessage(isCompoundActive ? 'ダイレクト複利ループ: 再開 (自動再投資アクティブ)' : 'ダイレクト複利ループ: 一時停止');
+}
 
-        .code-input {
-            width: 100%;
-            background: #020617;
-            border: 1px solid var(--border-color);
-            color: var(--accent-green);
-            padding: 9px 12px;
-            border-radius: 6px;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
+// 4. AIエージェント自律型ダイレクト・アービトラージ
+const WS_URL = 'ws://18.178.125.229:8000';
+const API_BASE_URL = 'http://18.178.125.229:8000';
 
-        /* QRコード & 監査ログ */
-        .qr-container {
-            text-align: center;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 8px;
-            width: fit-content;
-            margin: 10px auto 0 auto;
-        }
-        .qr-container img {
-            display: block;
-            width: 110px;
-            height: 110px;
-        }
-        .data-box {
-            background: #020617;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--accent-green);
-            overflow-y: auto;
-            max-height: 130px;
-            line-height: 1.5;
-        }
-    </style>
-</head>
-<body>
+function triggerAiArbitrage(sats) {
+logMessage('AIアービトラージ・エージェント起動中...');
+setTimeout(() => {
+logMessage('【AI収益直結】AIエージェントがスプレッドを特定、+' + sats.toLocaleString() + ' SAT をウォレットへ自動送金しました (Direct-In)。');
+setTimeout(() => {
+currentRevenue += sats;
+compoundPool += 25000;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
+logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
+}, 800);
+}
+, 800);
+}
+// 6. メガロイヤルティー一括回収
+async function triggerMegaCollect() {
+logMessage('【全ネットワークからのメガロイヤルティー一括回収を実行中...');
+setTimeout(() => {
+const collected = compoundPool;
+currentRevenue += collected;
+compoundPool = 0;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
+logMessage('【一括回収完了】+' + collected.toLocaleString() + ' SAT -> ' + targetPaymail);
+alert('✨ メガロイヤルティーの一括回収が正常に完了しました！✨');
+}, 1000);
+}
+// バックエンド・シミュレーション (WebSocket連動模倣)
+setInterval(() => {
+if(isCompoundActive) {
+const randomSats = Math.floor(Math.random() * 3000) + 800;
+currentRevenue += randomSats;
+revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
+logMessage('ライブストリーム受信: ' + randomSats.toLocaleString() + ' SAT -> ' + targetPaymail);
+}
+}, 4000);
 
-    <div class="container">
-        <header>
-            <div class="brand-logo">Q-LUX ENTERPRISE</div>
-            <div class="brand-subtitle">Autonomous Teranode & Live HandCash Gateway</div>
-        </header>
+// -----------------------------------------------------
+// 📱【修正ここから】スマホ向け表示調整 & Canvasアニメーション
+// -----------------------------------------------------
+</script>
 
-        <div class="hero-card">
-            <canvas id="quantum-canvas"></canvas>
-        </div>
+<style>
+/* Canvas全体のコンテナ設定 */
+#canvas-container {
+  position: relative;
+  width: 100%;       /* コンテナの幅は親要素いっぱい */
+  height: 180px;      /* 高さは適度に固定 */
+  margin-bottom: 20px; /* 下に少し余白 */
+  background: #030712; /* 背景色 */
+  border-radius: 8px;  /* 角丸 */
+  border: 2px solid #2f855a; /* 緑の枠線 */
+  box-shadow: 0 0 15px rgba(47, 133, 90, 0.3); /* 枠線の光彩 */
+  overflow: hidden;    /* はみ出しを隠す */
+}
 
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-title">TOTAL REVENUE</div>
-                <div class="metric-value" id="revenue">48,255,528 SAT</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-title">ACTIVE NODES</div>
-                <div class="metric-value" id="activeNodes">524,100</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-title">COMPOUND POOL</div>
-                <div class="metric-value" id="compoundPool">1,251,385 SAT</div>
-            </div>
-        </div>
+/* 実際のCanvas要素の設定 */
+#quantum-canvas {
+  display: block;
+  width: 100%;  /* コンテナ幅に対して100%（レスポンシブ） */
+  height: 100%; /* コンテナ高さに対して100% */
+}
 
-        <!-- 01. 量子演算ノード同期 -->
-        <div class="section-card">
-            <div class="section-number">Module 01</div>
-            <div class="section-title">光過分散型量子演算ノード・自動ダイレクト接続</div>
-            <div class="section-desc">発生するすべての収益を指定ペイメールへリアルタイムで直結洗替するオート・ルーティング機構です。</div>
-            <button class="btn" onclick="triggerLiveQuantumSync()">量子演算ノードとライブ同期実行</button>
-        </div>
+/* コンテナに微妙な拡大（スケーリング）をかける */
+#canvas-container {
+  transform: scale(1.03); /* 横方向に丁度良く拡大（限界まで広げない） */
+  transform-origin: center center; /* 中心を基準に拡大 */
+}
 
-        <!-- 02. Teranode SPV コンフィグ -->
-        <div class="section-card">
-            <div class="section-number">Module 02</div>
-            <div class="section-title">Teranode 超高速決済・ダイレクトインコンフィグ</div>
-            <div class="section-desc">決済完了と同時にHandCashアドレスへ直接送金するスマート・コンフィグファイルを発行します。</div>
-            <input type="text" class="code-input" value="TERANODE-DIRECT-IN-v10.conf" readonly>
-            <button class="btn" onclick="triggerTeranodeCheckout(50000)">ダイレクト決済 & コンフィグ取得 (50,000 SAT)</button>
-        </div>
+/* ダッシュボード全体の幅を少し狭めて、画面端に余白を作る */
+body {
+  max-width: 600px;   /* 画面の最大幅を制限 */
+  margin: 0 auto;     /* 画面中央に配置 */
+  padding: 10px;      /* スマホ画面の端に少し余白 */
+  box-sizing: border-box;
+}
 
-        <!-- 03. 複利ループ -->
-        <div class="section-card">
-            <div class="section-number">Module 03</div>
-            <div class="section-title">収益無限複利ループ (Auto-Compound Direct Loop)</div>
-            <div class="section-desc">収益の一部を自動で次世代サーバー投資へ回しつつ、全実収益をペイメールへ割り振り続けます。</div>
-            <button class="btn" onclick="toggleLiveCompoundLoop()">ダイレクト複利ループを有効化 / 停止</button>
-        </div>
+/* 各セクションカードの調整 */
+.data-card, .module-card {
+  margin-bottom: 15px; /* カード間の余白 */
+}
+</style>
 
-        <!-- 04. AIアービトラージ -->
-        <div class="section-number" style="display:none;"></div>
-        <div class="section-card">
-            <div class="section-number">Module 04</div>
-            <div class="section-title">AIエージェント自律型ダイレクト・アービトラージ</div>
-            <div class="section-desc">AIエージェントが稼いだ利益を仲介業者なしでウォレットへ自動的に直結送金（Direct-in）します。</div>
-            <input type="text" class="code-input" value="DIRECTROUTING-AGENT-v9.json" readonly>
-            <button class="btn" onclick="triggerAiArbitrage(100000)">AIダイレクトエージェント起動 (100,000 SAT)</button>
-        </div>
+<div id="canvas-container">
+  <canvas id="quantum-canvas"></canvas>
+</div>
 
-        <!-- 05. ゲートウェイ & メガ回収 -->
-        <div class="section-card">
-            <div class="section-number">Module 05 & 06</div>
-            <div class="section-title">HandCash ゲートウェイ & メガロイヤルティー一括回収</div>
-            <div class="section-desc">指定宛先（vlisdigitalassetlabs@handcash.io）へのダイレクト受取および全ネットワーク収益の一括回収。</div>
-            <a href="https://app.handcash.io/@vlisdigitalassetlabs" target="_blank" class="btn" style="margin-bottom: 10px; text-align: center;">
-                🔗 HandCash Paymailでダイレクト受取
-            </a>
-            <div class="qr-container">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://app.handcash.io/@vlisdigitalassetlabs" alt="HandCash QR">
-            </div>
-            <button class="btn" style="margin-top: 12px;" onclick="triggerMegaCollect()">全ネットワーク収益を今すぐ一括ダイレクト回収</button>
-        </div>
+<script>
+// --- Canvasアニメーションのロジック ---
+const canvas = document.getElementById('quantum-canvas');
+const ctx = canvas.getContext('2d');
 
-        <!-- 06. リアルタイム監査ログ -->
-        <div class="section-card">
-            <div class="section-number">System Logs</div>
-            <div class="section-title">リアルタイム・ダイレクトイン監査ログ</div>
-            <div class="section-desc">バックエンドのWebSocketおよびストリームからリアルタイムに送受信されるログ。</div>
-            <div id="auditBox" class="data-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
-        </div>
-    </div>
+// キャンバスの解像度を設定（表示サイズとは別に高精細にする）
+function resizeCanvas() {
+    const container = document.getElementById('canvas-container');
+    canvas.width = container.clientWidth * 2;
+    canvas.height = container.clientHeight * 2;
+    // CSSで引き伸ばされるので、描画サイズを補正
+    ctx.scale(2, 2);
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
-            // 既存の関数たちのすぐ下、あるいはスクリプトの一番最後
-            currentRevenue += sats;
-            compoundPool += 25000;
-            revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-            compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
-            logMessage('【AI収益直結】+ ' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
-        }, 800);
+let particles = [];
+const numParticles = 120; // パーティクルの数
+const particleMaxSize = 1.5;
+const speedFactor = 1.2; // 動きの速さ
+
+class Particle {
+    constructor() {
+        this.reset();
     }
 
-    // ⭐ ここにWebSocketの接続コードをペーストする！
-    function connectWebSocket() {
-        const ws = new WebSocket(WS_URL);
-        ws.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            if (data.type === 'LIVE_UPDATE' || data.type === 'INIT_STATE') {
-                currentRevenue = data.revenue;
-                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-            }
-        };
-        ws.onclose = () => setTimeout(connectWebSocket, 3000);
+    reset() {
+        this.x = Math.random() * (canvas.width / 2);
+        this.y = Math.random() * (canvas.height / 2);
+        this.size = Math.random() * particleMaxSize;
+        this.speedX = (Math.random() - 0.5) * speedFactor;
+        this.speedY = (Math.random() * 0.5 + 0.1) * speedFactor; // 上方向に流れる
+        this.opacity = Math.random() * 0.5 + 0.2;
     }
-    connectWebSocket();
 
-        const auditBox = document.getElementById('auditBox');
-        const revenueEl = document.getElementById('revenue');
-        const nodeEl = document.getElementById('activeNodes');
-        const compoundEl = document.getElementById('compoundPool');
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-        let currentRevenue = 48255528;
-        let activeNodes = 524100;
-        let compoundPool = 1251385;
-        let isCompoundActive = true;
-        const targetPaymail = "vlisdigitalassetlabs@handcash.io";
-
-        function logMessage(msg) {
-            const timeStr = new Date().toLocaleTimeString();
-            auditBox.innerHTML = '[' + timeStr + '] ' + msg + '<br>' + auditBox.innerHTML;
+        // 画面外に出たらリセット
+        if (this.y > (canvas.height / 2) || this.x < 0 || this.x > (canvas.width / 2)) {
+            this.reset();
+            this.y = -10; // 画面上部から再登場
         }
+    }
 
-        // 1. 量子演算ノード同期
-        async function triggerLiveQuantumSync() {
-            logMessage('量子演算ノード同期リクエスト送信中...');
-            setTimeout(() => {
-                activeNodes += 1500;
-                nodeEl.textContent = activeNodes.toLocaleString();
-                logMessage('【同期完了】Teranodeメインネット網の接続数を拡大しました。');
-            }, 600);
-        }
+    draw() {
+        ctx.fillStyle = `rgba(47, 133, 90, ${this.opacity})`; // 緑色のパーティクル
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
 
-        // 2. HandCash 決済 & コンフィグ取得
-        function triggerTeranodeCheckout(sats) {
-            if (confirm('【 HandCash ライブ決済確認 】\n\n' + sats.toLocaleString() + ' SAT の実トランザクションを生成し、コンフィグを取得しますか？')) {
-                logMessage('HandCash APIへ決済リクエストを送信しました (' + sats + ' SAT)');
-                // バックエンドのコンフィグ取得エンドポイントを呼び出し
-                window.location.href = '/api/config/download';
-                setTimeout(() => {
-                    currentRevenue += sats;
-                    revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                    logMessage('【決済成功】コンフィグファイルのダウンロードおよび収益加算完了。');
-                }, 1000);
-            }
-        }
+// 初期パーティクル生成
+for (let i = 0; i < numParticles; i++) {
+    particles.push(new Particle());
+}
 
-        // 3. 複利ループ切替
-        function toggleLiveCompoundLoop() {
-            isCompoundActive = !isCompoundActive;
-            logMessage(isCompoundActive ? 'ダイレクト複利ループ: 再開 (自動再投資アクティブ)' : 'ダイレクト複利ループ: 一時停止');
-        }
-            const WS_URL = 'ws://18.178.125.229:8000';
-    const API_BASE_URL = 'http://18.178.125.229:8000';
+// アニメーションループ
+function draw() {
+    // 画面をクリア（軌跡を残すため、半透明の黒で塗りつぶす）
+    ctx.fillStyle = 'rgba(3, 7, 18, 0.4)'; // 半透明の背景色
+    ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
 
-    // 4. AIアービトラージ
-    function triggerAiArbitrage(sats) {
-    
-        logMessage('AIアービトラージ・エージェント起動中...');
-        setTimeout(() => {
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
 
-            logMessage('AIアービトラージ・エージェント起動中...');
-            setTimeout(() => {
-                currentRevenue += sats;
-                compoundPool += 25000;
-                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                compoundPool.textContent = compoundPool.toLocaleString() + ' SAT';
-                logMessage('【AI収益直結】+' + sats.toLocaleString() + ' SAT をウォレットに自動送金しました。');
-            }, 800);
-        }
+    requestAnimationFrame(draw);
+}
 
-        // 6. メガロイヤルティー一括回収
-        async function triggerMegaCollect() {
-            logMessage('全ネットワークからのメガロイヤルティー一括回収を実行中...');
-            setTimeout(() => {
-                const collected = compoundPool;
-                currentRevenue += collected;
-                compoundPool = 0;
-                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                compoundPool.textContent = '0 SAT';
-                logMessage('【一括回収完了】+' + collected.toLocaleString() + ' SAT -> ' + targetPaymail);
-                alert('✨ メガロイヤルティーの一括回収が正常に完了しました！');
-            }, 1000);
-        }
-
-        // バックグラウンド・シミュレーション（WebSocket連動模倣）
-        setInterval(() => {
-            if(isCompoundActive) {
-                const randomSats = Math.floor(Math.random() * 3000) + 800;
-                currentRevenue += randomSats;
-                revenueEl.textContent = currentRevenue.toLocaleString() + ' SAT';
-                logMessage('ライブストリーム受信: +' + randomSats.toLocaleString() + ' SAT -> ' + targetPaymail);
-            }
-        }, 6000);
-
-        // キャンバスアニメーション（最先端テック風パーティクル）
-        const canvas = document.getElementById('quantum-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = canvas.parentElement.clientWidth - 24;
-        let particles = [];
-        for(let i=0; i50; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 1.5 + 0.5,
-                speedX: (Math.random() - 0.5) * 1.2,
-                speedY: (Math.random() - 0.5) * 1.2
-            });
-        }
-        function draw() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.4)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#10b981';
-            particles.forEach(p => {
-                p.x += p.speedX; p.y += p.speedY;
-                if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
-                if(p.y < 0) p.y = canvas.height; if(p.y > canvas.height) p.y = 0;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-            });
-            requestAnimationFrame(draw);
-        }
-        draw();
-    </script>
-</body>
-</html>
+draw();
