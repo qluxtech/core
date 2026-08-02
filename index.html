@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - Golden Ratio Omni-Tech Gateway</title>
+  <title>Q-LUX ENTERPRISE - Omni-Tech Legend Gateway</title>
   <style>
     :root {
       --bg-main: #020408;
@@ -17,7 +17,6 @@
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
-    /* 黄金比を意識した適度な余白（上下左右の絶妙な空き） */
     body { 
       background-color: var(--bg-main); 
       color: var(--text-main); 
@@ -27,10 +26,7 @@
       display: flex; 
       justify-content: center; 
     }
-    .wrapper { 
-      width: 100%; 
-      max-width: 440px; /* 端に美しいゆとりを持たせる黄金比幅 */
-    }
+    .wrapper { width: 100%; max-width: 440px; }
     
     .header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
     .header h1 { font-size: 13.5px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 20px rgba(0,240,255,0.6); }
@@ -91,7 +87,20 @@
     }
     .section-block:last-child { margin-bottom: 0; }
     .sub-heading { color: var(--text-main); font-size: 9px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; }
-    .sub-desc { color: var(--text-muted); font-size: 7px; margin-bottom: 6px; line-height: 1.35; }
+    .sub-desc { color: var(--text-muted); font-size: 6.8px; margin-bottom: 4px; line-height: 1.35; }
+    
+    /* ユーザーにとってのメリット・解説ボックス */
+    .user-benefit {
+      background: rgba(0, 240, 255, 0.03);
+      border-left: 2px solid var(--accent-cyan);
+      padding: 4px 6px;
+      font-size: 6.5px;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      border-radius: 0 4px 4px 0;
+    }
+    .user-benefit b { color: var(--accent-cyan); }
 
     .code-tag {
       background: #020306;
@@ -146,7 +155,7 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>Golden Ratio Omni-Tech Total Legend Gateway</p>
+      <p>Omni-Tech Legend Gateway & User Hub</p>
     </div>
 
     <div class="net-box">
@@ -170,8 +179,8 @@
 
     <div class="master-card">
       <div class="omni-banner">
-        🌌 <b>BSV Omni-Tech Golden Matrix Online!</b><br>
-        光量子、Teranode、Satoshi Script、ZKプライバシー、SPV検証、アトミッククロスチェーン、Ordinals蓄積、P2Pストリーミング、DID認証、セーフティ監視の全13大機能を黄金比の調和で搭載。
+        🌌 <b>次世代BSVエコシステムへようこそ！</b><br>
+        このサイトは、世界中のユーザーが最先端のブロックチェーン技術と直結し、収益やアセットを安全かつ超高速で管理・受取できる統合ゲートウェイです。
       </div>
 
       <!-- 1. 光通信分散量子演算ノード -->
@@ -180,7 +189,8 @@
           <span>1. 光通信分散量子演算ノード</span>
           <span style="font-size:6px; color:var(--accent-cyan);">[Optical Quantum]</span>
         </div>
-        <div class="sub-desc">光通信の超低遅延特性をフル活用した分散型量子演算グリッド。全ネットワーク収益を指定ペイメールへゼロラグで直結送金。</div>
+        <div class="sub-desc">光通信技術の超低遅延特性を利用した分散型グリッドネットワーク基盤。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> ネットワーク全体の計算報酬やインデックス収益が、ラグ（遅延）一切なしで瞬時にあなたのウォレットへ直結送金されます。</div>
         <button onclick="triggerAction('光通信分散量子演算ノードのライブ同期')">演算ノードとライブ同期を実行する</button>
       </div>
 
@@ -190,7 +200,8 @@
           <span>2. Teranode 超高速決済コンフィグ</span>
           <span style="font-size:6px; color:var(--accent-cyan);">[Teranode v10]</span>
         </div>
-        <div class="sub-desc">次世代スケーリング「Teranode」対応。決済完了と同時にHandCashアドレスへ秒速ダイレクト反映する設定ファイル。</div>
+        <div class="sub-desc">次世代スケーリング「Teranode」対応の最新決済ノード設定。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 毎秒数百万件のトランザクションを処理するインフラに直接アクセスし、秒速でペイメールへ決済を反映させます。</div>
         <div class="code-tag">TERANODE-DIRECT-IN-v10.conf</div>
         <button onclick="downloadConfig('TERANODE-DIRECT-IN-v10.conf', '[Q-LUX_CONFIG]\npaymail=vlisdigitalassetlabs@handcash.io')">コンフィグファイルをダウンロード (50k SAT)</button>
       </div>
@@ -201,7 +212,8 @@
           <span>3. 収益等複利ループ (Auto-Compound)</span>
           <span style="font-size:6px; color:var(--accent-purple);">[Auto-Compound]</span>
         </div>
-        <div class="sub-desc">エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資し、最大化した余剰利益を複利的に流し続ける。</div>
+        <div class="sub-desc">エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資する機構。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 放置している間にも余剰利益が自動で雪だるま式に複利運用され、トータルのリターンを最大化します。</div>
         <button class="purple" onclick="triggerAction('収益等複利ループ')">複利ループの有効化 / 停止切り替え</button>
       </div>
 
@@ -211,7 +223,8 @@
           <span>4. AI自律型アービトラージエージェント</span>
           <span style="font-size:6px; color:var(--accent-purple);">[Autonomous AI]</span>
         </div>
-        <div class="sub-desc">AIエージェントがグローバル流動性の歪みをリアルタイム仲介し、収益をダイレクトにウォレットへ自動送金。</div>
+        <div class="sub-desc">AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 24時間AIが自動で利益チャンスを狙い、得られた仲介マージンをダイレクトにあなたのウォレットへ届けます。</div>
         <div class="code-tag">DIRECTROUTING-AGENT-v9.json</div>
         <button class="purple" onclick="triggerAction('AIダイレクトエージェント')">AI自律エージェント起動テスト (100k SAT)</button>
       </div>
@@ -222,7 +235,8 @@
           <span>5. ZKプライバシー &amp; テラビットインデックス</span>
           <span style="font-size:6px; color:var(--accent-gold);">[ZK-Privacy]</span>
         </div>
-        <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合。完全なプライバシー保護と超高速インデックス同期を同時実現。</div>
+        <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 個人情報や取引履歴を完全に秘匿したまま、超高速なデータ検索と安心安全なトランザクションを行えます。</div>
         <button class="gold" onclick="triggerAction('ZKプライバシーチャネルの超分散接続')">ZKプライバシーグリッドを起動する</button>
       </div>
 
@@ -232,7 +246,8 @@
           <span>6. Satoshi Script ネイティブ・ステートマシン</span>
           <span style="font-size:6px; color:var(--accent-pink);">[Script Engine]</span>
         </div>
-        <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクトを自動コンパイル・オンチェーン展開。</div>
+        <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 高度なスマートコントラクトの恩恵を受けながら、余計な手数料をかけずにオンチェーンで自動実行できます。</div>
         <button class="pink" onclick="triggerAction('Satoshi Script ステートマシンコンパイル')">ネイティブスクリプトをオンチェーン展開</button>
       </div>
 
@@ -242,7 +257,8 @@
           <span>7. オーバレイネットワーク &amp; SPV検証プール</span>
           <span style="font-size:6px; color:var(--accent-cyan);">[Overlay / SPV]</span>
         </div>
-        <div class="sub-desc">Overlay ServicesとSPV検証を組み合わせ、トラストレスかつ超軽量にミリ秒単位のデータ整合性を検証。</div>
+        <div class="sub-desc">Overlay ServicesとSPV検証による超軽量データ整合性チェック。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 重い全ブロックチェーンデータをダウンロードせずとも、スマホから一瞬で安全に取引の正当性を検証できます。</div>
         <button onclick="triggerAction('オーバレイネットワーク & SPV検証プール')">SPVプール同期 &amp; オーバレイ接続</button>
       </div>
 
@@ -252,7 +268,8 @@
           <span>8. アトミッククロスチェーン・リキディティエンジン</span>
           <span style="font-size:6px; color:var(--accent-gold);">[Cross-Chain]</span>
         </div>
-        <div class="sub-desc">HTLCを用いた安全かつ完全トラストレスなクロスチェーン流動性交換・ブリッジング機構。</div>
+        <div class="sub-desc">HTLCを用いた安全かつ完全トラストレスなクロスチェーン交換機構。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 信頼できる第三者（仲介者）を一切挟まず、異なるブロックチェーン間での資産交換・ブリッジを安全に行えます。</div>
         <button class="gold" onclick="triggerAction('アトミッククロスチェーンエンジン')">クロスチェーン・ブリッジを有効化</button>
       </div>
 
@@ -262,7 +279,8 @@
           <span>9. メタレジャー &amp; 1Sat Ordinals ストレージ</span>
           <span style="font-size:6px; color:var(--accent-cyan);">[Ordinals / BRC]</span>
         </div>
-        <div class="sub-desc">巨大データやアセットをオンチェーンに直接永続保存し、インデックスを高速参照するストレージ管理モジュール。</div>
+        <div class="sub-desc">巨大データやデジタルアセットをBSV上に直接永続保存するストレージ。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> あなたの大切なファイルやNFT・Ordinalsデータを消えない分散型ストレージに半永久的に保管できます。</div>
         <button onclick="triggerAction('メタレジャー・Ordinalsストレージ同期')">オンチェーン・ストレージを同期する</button>
       </div>
 
@@ -272,7 +290,8 @@
           <span>10. P2Pマイクロペイメント・ストリーミング</span>
           <span style="font-size:6px; color:var(--accent-purple);">[Micro-Stream]</span>
         </div>
-        <div class="sub-desc">秒間数千回の超微小決済（サトシ単位）を途切れなくストリーミング配信・受取するコネクション機能。</div>
+        <div class="sub-desc">秒間数千回の超微小決済（サトシ単位）を流し続けるストリーミング機能。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> コンテンツの閲覧やAPI利用に対し、1秒ごとにわずか数サトシ単位の細かな支払いや受取をスムーズに行えます。</div>
         <button class="purple" onclick="triggerAction('P2Pマイクロペイメント・ストリーミング起動')">ストリーミング受取チャンネルを開通</button>
       </div>
 
@@ -282,7 +301,8 @@
           <span>11. 分散型アイデンティティ (DID) &amp; VC認証</span>
           <span style="font-size:6px; color:var(--accent-gold);">[DID / Credentials]</span>
         </div>
-        <div class="sub-desc">BSVブロックチェーン基盤のトラストレスな身元証明とセキュアなゲートウェイ・アクセス権限制御。</div>
+        <div class="sub-desc">ブロックチェーン基盤のトラストレスな身元証明とアクセス権限制御。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> パスワードに依存せず、あなた自身のブロックチェーン署名で安全に個人認証やVIPアクセス権を証明できます。</div>
         <button class="gold" onclick="triggerAction('DID & VC認証ゲートウェイ接続')">DID認証でアクセス権を検証</button>
       </div>
 
@@ -292,7 +312,8 @@
           <span>12. ジェネシス・セーフティモニター &amp; 自律修復</span>
           <span style="font-size:6px; color:var(--accent-pink);">[Safety Monitor]</span>
         </div>
-        <div class="sub-desc">コンセンサス状態やブロック伝播速度、ノード間の同期遅延をリアルタイム監視・自律修復するセーフティ機能。</div>
+        <div class="sub-desc">コンセンサス状態やノード間の同期遅延を常時監視・自律修復するシステム。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> ネットワークの異常や遅延をAIとモニターが即座に検知し、システム全体を自動で安全な状態に保ちます。</div>
         <button class="pink" onclick="triggerAction('セーフティモニター・システム診断')">全ノードの整合性セーフティ診断</button>
       </div>
 
@@ -302,7 +323,8 @@
           <span>13. HandCash 一括受取 &amp; ゲートウェイ</span>
           <span style="font-size:6px; color:var(--accent-green);">[Instant Flash]</span>
         </div>
-        <div class="sub-desc">指定ペイメール <b>vlisdigitalassetlabs@handcash.io</b> へのダイレクト受信、および全収益のワンタップ一括フラッシュ回収。</div>
+        <div class="sub-desc">指定ペイメールへのダイレクト受信と、全収益のワンタップ一括回収。</div>
+        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> サイト内で発生したすべての報酬や利益を、あなたのHandCash（<b>vlisdigitalassetlabs@handcash.io</b>）へいつでも一瞬で引き出せます！</div>
         <button style="margin-bottom: 6px;" onclick="triggerAction('HANDCASH PAYMAILダイレクト受信')">HandCashペイヤメールで直接受け取る</button>
         <div class="qr-section">
           <div class="qr-wrapper">
@@ -316,7 +338,7 @@
     <!-- 監査ログ -->
     <div class="master-card" style="padding: 10px;">
       <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム・オムニテック監査ログ</span></div>
-      <div id="log" class="log-box">[07:31:00] Golden Ratio Core Active: vlisdigitalassetlabs@handcash.io 監視中...</div>
+      <div id="log" class="log-box">[07:40:00] Gateway Core Active: vlisdigitalassetlabs@handcash.io 監視中...</div>
     </div>
   </div>
 
@@ -359,7 +381,7 @@
     }
 
     function triggerAction(name) {
-      addLog('⚡ [GOLDEN_TRIGGER] ' + name + ' が正常に同期しました。');
+      addLog('⚡ [USER_ACTION] ' + name + ' が正常に実行されました。');
     }
 
     function downloadConfig(filename, content) {
@@ -375,15 +397,15 @@
     function triggerFlashSweep() {
       addLog('⚡ [FLASH_SWEEP] vlisdigitalassetlabs@handcash.io へ回収発動...');
       setTimeout(() => {
-        addLog('✓ [SUCCESS] 黄金比レイアウト内すべての収益回収が同期しました。');
+        addLog('✓ [SUCCESS] 収益の回収が完了し、ウォレットへ送金されました！');
       }, 800);
     }
 
     setInterval(() => {
       const revElem = document.getElementById('rev');
-      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 950000;
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 850000;
       revElem.innerText = currentVal.toLocaleString() + ' SAT';
-      addLog('[GOLDEN_SYNC] インデックス取込: +950,000 SAT');
+      addLog('[GATEWAY_SYNC] インデックス取込: +850,000 SAT');
     }, 4000);
   </script>
 </body>
