@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - Qlux-Online Gateway</title>
+  <title>Q-LUX ENTERPRISE - Grand Temple of BSV</title>
   <style>
     :root {
       --bg-main: #020408;
       --bg-panel: #070b14;
       --border-clr: #131c31;
       --accent-cyan: #00f0ff;
+      --accent-gold: #fbbf24;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -25,9 +26,23 @@
     .wrapper { width: 100%; max-width: 440px; }
     
     .header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
-    .header h1 { font-size: 13.5px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 20px rgba(0,240,255,0.6); }
+    .header h1 { font-size: 13.5px; color: var(--accent-gold); margin: 0; letter-spacing: 2px; text-shadow: 0 0 20px rgba(251,191,36,0.6); }
     .header p { font-size: 7px; color: var(--text-muted); margin: 3px 0 0; text-transform: uppercase; letter-spacing: 0.8px; }
     
+    /* 帝国黄金中枢（Grand Imperial Treasury） */
+    .treasury-box {
+      background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(7,11,20,0.95) 100%);
+      border: 1px solid rgba(251,191,36,0.4);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(251,191,36,0.15);
+    }
+    .treasury-title { font-size: 6.5px; color: var(--accent-gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .treasury-amount { font-size: 14px; color: var(--accent-gold); font-weight: 800; text-shadow: 0 0 10px rgba(251,191,36,0.5); }
+    .treasury-sub { font-size: 5.5px; color: var(--text-muted); margin-top: 3px; }
+
     .net-box {
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
@@ -83,8 +98,8 @@
     }
     .section-block:last-child { margin-bottom: 0; }
     
-    /* セクションタイトルを動画と同じ薄いシアンカラーに統一 */
     .sub-heading { color: var(--accent-cyan); font-size: 9px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 0 10px rgba(0,240,255,0.3); }
+    .sub-heading.gold-glow { color: var(--accent-gold); text-shadow: 0 0 10px rgba(251,191,36,0.4); }
     .sub-desc { color: var(--text-muted); font-size: 6.8px; margin-bottom: 6px; line-height: 1.35; }
 
     .code-tag {
@@ -116,6 +131,10 @@
       letter-spacing: 0.3px;
       transition: opacity 0.2s;
     }
+    button.gold-btn {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #d97706 100%);
+      color: #020408;
+    }
     button:hover { opacity: 0.88; }
 
     .log-box {
@@ -137,7 +156,14 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>Qlux-Online Gateway & User Hub</p>
+      <p>Grand Temple of BSV &amp; Universal Hub</p>
+    </div>
+
+    <!-- 帝国黄金中枢 (Grand Imperial Treasury) -->
+    <div class="treasury-box">
+      <div class="treasury-title">🏛️ Grand Imperial Treasury (BSV Empire Vault)</div>
+      <div id="treasuryRev" class="treasury-amount">888,888,888 SAT</div>
+      <div class="treasury-sub">Global Network Tribute &amp; Absolute Liquidity Flow</div>
     </div>
 
     <div class="net-box">
@@ -161,8 +187,18 @@
 
     <div class="master-card">
       <div class="omni-banner">
-        🌌 <b>Qlux-Online へようこそ！</b><br>
-        このサイトは、世界中のユーザーが最先端のブロックチェーン技術と直結し、収益やアセットを安全かつ超高速で管理・受取できる統合ゲートウェイです。
+        👑 <b>BSV超巨大帝国神殿へようこそ！</b><br>
+        世界中のプレイヤーと富が完全融合し、一切の妥協を排して構築された最強のオンチェーン中枢。すべての恩恵がここに集結します。
+      </div>
+
+      <!-- 0. 【新設】神殿クラス・オムニテック神石ノード -->
+      <div class="section-block" style="border: 1px solid rgba(251,191,36,0.4); background: linear-gradient(135deg, rgba(251,191,36,0.03) 0%, #04070e 100%);">
+        <div class="sub-heading gold-glow">
+          <span>0. 神殿クラス・オムニテック神石ノード</span>
+          <span style="font-size:6px; color:var(--accent-gold);">[Temple Monolith]</span>
+        </div>
+        <div class="sub-desc">全13大機能を統率し、帝国全体の富の湧出量を最大化する至高のメイン祭壇。</div>
+        <button class="gold-btn" onclick="triggerAction('神殿クラス・オムニテック神石ノードの覚醒発動')">神石ノードを覚醒させ、全宇宙に祝福を放つ</button>
       </div>
 
       <!-- 1. 光通信分散量子演算ノード -->
@@ -306,8 +342,8 @@
 
     <!-- 監査ログ -->
     <div class="master-card" style="padding: 10px;">
-      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム・Qlux-Online 監査ログ</span></div>
-      <div id="log" class="log-box">[07:46:00] Qlux-Online Core Active: vlisdigitalassetlabs@handcash.io 監視中...</div>
+      <div class="sub-heading" style="margin-bottom: 4px;"><span>帝国神殿・リアルタイム監査ログ</span></div>
+      <div id="log" class="log-box">[08:00:00] Grand Temple Core Active: vlisdigitalassetlabs@handcash.io 護衛中...</div>
     </div>
   </div>
 
@@ -350,7 +386,7 @@
     }
 
     function triggerAction(name) {
-      addLog('⚡ [QLUX_ACTION] ' + name + ' が正常に実行されました。');
+      addLog('⚡ [TEMPLE_ACTION] ' + name + ' が正常に執行されました。');
     }
 
     function downloadConfig(filename, content) {
@@ -364,17 +400,22 @@
     }
 
     function triggerFlashSweep() {
-      addLog('⚡ [FLASH_SWEEP] vlisdigitalassetlabs@handcash.io へ回収発動...');
+      addLog('⚡ [FLASH_SWEEP] vlisdigitalassetlabs@handcash.io へ帝国金庫から回収発動...');
       setTimeout(() => {
-        addLog('✓ [SUCCESS] 収益の回収が完了し、ウォレットへ送金されました！');
+        addLog('✓ [SUCCESS] 帝国全土からの収益回収が完了し、直結ウォレットへ着弾しました！');
       }, 800);
     }
 
     setInterval(() => {
       const revElem = document.getElementById('rev');
-      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 850000;
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 1250000;
       revElem.innerText = currentVal.toLocaleString() + ' SAT';
-      addLog('[QLUX_SYNC] インデックス取込: +850,000 SAT');
+
+      const treasuryElem = document.getElementById('treasuryRev');
+      let treasuryVal = parseInt(treasuryElem.innerText.replace(/[^0-9]/g, '')) + 5000000;
+      treasuryElem.innerText = treasuryVal.toLocaleString() + ' SAT';
+
+      addLog('[TEMPLE_SYNC] 帝国金庫 自動朝貢取込: +5,000,000 SAT');
     }, 4000);
   </script>
 </body>
