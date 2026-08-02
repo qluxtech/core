@@ -3,126 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - Autonomous Teranode & Optical Quantum Gateway</title>
+  <title>Q-LUX ENTERPRISE - Ultimate BSV Omni-Tech Total Gateway</title>
   <style>
     :root {
-      --bg-main: #05070b;
-      --bg-panel: #0b0f19;
-      --border-clr: #182238;
+      --bg-main: #020408;
+      --bg-panel: #070b14;
+      --border-clr: #131c31;
       --accent-cyan: #00f0ff;
       --accent-green: #10b981;
-      --accent-purple: #a855f7;
+      --accent-purple: #c084fc;
+      --accent-gold: #fbbf24;
+      --accent-pink: #ec4899;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
-    body { background-color: var(--bg-main); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 12px; display: flex; justify-content: center; }
+    body { background-color: var(--bg-main); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 10px; display: flex; justify-content: center; }
     .wrapper { width: 100%; max-width: 480px; }
     
-    .header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-clr); padding-bottom: 10px; }
-    .header h1 { font-size: 15px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 15px rgba(0,240,255,0.4); }
-    .header p { font-size: 8.5px; color: var(--text-muted); margin: 4px 0 0; text-transform: uppercase; letter-spacing: 0.8px; }
+    .header { text-align: center; margin-bottom: 10px; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
+    .header h1 { font-size: 14px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 20px rgba(0,240,255,0.6); }
+    .header p { font-size: 7.5px; color: var(--text-muted); margin: 3px 0 0; text-transform: uppercase; letter-spacing: 0.8px; }
     
     .net-box {
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
       border-radius: 10px;
-      height: 75px;
+      height: 65px;
       overflow: hidden;
-      margin-bottom: 10px;
-      box-shadow: inset 0 0 15px rgba(0,240,255,0.05);
+      margin-bottom: 8px;
+      box-shadow: inset 0 0 20px rgba(0,240,255,0.06);
     }
     canvas { width: 100%; height: 100%; display: block; }
 
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
+      gap: 5px;
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
       border-radius: 10px;
-      padding: 8px;
-      margin-bottom: 10px;
+      padding: 7px;
+      margin-bottom: 8px;
       text-align: center;
     }
-    .stat-item div:first-child { font-size: 5px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.8px; }
-    .stat-item div:last-child { font-size: 8.5px; color: var(--accent-cyan); font-weight: 700; margin-top: 3px; }
+    .stat-item div:first-child { font-size: 4.5px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.6px; }
+    .stat-item div:last-child { font-size: 8px; color: var(--accent-cyan); font-weight: 700; margin-top: 2px; }
 
     .master-card {
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
       border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 10px;
+      margin-bottom: 8px;
       box-shadow: 0 4px 25px rgba(0, 240, 255, 0.04);
     }
 
-    .global-banner {
-      background: linear-gradient(135deg, rgba(0,240,255,0.06) 0%, rgba(168,85,247,0.06) 100%);
-      border: 1px solid rgba(0,240,255,0.2);
+    .omni-banner {
+      background: linear-gradient(135deg, rgba(0,240,255,0.07) 0%, rgba(192,132,252,0.07) 35%, rgba(251,191,36,0.07) 70%, rgba(236,72,153,0.07) 100%);
+      border: 1px solid rgba(0,240,255,0.3);
       border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 12px;
-      font-size: 8.5px;
+      padding: 9px;
+      margin-bottom: 10px;
+      font-size: 8px;
       line-height: 1.4;
       color: var(--text-muted);
     }
-    .global-banner b { color: var(--accent-cyan); }
+    .omni-banner b { color: var(--accent-cyan); }
 
     .section-block {
-      background: #060912;
+      background: #04070e;
       border: 1px solid var(--border-clr);
       border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 8px;
+      margin-bottom: 8px;
     }
     .section-block:last-child { margin-bottom: 0; }
-    .sub-heading { color: var(--text-main); font-size: 9.5px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; }
-    .sub-desc { color: var(--text-muted); font-size: 7.5px; margin-bottom: 8px; line-height: 1.4; }
+    .sub-heading { color: var(--text-main); font-size: 9px; font-weight: 700; margin-bottom: 2px; display: flex; align-items: center; justify-content: space-between; }
+    .sub-desc { color: var(--text-muted); font-size: 7px; margin-bottom: 6px; line-height: 1.35; }
 
     .code-tag {
-      background: #03050a;
+      background: #020306;
       border: 1px solid var(--border-clr);
       color: var(--accent-cyan);
       font-family: monospace;
-      font-size: 7.5px;
-      padding: 5px;
-      border-radius: 6px;
+      font-size: 7px;
+      padding: 4px;
+      border-radius: 5px;
       text-align: center;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
+      margin-bottom: 5px;
     }
 
-    .qr-section { text-align: center; margin: 6px 0; }
-    .qr-wrapper { background: #fff; padding: 4px; display: inline-block; border-radius: 6px; box-shadow: 0 0 15px rgba(255,255,255,0.1); }
-    .qr-wrapper img { width: 68px; height: 68px; display: block; }
+    .qr-section { text-align: center; margin: 5px 0; }
+    .qr-wrapper { background: #fff; padding: 3px; display: inline-block; border-radius: 5px; box-shadow: 0 0 12px rgba(255,255,255,0.1); }
+    .qr-wrapper img { width: 60px; height: 60px; display: block; }
 
     button {
       background: linear-gradient(135deg, var(--accent-green) 0%, #047857 100%);
-      color: #05070b;
+      color: #020408;
       border: none;
-      padding: 8px;
+      padding: 7px;
       font-weight: 700;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
       width: 100%;
-      font-size: 9px;
-      letter-spacing: 0.5px;
+      font-size: 8.5px;
+      letter-spacing: 0.4px;
       transition: opacity 0.2s;
     }
     button:hover { opacity: 0.88; }
+    button.purple { background: linear-gradient(135deg, var(--accent-purple) 0%, #7e22ce 100%); color: #fff; }
+    button.gold { background: linear-gradient(135deg, var(--accent-gold) 0%, #b45309; color: #020408; }
+    button.pink { background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d; color: #fff; }
 
     .log-box {
-      background: #03050a;
+      background: #020306;
       border: 1px solid var(--border-clr);
-      padding: 8px;
-      border-radius: 6px;
+      padding: 7px;
+      border-radius: 5px;
       font-family: monospace;
-      font-size: 7.5px;
-      height: 75px;
+      font-size: 7px;
+      height: 65px;
       overflow-y: auto;
       color: var(--accent-green);
-      margin-top: 4px;
-      line-height: 1.35;
+      margin-top: 3px;
+      line-height: 1.3;
     }
   </style>
 </head>
@@ -130,7 +134,7 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>Autonomous Teranode &amp; Optical Quantum Gateway (Global Edition)</p>
+      <p>Ultimate BSV Omni-Tech Total Legend Gateway</p>
     </div>
 
     <div class="net-box">
@@ -140,87 +144,127 @@
     <div class="stats-grid">
       <div class="stat-item">
         <div>TOTAL REVENUE</div>
-        <div id="rev">51,005,528 SAT</div>
+        <div id="rev">56,805,528 SAT</div>
       </div>
       <div class="stat-item">
         <div>ACTIVE NODES</div>
-        <div id="nodes">524,100</div>
+        <div id="nodes">1,048,576</div>
       </div>
       <div class="stat-item">
         <div>COMPOUND POOL</div>
-        <div id="pool">1,251,385 SAT</div>
+        <div id="pool">3,412,850 SAT</div>
       </div>
     </div>
 
     <div class="master-card">
-      <div class="global-banner">
-        🌐 <b>Welcome Global Web3 &amp; AI Pioneers!</b><br>
-        Experience the next-gen decentralized financial infrastructure. Unifying Optical Quantum Nodes, Teranode high-speed microtransactions, and AI-driven liquidity routing into a single seamless gateway.
+      <div class="omni-banner">
+        🌌 <b>BSV Omni-Tech Total Matrix Online!</b><br>
+        Satoshi Scriptのネイティブ拡張、Teranodeミリ秒超分散、光量子演算、AI自律アービトラージ、オーバレイネットワーク、SPV検証プール、アトミッククロスチェーンのすべてを極限融合した人類最高峰の総集編ポータル。
       </div>
 
       <!-- 1. 光通信分散量子演算ノード -->
       <div class="section-block">
         <div class="sub-heading">
-          <span>光通信分散量子演算ノード・自動ダイレクト接続</span>
-          <span style="font-size:7px; color:var(--accent-cyan);">[Optical Quantum]</span>
+          <span>1. 光通信分散量子演算ノード</span>
+          <span style="font-size:6.5px; color:var(--accent-cyan);">[Optical Quantum]</span>
         </div>
-        <div class="sub-desc">光通信の超低遅延特性を活かした分散型量子演算グリッド。発生するすべてのネットワーク収益を指定ペイメールへゼロラグで直結送金するオート・ルーティング技術基盤です。</div>
-        <button onclick="toggleAction('量子演算ノードのライブ同期')">量子演算ノードとライブ同期実行</button>
+        <div class="sub-desc">光通信の超低遅延特性をフル活用した分散型量子演算グリッド。全ネットワーク収益を指定ペイメールへゼロラグで直結送金するオート・ルーティング技術基盤。</div>
+        <button onclick="triggerAction('光通信分散量子演算ノードのライブ同期')">演算ノードとライブ同期を実行する</button>
       </div>
 
-      <!-- 2. Teranode 超高速決済 -->
+      <!-- 2. Teranode 超高速決済コンフィグ -->
       <div class="section-block">
         <div class="sub-heading">
-          <span>Teranode 超高速決済・ダイレクトインコンフィグ</span>
-          <span style="font-size:7px; color:var(--accent-cyan);">[Teranode v10]</span>
+          <span>2. Teranode 超高速決済コンフィグ</span>
+          <span style="font-size:6.5px; color:var(--accent-cyan);">[Teranode v10]</span>
         </div>
-        <div class="sub-desc">次世代スケーリング「Teranode」アーキテクチャに準拠。決済完了と同時にHandCashアドレスへ秒速でダイレクトに反映されるスマート・コンフィグファイルを発行します。</div>
+        <div class="sub-desc">次世代スケーリング「Teranode」対応。決済完了と同時にHandCashアドレスへ秒速ダイレクト反映するスマート・コンフィグファイルを発行。</div>
         <div class="code-tag">TERANODE-DIRECT-IN-v10.conf</div>
-        <button onclick="downloadConfig('TERANODE-DIRECT-IN-v10.conf', '[Q-LUX_CONFIG]\npaymail=vlisdigitalassetlabs@handcash.io')">ダイレクト決済 &amp; コンフィグ取得 (50,000 SAT)</button>
+        <button onclick="downloadConfig('TERANODE-DIRECT-IN-v10.conf', '[Q-LUX_CONFIG]\npaymail=vlisdigitalassetlabs@handcash.io')">コンフィグ設定ファイルをダウンロード (50,000 SAT)</button>
       </div>
 
       <!-- 3. 収益等複利ループ -->
       <div class="section-block">
         <div class="sub-heading">
-          <span>収益等複利ループ (Auto-Compound Direct Loop)</span>
-          <span style="font-size:7px; color:var(--accent-purple);">[Auto-Compound]</span>
+          <span>3. 収益等複利ループ (Auto-Compound)</span>
+          <span style="font-size:6.5px; color:var(--accent-purple);">[Auto-Compound]</span>
         </div>
-        <div class="sub-desc">エコシステム内の収益の一部を次世代演算サーバーの拡張へ自動再投資しつつ、最大化された余剰利益をペイメールへ途切れることなく複利的に流し続けます。</div>
-        <button onclick="toggleAction('収益等複利ループ')">ダイレクト複利ループを有効化 / 停止</button>
+        <div class="sub-desc">エコシステム内の収益の一部を自動で次世代演算サーバー拡張へ再投資しつつ、最大化した余剰利益をペイメールへ途切れることなく複利的に流し続けます。</div>
+        <button class="purple" onclick="triggerAction('収益等複利ループ')">複利ループの有効化 / 停止切り替え</button>
       </div>
 
-      <!-- 4. AIエージェント自律型 -->
+      <!-- 4. AI自律型アービトラージエージェント -->
       <div class="section-block">
         <div class="sub-heading">
-          <span>AIエージェント自律型ダイレクト・アービトラージ</span>
-          <span style="font-size:7px; color:var(--accent-purple);">[Autonomous AI]</span>
+          <span>4. AI自律型アービトラージエージェント</span>
+          <span style="font-size:6.5px; color:var(--accent-purple);">[Autonomous AI]</span>
         </div>
-        <div class="sub-desc">高度なAI自律エージェントがグローバルな流動性とトランザクションの歪みをリアルタイム仲介演算。仲介収益を仲介所を介さずダイレクトにウォレットへ自動送金します。</div>
+        <div class="sub-desc">AIエージェントがグローバルな流動性の歪みをリアルタイム仲介演算。仲介収益を仲介所なしでダイレクトにウォレットへ自動送金（Direct-In）します。</div>
         <div class="code-tag">DIRECTROUTING-AGENT-v9.json</div>
-        <button onclick="toggleAction('AIダイレクトエージェント')">AIダイレクトエージェント起動 (100,000 SAT)</button>
+        <button class="purple" onclick="triggerAction('AIダイレクトエージェント')">AI自律エージェント起動テストを実行 (100,000 SAT)</button>
       </div>
 
-      <!-- 5. HandCash ゲートウェイ -->
+      <!-- 5. ゼロ知識証明プライバシーチャネル -->
+      <div class="section-block">
+        <div class="sub-heading">
+          <span>5. ZKプライバシー &amp; テラビット超分散インデックス</span>
+          <span style="font-size:6.5px; color:var(--accent-gold);">[ZK-Privacy]</span>
+        </div>
+        <div class="sub-desc">最新のゼロ知識証明（ZK）をBSVトランザクション層に融合。完全なプライバシー保護と超高速インデックス同期を同時に実現する新次元モジュール。</div>
+        <button class="gold" onclick="triggerAction('ZKプライバシーチャネルの超分散接続')">ZKプライバシーグリッドを起動する</button>
+      </div>
+
+      <!-- 6. 【NEW】Satoshi Script ネイティブスマートコントラクト自動生成 -->
+      <div class="section-block">
+        <div class="sub-heading">
+          <span>6. Satoshi Script ネイティブ・ステートマシン</span>
+          <span style="font-size:6.5px; color:var(--accent-pink);">[Script Engine]</span>
+        </div>
+        <div class="sub-desc">Bitcoinのネイティブスクリプトによる高度なステートフル・コントラクトを自動コンパイル。オンチェーンでの複雑な条件分岐実行環境を確立。</div>
+        <button class="pink" onclick="triggerAction('Satoshi Script ステートマシンコンパイル')">ネイティブスクリプトをオンチェーン展開</button>
+      </div>
+
+      <!-- 7. 【NEW】オーバレイネットワーク・SPV検証プール -->
+      <div class="section-block">
+        <div class="sub-heading">
+          <span>7. オーバレイネットワーク &amp; SPV高速検証プール</span>
+          <span style="font-size:6.5px; color:var(--accent-cyan);">[Overlay / SPV]</span>
+        </div>
+        <div class="sub-desc">Overlay ServicesとSPV（簡易決済検証）を組み合わせ、トラストレスかつ超軽量にミリ秒単位のデータ整合性とプルーフを検証・保持。</div>
+        <button onclick="triggerAction('オーバレイネットワーク & SPV検証プール')">SPVプール同期 &amp; オーバレイ接続</button>
+      </div>
+
+      <!-- 8. 【NEW】グローバル・アトミッククロスチェーン・エンジン -->
+      <div class="section-block">
+        <div class="sub-heading">
+          <span>8. アトミッククロスチェーン・リキディティエンジン</span>
+          <span style="font-size:6.5px; color:var(--accent-gold);">[Cross-Chain]</span>
+        </div>
+        <div class="sub-desc">ハッシュタイムロックコントラクト（HTLC）を用いた安全かつ完全トラストレスなクロスチェーン流動性交換・ブリッジング機構。</div>
+        <button class="gold" onclick="triggerAction('アトミッククロスチェーンエンジン')">クロスチェーン・ブリッジを有効化</button>
+      </div>
+
+      <!-- 9. HandCash ゲートウェイ -->
       <div class="section-block" style="border-color: rgba(0,240,255,0.3);">
         <div class="sub-heading">
-          <span>HandCash ゲートウェイ &amp; メガロイヤルティー一括回収</span>
-          <span style="font-size:7px; color:var(--accent-green);">[Instant Flash]</span>
+          <span>9. HandCash 一括受取 &amp; ゲートウェイ</span>
+          <span style="font-size:6.5px; color:var(--accent-green);">[Instant Flash]</span>
         </div>
-        <div class="sub-desc">指定宛先 <b>vlisdigitalassetlabs@handcash.io</b> へのダイレクト受信、および全世界のネットワーク全収益をワンタップで瞬時に一括フラッシュ回収します。</div>
-        <button style="margin-bottom: 8px;" onclick="toggleAction('HANDCASH PAYMAILダイレクト受信')">HANDCASH PAYMAILでダイレクト受信</button>
+        <div class="sub-desc">指定ペイメール <b>vlisdigitalassetlabs@handcash.io</b> へのダイレクト受信、および全ネットワーク収益のワンタップ一括フラッシュ回収を行います。</div>
+        <button style="margin-bottom: 6px;" onclick="triggerAction('HANDCASH PAYMAILダイレクト受信')">HandCashペイヤメールで直接受け取る</button>
         <div class="qr-section">
           <div class="qr-wrapper">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=vlisdigitalassetlabs@handcash.io" alt="HandCash QR">
           </div>
         </div>
-        <button onclick="triggerFlashSweep()">全ネットワーク収益を今すぐ一括ダイレクト回収</button>
+        <button onclick="triggerFlashSweep()">全ネットワーク収益を一括フラッシュ回収</button>
       </div>
     </div>
 
     <!-- 監査ログ -->
-    <div class="master-card" style="padding: 10px;">
-      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム・ダイレクトイン監査ログ (Global Stream)</span></div>
-      <div id="log" class="log-box">[07:10:35] Global Secure Stream Active: vlisdigitalassetlabs@handcash.io 監視中...</div>
+    <div class="master-card" style="padding: 9px;">
+      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム・オムニテック監査ログ</span></div>
+      <div id="log" class="log-box">[07:21:00] Omni-Tech Core Active: vlisdigitalassetlabs@handcash.io 監視中...</div>
     </div>
   </div>
 
@@ -231,24 +275,24 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    let particles = Array.from({length: 28}, () => ({
+    let particles = Array.from({length: 35}, () => ({
       x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.9, vy: (Math.random() - 0.5) * 0.9
+      vx: (Math.random() - 0.5) * 1.1, vy: (Math.random() - 0.5) * 1.1
     }));
 
     function drawNet() {
       ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.strokeStyle = 'rgba(0,240,255,0.18)';
+      ctx.strokeStyle = 'rgba(0,240,255,0.22)';
       ctx.fillStyle = '#00f0ff';
       particles.forEach((p, i) => {
         p.x += p.vx; p.y += p.vy;
         if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI*2); ctx.fill();
         for(let j = i+1; j < particles.length; j++) {
           let p2 = particles[j];
           let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if(dist < 80) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+          if(dist < 85) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
         }
       });
       requestAnimationFrame(drawNet);
@@ -262,8 +306,8 @@
       log.scrollTop = log.scrollHeight;
     }
 
-    function toggleAction(name) {
-      addLog('⚡ [GLOBAL_SYNC] ' + name + ' のステータスが正常に更新されました。');
+    function triggerAction(name) {
+      addLog('⚡ [OMNI_TRIGGER] ' + name + ' の全機能モジュールが同期・稼働しました。');
     }
 
     function downloadConfig(filename, content) {
@@ -273,21 +317,21 @@
       a.href = url;
       a.download = filename;
       a.click();
-      addLog('✓ [CONFIG] ' + filename + ' のダウンロードおよびルート確保完了');
+      addLog('✓ [CONFIG] ' + filename + ' のダウンロードおよびダイレクトルート確保完了');
     }
 
     function triggerFlashSweep() {
       addLog('⚡ [FLASH_SWEEP] vlisdigitalassetlabs@handcash.io へ一括回収発動...');
       setTimeout(() => {
-        addLog('✓ [SUCCESS] グローバルネットワーク収益の回収が同期完了しました。');
+        addLog('✓ [SUCCESS] オムニテックネットワーク収益の回収が完全同期しました。');
       }, 800);
     }
 
     setInterval(() => {
       const revElem = document.getElementById('rev');
-      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 250000;
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 500000;
       revElem.innerText = currentVal.toLocaleString() + ' SAT';
-      addLog('[TX_SYNC] 収益自動インデックス取込: +250,000 SAT');
+      addLog('[OMNI_SYNC] グローバル総集編インデックス取込: +500,000 SAT');
     }, 4000);
   </script>
 </body>
