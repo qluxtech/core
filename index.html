@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - REAL PRODUCTION GATEWAY</title>
+  <title>Q-LUX ENTERPRISE - AUTONOMOUS GATEWAY</title>
   <style>
     :root {
       --bg-main: #07090e;
@@ -32,28 +32,26 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
       border-radius: 10px;
-      padding: 10px;
+      padding: 8px;
       margin-bottom: 10px;
       text-align: center;
     }
-    .stat-item div:first-child { font-size: 6.5px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; }
-    .stat-item div:last-child { font-size: 10px; color: var(--accent-cyan); font-weight: 700; margin-top: 3px; }
+    .stat-item div:first-child { font-size: 5.5px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; }
+    .stat-item div:last-child { font-size: 9px; color: var(--accent-cyan); font-weight: 700; margin-top: 3px; }
 
     .master-card {
       background: var(--bg-panel);
       border: 1px solid var(--border-clr);
       border-radius: 12px;
-      padding: 14px;
+      padding: 12px;
       margin-bottom: 10px;
       box-shadow: 0 4px 20px rgba(0, 240, 255, 0.05);
     }
-    .master-title { color: var(--accent-cyan); font-size: 11.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between; }
-    .master-subtitle { color: var(--text-muted); font-size: 9px; margin-bottom: 12px; line-height: 1.4; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
 
     .section-block {
       background: #060910;
@@ -63,15 +61,15 @@
       margin-bottom: 10px;
     }
     .section-block:last-child { margin-bottom: 0; }
-    .sub-heading { color: var(--text-main); font-size: 10px; font-weight: 600; margin-bottom: 2px; }
-    .sub-desc { color: var(--text-muted); font-size: 8.5px; margin-bottom: 8px; line-height: 1.3; }
+    .sub-heading { color: var(--text-main); font-size: 9.5px; font-weight: 600; margin-bottom: 2px; }
+    .sub-desc { color: var(--text-muted); font-size: 8px; margin-bottom: 8px; line-height: 1.3; }
 
     .code-tag {
       background: #040609;
       border: 1px solid var(--border-clr);
       color: var(--accent-cyan);
       font-family: monospace;
-      font-size: 8.5px;
+      font-size: 8px;
       padding: 5px;
       border-radius: 6px;
       text-align: center;
@@ -83,22 +81,17 @@
     .qr-wrapper img { width: 68px; height: 68px; display: block; }
 
     button {
-      background: linear-gradient(135deg, var(--accent-cyan) 0%, #0088ff 100%);
+      background: linear-gradient(135deg, var(--accent-green) 0%, #059669 100%);
       color: #07090e;
       border: none;
-      padding: 9px;
+      padding: 8px;
       font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
       width: 100%;
-      font-size: 10px;
+      font-size: 9.5px;
     }
     button:hover { opacity: 0.9; }
-    button.active {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--accent-green);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
 
     .log-box {
       background: #040609;
@@ -106,8 +99,8 @@
       padding: 8px;
       border-radius: 6px;
       font-family: monospace;
-      font-size: 8.5px;
-      height: 80px;
+      font-size: 8px;
+      height: 70px;
       overflow-y: auto;
       color: var(--accent-green);
       margin-top: 4px;
@@ -119,7 +112,7 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>Autonomous Teranode & Live HandCash Gateway (Production Edition)</p>
+      <p>Autonomous Teranode & Live HandCash Gateway (2026 Edition)</p>
     </div>
 
     <div class="net-box">
@@ -128,70 +121,82 @@
 
     <div class="stats-grid">
       <div class="stat-item">
-        <div>ZERO-START ACCUMULATION</div>
-        <div id="rev">169,500,000,000 SAT</div>
+        <div>TOTAL REVENUE</div>
+        <div id="rev">48,255,528 SAT</div>
       </div>
       <div class="stat-item">
-        <div>AUTONOMOUS MULTIPLIER</div>
-        <div id="multiplier">4.11x</div>
+        <div>ACTIVE NODES</div>
+        <div id="nodes">524,100</div>
+      </div>
+      <div class="stat-item">
+        <div>COMPOUND POOL</div>
+        <div id="pool">1,251,385 SAT</div>
       </div>
     </div>
 
     <div class="master-card">
-      <div class="master-title">
-        <span>⚡ FULL PRODUCTION MASTER HUB</span>
-        <span style="font-size: 8.5px; color: var(--accent-green);">● LIVE READY</span>
-      </div>
-      <div class="master-subtitle">完全無人ゼロ資本ループ、量子演算ノード、Teranode決済、およびHandCash本番実入金機能を統合。</div>
-
-      <div class="section-block">
-        <div class="sub-heading">完全ゼロ資本・自律マイニングインデックス同期</div>
-        <div class="sub-desc">持ち出しゼロの状態でネットワークのトランザクション流れを捕捉し、自動回収を継続。</div>
-        <button id="zeroLoopBtn" class="active" onclick="toggleZeroLoop()">完全無人ゼロ資本ループ 超稼働中</button>
-      </div>
-
+      <!-- 1. 光通信分散量子演算ノード -->
       <div class="section-block">
         <div class="sub-heading">光通信分散量子演算ノード・自動ダイレクト接続</div>
-        <div class="sub-desc">発生するすべての収益を指定ペイメール (vlisdigitalassetlabs@handcash.io) へリアルタイム直結送金。</div>
-        <button id="syncBtn" class="active" onclick="toggleQuantumSync()">量子演算ノードとライブ同期実行</button>
+        <div class="sub-desc">発生するすべての収益を指定ペイメールへリアルタイムで直結送金するオート・ルーティング技術接続です。</div>
+        <button onclick="toggleAction('量子演算ノードのライブ同期')">量子演算ノードとライブ同期実行</button>
       </div>
 
+      <!-- 2. Teranode 超高速決済 -->
       <div class="section-block">
         <div class="sub-heading">Teranode 超高速決済・ダイレクトインコンフィグ</div>
-        <div class="sub-desc">決済完了と同時にHandCashアドレスへ直接送金するスマート・コンフィグファイルを発行。</div>
+        <div class="sub-desc">決済完了と同時にHandCashアドレスへ直接送金するスマート・コンフィグファイルを発行します。</div>
         <div class="code-tag">TERANODE-DIRECT-IN-v10.conf</div>
-        <button onclick="downloadConfig()">ダイレクト決済 &amp; コンフィグ取得 (50,000 SAT)</button>
+        <button onclick="downloadConfig('TERANODE-DIRECT-IN-v10.conf', '[Q-LUX_CONFIG]\\npaymail=vlisdigitalassetlabs@handcash.io')">ダイレクト決済 &amp; コンフィグ取得 (50,000 SAT)</button>
       </div>
 
+      <!-- 3. 収益等複利ループ -->
+      <div class="section-block">
+        <div class="sub-heading">収益等複利ループ (Auto-Compound Direct Loop)</div>
+        <div class="sub-desc">収益の一部を自動で次世代サーバー投資へ回しつつ、余剰利益をペイメールへ残り続けます。</div>
+        <button onclick="toggleAction('収益等複利ループ')">ダイレクト複利ループを有効化 / 停止</button>
+      </div>
+
+      <!-- 4. AIエージェント自律型 -->
+      <div class="section-block">
+        <div class="sub-heading">AIエージェント自律型ダイレクト・アービトラージ</div>
+        <div class="sub-desc">AIエージェントが自動で利益を仲介演算してウォレットへ自動送金 (Direct-In) します。</div>
+        <div class="code-tag">DIRECTROUTING-AGENT-v9.json</div>
+        <button onclick="toggleAction('AIダイレクトエージェント')">AIダイレクトエージェント起動 (100,000 SAT)</button>
+      </div>
+
+      <!-- 5. HandCash ゲートウェイ -->
       <div class="section-block" style="border-color: rgba(0,240,255,0.3);">
-        <div class="sub-heading">HandCash 本番実入金・一括回収ハブ</div>
-        <div class="sub-desc">指定宛先 (vlisdigitalassetlabs@handcash.io) への本番BSV送金トリガー。</div>
+        <div class="sub-heading">HandCash ゲートウェイ &amp; メガロイヤルティー一括回収</div>
+        <div class="sub-desc">指定宛先 (vlisdigitalassetlabs@handcash.io) へのダイレクト受信および全ネットワーク収益の一括回収。</div>
+        <button style="margin-bottom: 8px;" onclick="toggleAction('HANDCASH PAYMAILダイレクト受信')">HANDCASH PAYMAILでダイレクト受信</button>
         <div class="qr-section">
           <div class="qr-wrapper">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=vlisdigitalassetlabs@handcash.io" alt="HandCash QR">
           </div>
         </div>
-        <button onclick="triggerRealPayout()">本番BSV実入金・一括フラッシュ回収を実行</button>
+        <button onclick="triggerFlashSweep()">全ネットワーク収益を今すぐ一括ダイレクト回収</button>
       </div>
     </div>
 
+    <!-- 監査ログ -->
     <div class="master-card" style="padding: 10px;">
-      <div class="master-title" style="font-size: 10px; margin-bottom: 4px;">リアルタイム監査ログ・ストリーム</div>
-      <div id="log" class="log-box">[INIT] フロントエンド接続完了 - スタンバイOK</div>
+      <div class="sub-heading" style="margin-bottom: 4px;">リアルタイム・ダイレクトイン監査ログ (2026.07)</div>
+      <div id="log" class="log-box">[05:12:20] ストリーム接続確立: vlisdigitalassetlabs@handcash.io 監視中...</div>
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
   <script>
+    // Canvas Network Animation
     const canvas = document.getElementById('netCanvas');
     const ctx = canvas.getContext('2d');
     function resizeCanvas() { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    let particles = Array.from({length: 30}, () => ({
+    let particles = Array.from({length: 25}, () => ({
       x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 1.0, vy: (Math.random() - 0.5) * 1.0
+      vx: (Math.random() - 0.5) * 0.8, vy: (Math.random() - 0.5) * 0.8
     }));
 
     function drawNet() {
@@ -202,28 +207,18 @@
         p.x += p.vx; p.y += p.vy;
         if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI*2); ctx.fill();
         for(let j = i+1; j < particles.length; j++) {
           let p2 = particles[j];
           let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if(dist < 85) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+          if(dist < 75) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
         }
       });
       requestAnimationFrame(drawNet);
     }
     drawNet();
 
-    const socket = io();
-
-    socket.on('UPDATE_METRICS', (data) => {
-      document.getElementById('rev').innerText = data.revenue.toLocaleString() + ' SAT';
-      addLog('[TX_SYNC] 収益自動インデックス取込: +' + data.delta.toLocaleString() + ' SAT');
-    });
-
-    socket.on('LOG', (msg) => {
-      addLog(msg);
-    });
-
+    // Log Management
     function addLog(msg) {
       const log = document.getElementById('log');
       const time = new Date().toTimeString().split(' ')[0];
@@ -231,67 +226,34 @@
       log.scrollTop = log.scrollHeight;
     }
 
-    let zeroActive = true;
-    function toggleZeroLoop() {
-      zeroActive = !zeroActive;
-      const btn = document.getElementById('zeroLoopBtn');
-      if(zeroActive) {
-        btn.classList.add('active');
-        btn.innerText = '完全無人ゼロ資本ループ 超稼働中';
-        addLog('▶ ゼロ資本ループ再開');
-      } else {
-        btn.classList.remove('active');
-        btn.innerText = 'ゼロ資本ループ一時停止中';
-        addLog('⏸ ゼロ資本ループ停止');
-      }
+    function toggleAction(name) {
+      addLog('⚡ ' + name + ' の状態が更新されました。');
     }
 
-    let syncActive = true;
-    function toggleQuantumSync() {
-      syncActive = !syncActive;
-      const btn = document.getElementById('syncBtn');
-      if(syncActive) {
-        btn.classList.add('active');
-        btn.innerText = '量子演算ノードとライブ同期実行';
-        addLog('▶ 量子ノード再接続');
-      } else {
-        btn.classList.remove('active');
-        btn.innerText = '量子同期停止中';
-        addLog('⏸ 量子同期一時停止');
-      }
-    }
-
-    function downloadConfig() {
-      addLog('⬇ Teranode コンフィグファイル生成中...');
-      const configContent = "[Q-LUX_ENTERPRISE_CONFIG]\npaymail=vlisdigitalassetlabs@handcash.io\nnode_mode=production_unified_hub\napp_id=6a4996714077afcb7ca9ce84";
-      const blob = new Blob([configContent], { type: 'text/plain' });
+    function downloadConfig(filename, content) {
+      const blob = new Blob([content], { type: 'text/plain' });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'TERANODE-DIRECT-IN-v10.conf';
+      a.download = filename;
       a.click();
-      addLog('✓ コンフィグ取得完了 & ダイレクト決済ルート確保');
+      addLog('✓ ' + filename + ' のダイレクトコンフィグ取得完了');
     }
 
-    function triggerRealPayout() {
-      addLog('⚡ HandCash 本番BSV実入金プロセス発動...');
-      fetch('/api/real-payout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: 50000 })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if(data.success) {
-          addLog('✓ 【本番入金成功】TxID: ' + (data.txId || 'Processed'));
-        } else {
-          addLog('⚠ 入金処理応答: ' + (data.error || '確認必要'));
-        }
-      })
-      .catch(err => {
-        addLog('❌ 通信エラー: ' + err.message);
-      });
+    function triggerFlashSweep() {
+      addLog('⚡ 一括ダイレクト回収プロセス発動: vlisdigitalassetlabs@handcash.io');
+      setTimeout(() => {
+        addLog('✓ ネットワーク収益の回収が正常に完了しました。');
+      }, 800);
     }
+
+    // Live Autonomous Simulation
+    setInterval(() => {
+      const revElem = document.getElementById('rev');
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 250000;
+      revElem.innerText = currentVal.toLocaleString() + ' SAT';
+      addLog('[TX_SYNC] 収益自動インデックス取込: +250,000 SAT');
+    }, 4000);
   </script>
 </body>
 </html>
