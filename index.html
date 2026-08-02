@@ -82,20 +82,10 @@
       margin-bottom: 8px;
     }
     .section-block:last-child { margin-bottom: 0; }
-    .sub-heading { color: var(--text-main); font-size: 9px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; }
-    .sub-desc { color: var(--text-muted); font-size: 6.8px; margin-bottom: 4px; line-height: 1.35; }
     
-    .user-benefit {
-      background: rgba(0, 240, 255, 0.03);
-      border-left: 2px solid var(--accent-cyan);
-      padding: 4px 6px;
-      font-size: 6.5px;
-      color: #cbd5e1;
-      margin-bottom: 6px;
-      line-height: 1.3;
-      border-radius: 0 4px 4px 0;
-    }
-    .user-benefit b { color: var(--accent-cyan); }
+    /* セクションタイトルを動画と同じ薄いシアンカラーに統一 */
+    .sub-heading { color: var(--accent-cyan); font-size: 9px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 0 10px rgba(0,240,255,0.3); }
+    .sub-desc { color: var(--text-muted); font-size: 6.8px; margin-bottom: 6px; line-height: 1.35; }
 
     .code-tag {
       background: #020306;
@@ -113,7 +103,6 @@
     .qr-wrapper { background: #fff; padding: 3px; display: inline-block; border-radius: 5px; box-shadow: 0 0 12px rgba(255,255,255,0.1); }
     .qr-wrapper img { width: 55px; height: 55px; display: block; }
 
-    /* すべてのボタンを統一感のあるQ-LUXシアンカラーに変更 */
     button {
       background: linear-gradient(135deg, var(--accent-cyan) 0%, #00838f 100%);
       color: #020408;
@@ -183,7 +172,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Optical Quantum]</span>
         </div>
         <div class="sub-desc">光通信技術の超低遅延特性を利用した分散型グリッドネットワーク基盤。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 計算報酬やインデックス収益がラグ一切なしで瞬時にあなたのウォレットへ直結送金されます。</div>
         <button onclick="triggerAction('光通信分散量子演算ノードのライブ同期')">演算ノードとライブ同期を実行する</button>
       </div>
 
@@ -194,7 +182,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Teranode v10]</span>
         </div>
         <div class="sub-desc">次世代スケーリング「Teranode」対応の最新決済ノード設定。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 毎秒数百万件のトランザクションインフラに直接アクセスし、秒速でペイメールへ決済を反映させます。</div>
         <div class="code-tag">TERANODE-DIRECT-IN-v10.conf</div>
         <button onclick="downloadConfig('TERANODE-DIRECT-IN-v10.conf', '[Q-LUX_CONFIG]\npaymail=vlisdigitalassetlabs@handcash.io')">コンフィグファイルをダウンロード (50k SAT)</button>
       </div>
@@ -206,7 +193,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Auto-Compound]</span>
         </div>
         <div class="sub-desc">エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資する機構。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 放置している間にも余剰利益が自動で雪だるま式に複利運用され、リターンを最大化します。</div>
         <button onclick="triggerAction('収益等複利ループ')">複利ループの有効化 / 停止切り替え</button>
       </div>
 
@@ -217,7 +203,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Autonomous AI]</span>
         </div>
         <div class="sub-desc">AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 24時間AIが利益チャンスを狙い、得られた仲介マージンをダイレクトにウォレットへ届けます。</div>
         <div class="code-tag">DIRECTROUTING-AGENT-v9.json</div>
         <button onclick="triggerAction('AIダイレクトエージェント')">AI自律エージェント起動テスト (100k SAT)</button>
       </div>
@@ -229,7 +214,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[ZK-Privacy]</span>
         </div>
         <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 個人情報を秘匿したまま、超高速なデータ検索と安心安全なトランザクションを行えます。</div>
         <button onclick="triggerAction('ZKプライバシーチャネルの超分散接続')">ZKプライバシーグリッドを起動する</button>
       </div>
 
@@ -240,7 +224,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Script Engine]</span>
         </div>
         <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 余計な手数料をかけずにスマートコントラクトをオンチェーンで自動実行できます。</div>
         <button onclick="triggerAction('Satoshi Script ステートマシンコンパイル')">ネイティブスクリプトをオンチェーン展開</button>
       </div>
 
@@ -251,7 +234,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Overlay / SPV]</span>
         </div>
         <div class="sub-desc">Overlay ServicesとSPV検証による超軽量データ整合性チェック。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 重い全ブロックチェーンデータを落とさず、スマホから一瞬で取引の正当性を検証できます。</div>
         <button onclick="triggerAction('オーバレイネットワーク & SPV検証プール')">SPVプール同期 &amp; オーバレイ接続</button>
       </div>
 
@@ -262,7 +244,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Cross-Chain]</span>
         </div>
         <div class="sub-desc">HTLCを用いた安全かつ完全トラストレスなクロスチェーン交換機構。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 仲介者を一切挟まず、異なるブロックチェーン間での資産交換を安全に行えます。</div>
         <button onclick="triggerAction('アトミッククロスチェーンエンジン')">クロスチェーン・ブリッジを有効化</button>
       </div>
 
@@ -273,7 +254,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Ordinals / BRC]</span>
         </div>
         <div class="sub-desc">巨大データやデジタルアセットをBSV上に直接永続保存するストレージ。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> 大切なファイルやOrdinalsデータを消えない分散型ストレージに半永久保存できます。</div>
         <button onclick="triggerAction('メタレジャー・Ordinalsストレージ同期')">オンチェーン・ストレージを同期する</button>
       </div>
 
@@ -284,7 +264,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Micro-Stream]</span>
         </div>
         <div class="sub-desc">秒間数千回の超微小決済（サトシ単位）を流し続けるストリーミング機能。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> API利用等に対し、1秒ごとにわずか数サトシ単位の細かな支払いや受取を行えます。</div>
         <button onclick="triggerAction('P2Pマイクロペイメント・ストリーミング起動')">ストリーミング受取チャンネルを開通</button>
       </div>
 
@@ -295,7 +274,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[DID / Credentials]</span>
         </div>
         <div class="sub-desc">ブロックチェーン基盤のトラストレスな身元証明とアクセス権限制御。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> パスワードに依存せず、ブロックチェーン署名で安全に個人認証や権限を証明できます。</div>
         <button onclick="triggerAction('DID & VC認証ゲートウェイ接続')">DID認証でアクセス権を検証</button>
       </div>
 
@@ -306,7 +284,6 @@
           <span style="font-size:6px; color:var(--accent-cyan);">[Safety Monitor]</span>
         </div>
         <div class="sub-desc">コンセンサス状態やノード間の同期遅延を常時監視・自律修復するシステム。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> ネットワークの異常や遅延を即座に検知し、システム全体を自動で安全に保ちます。</div>
         <button onclick="triggerAction('セーフティモニター・システム診断')">全ノードの整合性セーフティ診断</button>
       </div>
 
@@ -316,8 +293,7 @@
           <span>13. HandCash 一括受取 &amp; ゲートウェイ</span>
           <span style="font-size:6px; color:var(--accent-cyan);">[Instant Flash]</span>
         </div>
-        <div class="sub-desc">指定ペイメールへのダイレクト受信と、全収益のワンタップ一括回収。</div>
-        <div class="user-benefit">💡 <b>ユーザーのメリット:</b> サイト内で発生したすべての報酬を、あなたのHandCash（<b>vlisdigitalassetlabs@handcash.io</b>）へいつでも一瞬で引き出せます！</div>
+        <div class="sub-desc">指定ペイメールへのダイレクト受信と、全収益のワンタップ一括回収。（受取先: <b>vlisdigitalassetlabs@handcash.io</b>）</div>
         <button style="margin-bottom: 6px;" onclick="triggerAction('HANDCASH PAYMAILダイレクト受信')">HandCashペイヤメールで直接受け取る</button>
         <div class="qr-section">
           <div class="qr-wrapper">
