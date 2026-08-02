@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - BSV Super Technical Omniverse Core (All 83 Expanded)</title>
+  <title>Q-LUX ENTERPRISE - BSV Super Technical Omniverse Core (Static All-In)</title>
   <style>
     :root {
       --bg-main: #010306;
@@ -98,7 +98,6 @@
       transition: border-color 0.3s;
     }
     .section-block.active { border-color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0,240,255,0.2); }
-    .section-block:last-child { margin-bottom: 0; }
     
     .sub-heading { color: var(--accent-cyan); font-size: 9.5px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 0 8px var(--accent-glow); }
     .sub-desc { color: var(--text-muted); font-size: 7px; margin-bottom: 6px; line-height: 1.3; }
@@ -155,7 +154,7 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>BSV Super Technical Omniverse Core (All 83 Fully Expanded)</p>
+      <p>BSV Super Technical Omniverse Core (Static All-83 Enforced)</p>
     </div>
 
     <div class="treasury-box">
@@ -185,196 +184,229 @@
 
     <div class="master-card">
       <div class="landing-intro">
-        🌐 <b>全83機能 完全展開モード稼働中。</b><br>
-        プロトコル #0 から #83 までのすべての定義と実行モジュールをスクロールなしで展開・直結しています。
+        🌐 <b>全83機能・静的ベタ書き完全展開モード。</b><br>
+        すべてのプロトコル（#0〜#83）をHTMLに直接完全コード化しているため、確実にすべてのカードが表示されます。
       </div>
 
-      <!-- 0. モノリス -->
+      <!-- 0 -->
       <div class="section-block" id="block-0">
-        <div class="sub-heading">
-          <span>0. オフィシャル・モノリスノード統括</span>
-          <span style="font-size:6px; color:var(--accent-cyan);">[Monolith Core]</span>
-        </div>
+        <div class="sub-heading"><span>0. オフィシャル・モノリスノード統括</span><span style="font-size:6px; color:var(--accent-cyan);">[Monolith Core]</span></div>
         <div class="sub-desc">全83エコシステムを統率し、ネットワーク全体の処理効率を極限まで高める中枢。</div>
         <button id="btn-0" onclick="executeLiveFeature(0, 'オフィシャル・モノリスノードの統括起動', 'MONOLITH_SYNC')">モノリスノードを同期して稼働を開始する</button>
       </div>
 
-      <!-- 全83機能の動的描画コンテナ -->
-      <div id="features-container"></div>
-
-      <!-- 83. HandCash ゲートウェイ -->
-      <div class="section-block" id="block-83" style="border-color: rgba(0,240,255,0.4);">
-        <div class="sub-heading">
-          <span>83. HandCash 統合決済 &amp; ゲートウェイ</span>
-          <span style="font-size:6px; color:var(--accent-cyan);">[Omni Flash]</span>
-        </div>
-        <div class="sub-desc">指定ペイメールへのダイレクト受信と、全83機能の収益ワンタップ一括回収。（受取先: <b>vlisdigitalassetlabs@handcash.io</b>）</div>
-        <button style="margin-bottom: 6px;" onclick="window.open('https://app.handcash.io/#/vlisdigitalassetlabs', '_blank')">HandCashペイヤメールで直接送受金を開く</button>
-        <div class="qr-section">
-          <div class="qr-wrapper">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=vlisdigitalassetlabs@handcash.io" alt="HandCash QR">
-          </div>
-        </div>
-        <button onclick="triggerFlashSweep()">全83機能ネットワーク収益を一括フラッシュ回収</button>
+      <!-- 1 -->
+      <div class="section-block" id="block-1">
+        <div class="sub-heading"><span>1. 光通信分散量子演算ノード</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 01]</span></div>
+        <div class="sub-desc">光通信技術の超低遅延特性を利用した分散型グリッドネットワーク基盤。</div>
+        <button id="btn-1" onclick="executeLiveFeature(1, '光通信分散量子演算ノード', 'Core 01')">光通信分散量子演算ノード を実動アクティブ化</button>
       </div>
-    </div>
 
-    <div class="master-card" style="padding: 10px;">
-      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム監査ログストリーム (完全実働)</span></div>
-      <div id="log" class="log-box">[08:48:00] Qlux-Online BSV Super Core Connected: vlisdigitalassetlabs@handcash.io 全83機能完全展開中...</div>
-    </div>
-  </div>
+      <!-- 2 -->
+      <div class="section-block" id="block-2">
+        <div class="sub-heading"><span>2. Teranode 超高速決済コンフィグ</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 02]</span></div>
+        <div class="sub-desc">次世代スケーリング「Teranode」対応の最新決済ノード設定。</div>
+        <div class="code-tag">TERANODE-v10.conf</div>
+        <button id="btn-2" onclick="executeLiveFeature(2, 'Teranode 超高速決済コンフィグ', 'Core 02')">設定ファイルを実動ダウンロード (50k SAT)</button>
+      </div>
 
-  <script>
-    const featureData = [
-      { id: 1, name: "光通信分散量子演算ノード", tag: "Core 01", desc: "光通信技術の超低遅延特性を利用した分散型グリッドネットワーク基盤。" },
-      { id: 2, name: "Teranode 超高速決済コンフィグ", tag: "Core 02", desc: "次世代スケーリング「Teranode」対応の最新決済ノード設定。", isConfig: true, filename: "TERANODE-v10.conf" },
-      { id: 3, name: "収益等複利ループ (Auto-Compound)", tag: "Core 03", desc: "エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資する機構。" },
-      { id: 4, name: "AI自律型アービトラージエージェント", tag: "Core 04", desc: "AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。", isConfig: true, filename: "AI-ARBITRAGE-v9.json" },
-      { id: 5, name: "ZKプライバシー & テラビットインデックス", tag: "Core 05", desc: "ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。" },
-      { id: 6, name: "Satoshi Script ステートマシン", tag: "Core 06", desc: "Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。" },
-      { id: 7, name: "オーバレイネットワーク & SPV検証", tag: "Core 07", desc: "Overlay ServicesとSPV検証による超軽量データ整合性チェック。" },
-      { id: 8, name: "アトミッククロスチェーンエンジン", tag: "Core 08", desc: "HTLCを用いた安全かつ完全トラストレスなクロスチェーン交換機構。" },
-      { id: 9, name: "メタレジャー & 1Sat Ordinals", tag: "Core 09", desc: "巨大データやデジタルアセットをBSV上に直接永続保存するストレージ。" },
-      { id: 10, name: "P2Pマイクロペイメント・ストリーミング", tag: "Core 10", desc: "秒間数千回の超微小決済（サトシ単位）を流し続けるストリーミング機能。" },
-      { id: 11, name: "DID & VC認証ゲートウェイ", tag: "Core 11", desc: "ブロックチェーン基盤のトラストレスな身元証明とアクセス権限制御。" },
-      { id: 12, name: "ジェネシス・セーフティモニター", tag: "Core 12", desc: "コンセンサス状態やノード間の同期遅延を常時監視・自律修復するシステム。" },
-      { id: 13, name: "無限ステートチェイン・メガブロックビルダー", tag: "Super 13", desc: "テラバイト級のメガブロックを瞬時に生成し、ネットワーク上の遅延をゼロ化。" },
-      { id: 14, name: "オムニチェーン資産液化トランスポーター", tag: "Super 14", desc: "ブロックチェーン間の垣根を取り払い、あらゆるアセットをBSVへ流動化。" },
-      { id: 15, name: "量子耐性・次世代サトシ署名バリデータ", tag: "Super 15", desc: "次世代の暗号脅威を完全無効化する、超堅牢な署名検証モジュール。" },
-      { id: 16, name: "マイクロペイメント・トルネード", tag: "Super 16", desc: "秒間数百万件の決済ストリームを摩擦ゼロで並列処理し世界中へ配当。" },
-      { id: 17, name: "完全分散型ZKオラクルシンジケート", tag: "Super 17", desc: "現実世界のデータをトラストレスなゼロ知識証明で安全にオンチェーン化。" },
-      { id: 18, name: "生体ニューラルネットワークリンク", tag: "Super 18", desc: "ユーザーのデバイス信号と直接同期し思考のスピードでウォレット実行。" },
-      { id: 19, name: "自律進化型ジェネシスエンジン", tag: "Super 19", desc: "AIが環境の変化を自ら検知しコントラクトコードをリアルタイム自己修復。" },
-      { id: 20, name: "超高精度タイムスタンプ・レジストリ", tag: "Super 20", desc: "あらゆる法制、契約、知財の所有権を永遠に改ざん不能な形で刻印。" },
-      { id: 21, name: "プラズマ級1Sat圧縮アーカイブ", tag: "Super 21", desc: "膨大なマルチメディアやシステムコードを限界まで圧縮し1サトシで保存。" },
-      { id: 22, name: "アイギス・ディフェンスシステム", tag: "Super 22", desc: "不正アクセスやDDoS攻撃をミリ秒単位で察知し自動迎撃・無効化。" },
-      { id: 23, name: "ストリーミング・エスクロー", tag: "Super 23", desc: "マイクロペイメントを時限式エスクローに組み込み条件達成で自動執行。" },
-      { id: 24, name: "AIトランザクションパイプライン", tag: "Super 24", desc: "メンプルの混雑状況やフィーレートをAIが先読みし最速かつ最小コスト化。" },
-      { id: 25, name: "ZKコンプライアンスブリッジ", tag: "Super 25", desc: "個人情報を一切明かすことなく規制要件を満たしたトラストレス検証。" },
-      { id: 26, name: "ネイティブアセットエクスチェンジ", tag: "Super 26", desc: "仲介者を挟まずSatoshi Script上で直接アセットを高速交換するDEX。" },
-      { id: 27, name: "マルチメディア・インスクリプション", tag: "Super 27", desc: "高精細4K映像や巨大3D空間データを分割し1サトシ単位で永久保存。" },
-      { id: 28, name: "リニアスケーリングルーター", tag: "Super 28", desc: "ノード間データ伝播経路をダイナミックに再構築し遅延を完全相殺。" },
-      { id: 29, name: "マルチシグガバナンスコア", tag: "Super 29", desc: "複数組織間の意思決定と資金移動を完全なオンチェーンで自動執行。" },
-      { id: 30, name: "M2Mトリビューター経済圏", tag: "Super 30", desc: "世界中のIoTデバイスやセンサーが自律的にサトシを支払いデータ売買。" },
-      { id: 31, name: "P2Pネームスペースレジストリ", tag: "Super 31", desc: "ドメインやデジタルIDの所有権を暗号署名で完全に担保し中央管理者を排除。" },
-      { id: 32, name: "サプライチェーン・トレーサビリティ", tag: "Super 32", desc: "原材料調達から物流までの全プロセスを改ざん不能なログで完全追跡。" },
-      { id: 33, name: "ディザスタリカバリ・スナップショット", tag: "Super 33", desc: "ネットワーク障害時にも数秒で全状態を完璧に復元する分散スナップ。" },
-      { id: 34, name: "AIスマートコントラクトファイヤーウォール", tag: "Super 34", desc: "コントラクトの脆弱性や異常挙動をリアルタイム検知し瞬時隔離。" },
-      { id: 35, name: "ロイヤリティディストリビューター", tag: "Super 35", desc: "クリエイターへの収益分配を閲覧の瞬間に何百万人のユーザーから自動直送。" },
-      { id: 36, name: "ブリッジレスアセットコンバーター", tag: "Super 36", desc: "脆弱なブリッジを排除しBSVの巨大処理能力で他チェーン資産を直接包摂。" },
-      { id: 37, name: "オラクルレス予測市場エグゼキューター", tag: "Super 37", desc: "外部サーバーに依存せず証明された事実データのみに基づき自動決着。" },
-      { id: 38, name: "量子耐性インデクサー", tag: "Super 38", desc: "膨大なブロックチェーンデータをミリ秒単位で超高速検索する量子耐性インデックス。" },
-      { id: 39, name: "リアルタイム動的ガスレスUXリレー", tag: "Super 39", desc: "ユーザーに手数料の意識をさせず企業側や自動プールが全コストを処理。" },
-      { id: 40, name: "アーカイブインテグリティチェッカー", tag: "Super 40", desc: "過去の全オンチェーンデータの整合性と改ざん有無を常時バックグラウンド検証。" },
-      { id: 41, name: "DAOキャッシュフローエンジン", tag: "Super 41", desc: "DAOの予算執行や資産配分を完全自動化し一文のズレもなくオンチェーン完結。" },
-      { id: 42, name: "オフィシャル・テラビットゲートウェイ", tag: "Super 42", desc: "すべての超技術機能を一括統率し世界中のエコシステムと瞬時接続するポータル。" },
-      { id: 43, name: "プラズマ級超高密度フラグメント・メッシュリンク", tag: "BSV-Mesh", desc: "テラビット級のデータ断片を暗号学的メッシュ構造で超高速バースト転送。" },
-      { id: 44, name: "ゼロレイテンシー・仮想バリデータ・シンク", tag: "BSV-Sync", desc: "グローバルノード間のブロック検証タイムラグを完全に相殺する同期コア。" },
-      { id: 45, name: "オムニチェーン・流動性駆動型リキディティ・メッシュ", tag: "BSV-Liquidity", desc: "流動性を極限まで高め、トランザクションの詰まりを自動解消する流動網。" },
-      { id: 46, name: "次世代サトシ・ネイティブ・ハイパーレイヤー", tag: "BSV-Hyper", desc: "Bitcoinベースレイヤーの上に構築された超高速ステートフル実行レイヤー。" },
-      { id: 47, name: "AI駆動型ダイナミック・ブロック平衡グリッド", tag: "BSV-AI-Grid", desc: "ネットワーク負荷に応じてブロックサイズと伝播経路をAIが自動最適化。" },
-      { id: 48, name: "完全分散型クロスボーダー・アイデンティティ中枢", tag: "BSV-ID", desc: "国境を越えたシームレスな個人認証と資格証明をオンチェーンで管理。" },
-      { id: 49, name: "リアルタイム・量子ハッシュ・プロテクション", tag: "BSV-Quantum", desc: "量子コンピュータの演算攻撃をも無力化する次世代ハッシュ保護シールド。" },
-      { id: 50, name: "自律型スマートコントラクト・オプティマイザー", tag: "BSV-Opt", desc: "スマートコントラクトの実行バイトコードをリアルタイムでガス極小化。" },
-      { id: 51, name: "経済メタデータ・ストリーミング・インデクサー", tag: "BSV-Index", desc: "毎秒発生する膨大な経済活動データをリアルタイムでインデックス化。" },
-      { id: 52, name: "グローバル・パブリック・コンセンサス・リレー", tag: "BSV-Relay", desc: "世界中のマイニングノード間をダイレクトに結ぶ高速コンセンサス中継網。" },
-      { id: 53, name: "高スループット・マイクロサトシ・ディストリビューター", tag: "BSV-Dist", desc: "数千万ユーザーへのマイクロペイメント報酬配当を遅延なく自動分配。" },
-      { id: 54, name: "次世代ギガバイト・メモリープール・アクセラレータ", tag: "BSV-Mempool", desc: "巨大なメモリープール内のトランザクション優先順位を超高速整列。" },
-      { id: 55, name: "超分散型スプリット・キー・リカバリ・バンク", tag: "BSV-KeyBank", desc: "秘密鍵を数理的に分散保存し、安全かつ確実にウォレットを復元。" },
-      { id: 56, name: "ネイティブ・トークン・アトミック・スワップ・コア", tag: "BSV-Swap", desc: "異なるトークン規格間を仲介者なしで直接安全に一瞬で交換。" },
-      { id: 57, name: "リアルタイム・フラッシュ・チャネル・コントローラー", tag: "BSV-Flash", desc: "オフチェーンチャネルを活用した実質手数料ゼロの超高速決済管理。" },
-      { id: 58, name: "自律自完型ゼロナレッジ・プルーフ・ジェネレータ", tag: "BSV-ZKGen", desc: "複雑な証明生成をハードウェアアクセラレーションで高速処理。" },
-      { id: 59, name: "ディープ・パケット・ブロックチェーン・インスペクター", tag: "BSV-Inspect", desc: "ネットワーク上のパケットとトランザクションの不正を深層監視。" },
-      { id: 60, name: "マルチクラウド・エッジ・ノード・オーケストレーター", tag: "BSV-Cloud", desc: "世界中のエッジサーバーとクラウドを統合し分散ノード網を構築。" },
-      { id: 61, name: "超高頻度データ・ストリーム・エンコーダー", tag: "BSV-Encode", desc: "大量のリアルタイムデータをバイナリ最適化してブロックチェーンへ直結。" },
-      { id: 62, name: "次世代暗号学的タイムロック・エスクロー", tag: "BSV-Timelock", desc: "絶対的な時間条件に基づき資産のロックと解放を完全に自動執行。" },
-      { id: 63, name: "オムニバス・リアルタイム・ガバナンス・シンク", tag: "BSV-Gov", desc: "エコシステム全体の投票と議決をリアルタイムで合意形成・反映。" },
-      { id: 64, name: "ハイパースケール・トランザクション・バッファ", tag: "BSV-Buffer", desc: "突発的なトランザクションスパイクを完全に吸収する大容量バッファ。" },
-      { id: 65, name: "エッジAI駆動型セキュリティ・セーフガード", tag: "BSV-Guard", desc: "各ノードのエッジAIが異常なアクセスや改ざん試行を瞬時に遮断。" },
-      { id: 66, name: "ゼロ・フリクション・デジタル・アセット・ブリッジ", tag: "BSV-Bridge", desc: "摩擦係数ゼロで他システムからBSVへ価値をスムーズに移行。" },
-      { id: 67, name: "分散型オラクル・コンセンサス・アグリゲーター", tag: "BSV-Oracle", desc: "複数のオラクルからの外部データを検証・統合し真実を確定。" },
-      { id: 68, name: "次世代サトシ・エコノミック・シミュレーター", tag: "BSV-Sim", desc: "経済圏全体のインフレ・デフレ動向をAIがリアルタイム予測。" },
-      { id: 69, name: "ウルトラ・ファスト・SPV・ライト・クライアント", tag: "BSV-SPV", desc: "スマートフォンでもフルノード同等の検証を秒速で行う軽量クライアント。" },
-      { id: 70, name: "オートメーテッド・マイクロ・フィー・オプティマイザー", tag: "BSV-Fee", desc: "トランザクション手数料を極限まで低く抑える自動調整アルゴリズム。" },
-      { id: 71, name: "高次元テラビット・データ・ストレイジ・コア", tag: "BSV-Storage", desc: "大規模なビッグデータをブロックチェーンの永続ストレージに格納。" },
-      { id: 72, name: "クロス・レイヤー・リアルタイム・ステート・ブリッジ", tag: "BSV-State", desc: "レイヤー間の状態変化をミリ秒単位で同期・整合化。" },
-      { id: 73, name: "プライバシー・エンハンスト・ゼロ知識バリデータ", tag: "BSV-Privacy", desc: "最高度の機密性を保ちながら正当性を完全に証明・検証。" },
-      { id: 74, name: "リアルタイム・ネットワーク・ヘルス・モニター", tag: "BSV-Health", desc: "全ノードの稼働状態、回線速度、遅延を常時ダッシュボード化。" },
-      { id: 75, name: "自律分散型スマート・プール・コントローラー", tag: "BSV-PoolCtrl", desc: "マイニングおよび演算プールの割り振りを自動で最適化。" },
-      { id: 76, name: "超低遅延バイナリ・プロトコル・トランスレーター", tag: "BSV-Binary", desc: "異なるプロトコル間の通信をバイナリレベルで超高速変換。" },
-      { id: 77, name: "高セキュリティ・マルチシグ・キー・マネージャー", tag: "BSV-MultiSig", desc: "複数管理者による強固な鍵管理とマルチシグ実行環境。" },
-      { id: 78, name: "ダイナミック・ロード・バランシング・グリッド", tag: "BSV-Load", desc: "ネットワークの負荷を全ノードへ均等に分散し過負荷を防止。" },
-      { id: 79, name: "オムニバス・次世代暗号署名プロセッサ", tag: "BSV-SigProc", desc: "高速な楕円曲線暗号および次世代署名アルゴリズムを並列処理。" },
-      { id: 80, name: "リアルタイム・アセット・トラッキング・エンジン", tag: "BSV-Track", desc: "発行されたすべてのデジタル資産の移動履歴をリアルタイム追跡。" },
-      { id: 81, name: "アルティメット・BSV・オムニバース・コア", tag: "BSV-Ultimate", desc: "すべてのBSV超スーパー技術機能を統合し究極の処理能力を発揮。" },
-      { id: 82, name: "オムニバス・アドバンスド・プロトコル #82", tag: "Omni 82", desc: "第82世代の超分散・高スループットBSV自動実行モジュールおよび高速リレーコア。" }
-    ];
+      <!-- 3 -->
+      <div class="section-block" id="block-3">
+        <div class="sub-heading"><span>3. 収益等複利ループ (Auto-Compound)</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 03]</span></div>
+        <div class="sub-desc">エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資する機構。</div>
+        <button id="btn-3" onclick="executeLiveFeature(3, '収益等複利ループ', 'Core 03')">収益等複利ループ を実動アクティブ化</button>
+      </div>
 
-    const container = document.getElementById('features-container');
-    featureData.forEach(f => {
-      const block = document.createElement('div');
-      block.className = 'section-block';
-      block.id = `block-${f.id}`;
-      block.innerHTML = `
-        <div class="sub-heading">
-          <span>${f.id}. ${f.name}</span>
-          <span style="font-size:6px; color:var(--accent-cyan);">[${f.tag}]</span>
-        </div>
-        <div class="sub-desc">${f.desc}</div>
-        ${f.isConfig ? `<div class="code-tag">${f.filename}</div>` : ''}
-        <button id="btn-${f.id}" onclick="executeLiveFeature(${f.id}, '${f.name}', '${f.tag}')">
-          ${f.isConfig ? '設定ファイルを実動ダウンロード (50k SAT)' : `${f.name} を実動アクティブ化`}
-        </button>
-      `;
-      container.appendChild(block);
-    });
+      <!-- 4 -->
+      <div class="section-block" id="block-4">
+        <div class="sub-heading"><span>4. AI自律型アービトラージエージェント</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 04]</span></div>
+        <div class="sub-desc">AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。</div>
+        <div class="code-tag">AI-ARBITRAGE-v9.json</div>
+        <button id="btn-4" onclick="executeLiveFeature(4, 'AI自律型アービトラージエージェント', 'Core 04')">設定ファイルを実動ダウンロード (50k SAT)</button>
+      </div>
 
-    const canvas = document.getElementById('netCanvas');
-    const ctx = canvas.getContext('2d');
-    function resizeCanvas() { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+      <!-- 5 -->
+      <div class="section-block" id="block-5">
+        <div class="sub-heading"><span>5. ZKプライバシー &amp; テラビットインデックス</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 05]</span></div>
+        <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。</div>
+        <button id="btn-5" onclick="executeLiveFeature(5, 'ZKプライバシー & テラビットインデックス', 'Core 05')">ZKプライバシー &amp; テラビットインデックス を実動アクティブ化</button>
+      </div>
 
-    let particles = Array.from({length: 50}, () => ({
-      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 1.5, vy: (Math.random() - 0.5) * 1.5
-    }));
+      <!-- 6 -->
+      <div class="section-block" id="block-6">
+        <div class="sub-heading"><span>6. Satoshi Script ステートマシン</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 06]</span></div>
+        <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。</div>
+        <button id="btn-6" onclick="executeLiveFeature(6, 'Satoshi Script ステートマシン', 'Core 06')">Satoshi Script ステートマシン を実動アクティブ化</button>
+      </div>
 
-    function drawNet() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.strokeStyle = 'rgba(0,240,255,0.3)';
-      ctx.fillStyle = '#00f0ff';
-      particles.forEach((p, i) => {
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI*2); ctx.fill();
-        for(let j = i+1; j < particles.length; j++) {
-          let p2 = particles[j];
-          let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if(dist < 70) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
-        }
-      });
-      requestAnimationFrame(drawNet);
-    }
-    drawNet();
+      <!-- 7 -->
+      <div class="section-block" id="block-7">
+        <div class="sub-heading"><span>7. オーバレイネットワーク &amp; SPV検証</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 07]</span></div>
+        <div class="sub-desc">Overlay ServicesとSPV検証による超軽量データ整合性チェック。</div>
+        <button id="btn-7" onclick="executeLiveFeature(7, 'オーバレイネットワーク & SPV検証', 'Core 07')">オーバレイネットワーク &amp; SPV検証 を実動アクティブ化</button>
+      </div>
 
-    function addLog(msg) {
-      const log = document.getElementById('log');
-      const time = new Date().toTimeString().split(' ')[0];
-      log.innerHTML += '<br>[' + time + '] ' + msg;
-      log.scrollTop = log.scrollHeight;
-    }
+      <!-- 8 -->
+      <div class="section-block" id="block-8">
+        <div class="sub-heading"><span>8. アトミッククロスチェーンエンジン</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 08]</span></div>
+        <div class="sub-desc">HTLCを用いた安全かつ完全トラストレスなクロスチェーン交換機構。</div>
+        <button id="btn-8" onclick="executeLiveFeature(8, 'アトミッククロスチェーンエンジン', 'Core 08')">アトミッククロスチェーンエンジン を実動アクティブ化</button>
+      </div>
 
-    function executeLiveFeature(id, name, tag) {
-      const btn = document.getElementById(`btn-${id}`);
-      const block = document.getElementById(`block-${id}`);
-      
-      btn.innerText = "✓ ライブ実動中 (Connected)";
-      btn.classList.add('executing');
-      block.classList.add('active');
+      <!-- 9 -->
+      <div class="section-block" id="block-9">
+        <div class="sub-heading"><span>9. メタレジャー &amp; 1Sat Ordinals</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 09]</span></div>
+        <div class="sub-desc">巨大データやデジタルアセットをBSV上に直接永続保存するストレージ。</div>
+        <button id="btn-9" onclick="executeLiveFeature(9, 'メタレジャー & 1Sat Ordinals', 'Core 09')">メタレジャー &amp; 1Sat Ordinals を実動アクティブ化</button>
+      </div>
 
-      addLog(`⚡ [BSV_LIVE] #${id} ${name} (${tag}) のメインネット接続を確立しました。`);
+      <!-- 10 -->
+      <div class="section-block" id="block-10">
+        <div class="sub-heading"><span>10. P2Pマイクロペイメント・ストリーミング</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 10]</span></div>
+        <div class="sub-desc">秒間数千回の超微小決済（サトシ単位）を流し続けるストリーミング機能。</div>
+        <button id="btn-10" onclick="executeLiveFeature(10, 'P2Pマイクロペイメント・ストリーミング', 'Core 10')">P2Pマイクロペイメント・ストリーミング を実動アクティブ化</button>
+      </div>
 
-      if(id === 2 || id === 4
+      <!-- 11 -->
+      <div class="section-block" id="block-11">
+        <div class="sub-heading"><span>11. DID &amp; VC認証ゲートウェイ</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 11]</span></div>
+        <div class="sub-desc">ブロックチェーン基盤のトラストレスな身元証明とアクセス権限制御。</div>
+        <button id="btn-11" onclick="executeLiveFeature(11, 'DID & VC認証ゲートウェイ', 'Core 11')">DID &amp; VC認証ゲートウェイ を実動アクティブ化</button>
+      </div>
+
+      <!-- 12 -->
+      <div class="section-block" id="block-12">
+        <div class="sub-heading"><span>12. ジェネシス・セーフティモニター</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 12]</span></div>
+        <div class="sub-desc">コンセンサス状態やノード間の同期遅延を常時監視・自律修復するシステム。</div>
+        <button id="btn-12" onclick="executeLiveFeature(12, 'ジェネシス・セーフティモニター', 'Core 12')">ジェネシス・セーフティモニター を実動アクティブ化</button>
+      </div>
+
+      <!-- 13 -->
+      <div class="section-block" id="block-13">
+        <div class="sub-heading"><span>13. 無限ステートチェイン・メガブロックビルダー</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 13]</span></div>
+        <div class="sub-desc">テラバイト級のメガブロックを瞬時に生成し、ネットワーク上の遅延をゼロ化。</div>
+        <button id="btn-13" onclick="executeLiveFeature(13, '無限ステートチェイン・メガブロックビルダー', 'Super 13')">無限ステートチェイン・メガブロックビルダー を実動アクティブ化</button>
+      </div>
+
+      <!-- 14 -->
+      <div class="section-block" id="block-14">
+        <div class="sub-heading"><span>14. オムニチェーン資産液化トランスポーター</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 14]</span></div>
+        <div class="sub-desc">ブロックチェーン間の垣根を取り払い、あらゆるアセットをBSVへ流動化。</div>
+        <button id="btn-14" onclick="executeLiveFeature(14, 'オムニチェーン資産液化トランスポーター', 'Super 14')">オムニチェーン資産液化トランスポーター を実動アクティブ化</button>
+      </div>
+
+      <!-- 15 -->
+      <div class="section-block" id="block-15">
+        <div class="sub-heading"><span>15. 量子耐性・次世代サトシ署名バリデータ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 15]</span></div>
+        <div class="sub-desc">次世代の暗号脅威を完全無効化する、超堅牢な署名検証モジュール。</div>
+        <button id="btn-15" onclick="executeLiveFeature(15, '量子耐性・次世代サトシ署名バリデータ', 'Super 15')">量子耐性・次世代サトシ署名バリデータ を実動アクティブ化</button>
+      </div>
+
+      <!-- 16 -->
+      <div class="section-block" id="block-16">
+        <div class="sub-heading"><span>16. マイクロペイメント・トルネード</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 16]</span></div>
+        <div class="sub-desc">秒間数百万件の決済ストリームを摩擦ゼロで並列処理し世界中へ配当。</div>
+        <button id="btn-16" onclick="executeLiveFeature(16, 'マイクロペイメント・トルネード', 'Super 16')">マイクロペイメント・トルネード を実動アクティブ化</button>
+      </div>
+
+      <!-- 17 -->
+      <div class="section-block" id="block-17">
+        <div class="sub-heading"><span>17. 完全分散型ZKオラクルシンジケート</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 17]</span></div>
+        <div class="sub-desc">現実世界のデータをトラストレスなゼロ知識証明で安全にオンチェーン化。</div>
+        <button id="btn-17" onclick="executeLiveFeature(17, '完全分散型ZKオラクルシンジケート', 'Super 17')">完全分散型ZKオラクルシンジケート を実動アクティブ化</button>
+      </div>
+
+      <!-- 18 -->
+      <div class="section-block" id="block-18">
+        <div class="sub-heading"><span>18. 生体ニューラルネットワークリンク</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 18]</span></div>
+        <div class="sub-desc">ユーザーのデバイス信号と直接同期し思考のスピードでウォレット実行。</div>
+        <button id="btn-18" onclick="executeLiveFeature(18, '生体ニューラルネットワークリンク', 'Super 18')">生体ニューラルネットワークリンク を実動アクティブ化</button>
+      </div>
+
+      <!-- 19 -->
+      <div class="section-block" id="block-19">
+        <div class="sub-heading"><span>19. 自律進化型ジェネシスエンジン</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 19]</span></div>
+        <div class="sub-desc">AIが環境の変化を自ら検知しコントラクトコードをリアルタイム自己修復。</div>
+        <button id="btn-19" onclick="executeLiveFeature(19, '自律進化型ジェネシスエンジン', 'Super 19')">自律進化型ジェネシスエンジン を実動アクティブ化</button>
+      </div>
+
+      <!-- 20 -->
+      <div class="section-block" id="block-20">
+        <div class="sub-heading"><span>20. 超高精度タイムスタンプ・レジストリ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 20]</span></div>
+        <div class="sub-desc">あらゆる法制、契約、知財の所有権を永遠に改ざん不能な形で刻印。</div>
+        <button id="btn-20" onclick="executeLiveFeature(20, '超高精度タイムスタンプ・レジストリ', 'Super 20')">超高精度タイムスタンプ・レジストリ を実動アクティブ化</button>
+      </div>
+
+      <!-- 21 -->
+      <div class="section-block" id="block-21">
+        <div class="sub-heading"><span>21. プラズマ級1Sat圧縮アーカイブ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 21]</span></div>
+        <div class="sub-desc">膨大なマルチメディアやシステムコードを限界まで圧縮し1サトシで保存。</div>
+        <button id="btn-21" onclick="executeLiveFeature(21, 'プラズマ級1Sat圧縮アーカイブ', 'Super 21')">プラズマ級1Sat圧縮アーカイブ を実動アクティブ化</button>
+      </div>
+
+      <!-- 22 -->
+      <div class="section-block" id="block-22">
+        <div class="sub-heading"><span>22. アイギス・ディフェンスシステム</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 22]</span></div>
+        <div class="sub-desc">不正アクセスやDDoS攻撃をミリ秒単位で察知し自動迎撃・無効化。</div>
+        <button id="btn-22" onclick="executeLiveFeature(22, 'アイギス・ディフェンスシステム', 'Super 22')">アイギス・ディフェンスシステム を実動アクティブ化</button>
+      </div>
+
+      <!-- 23 -->
+      <div class="section-block" id="block-23">
+        <div class="sub-heading"><span>23. ストリーミング・エスクロー</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 23]</span></div>
+        <div class="sub-desc">マイクロペイメントを時限式エスクローに組み込み条件達成で自動執行。</div>
+        <button id="btn-23" onclick="executeLiveFeature(23, 'ストリーミング・エスクロー', 'Super 23')">ストリーミング・エスクロー を実動アクティブ化</button>
+      </div>
+
+      <!-- 24 -->
+      <div class="section-block" id="block-24">
+        <div class="sub-heading"><span>24. AIトランザクションパイプライン</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 24]</span></div>
+        <div class="sub-desc">メンプルの混雑状況やフィーレートをAIが先読みし最速かつ最小コスト化。</div>
+        <button id="btn-24" onclick="executeLiveFeature(24, 'AIトランザクションパイプライン', 'Super 24')">AIトランザクションパイプライン を実動アクティブ化</button>
+      </div>
+
+      <!-- 25 -->
+      <div class="section-block" id="block-25">
+        <div class="sub-heading"><span>25. ZKコンプライアンスブリッジ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 25]</span></div>
+        <div class="sub-desc">個人情報を一切明かすことなく規制要件を満たしたトラストレス検証。</div>
+        <button id="btn-25" onclick="executeLiveFeature(25, 'ZKコンプライアンスブリッジ', 'Super 25')">ZKコンプライアンスブリッジ を実動アクティブ化</button>
+      </div>
+
+      <!-- 26 -->
+      <div class="section-block" id="block-26">
+        <div class="sub-heading"><span>26. ネイティブアセットエクスチェンジ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 26]</span></div>
+        <div class="sub-desc">仲介者を挟まずSatoshi Script上で直接アセットを高速交換するDEX。</div>
+        <button id="btn-26" onclick="executeLiveFeature(26, 'ネイティブアセットエクスチェンジ', 'Super 26')">ネイティブアセットエクスチェンジ を実動アクティブ化</button>
+      </div>
+
+      <!-- 27 -->
+      <div class="section-block" id="block-27">
+        <div class="sub-heading"><span>27. マルチメディア・インスクリプション</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 27]</span></div>
+        <div class="sub-desc">高精細4K映像や巨大3D空間データを分割し1サトシ単位で永久保存。</div>
+        <button id="btn-27" onclick="executeLiveFeature(27, 'マルチメディア・インスクリプション', 'Super 27')">マルチメディア・インスクリプション を実動アクティブ化</button>
+      </div>
+
+      <!-- 28 -->
+      <div class="section-block" id="block-28">
+        <div class="sub-heading"><span>28. リニアスケーリングルーター</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 28]</span></div>
+        <div class="sub-desc">ノード間データ伝播経路をダイナミックに再構築し遅延を完全相殺。</div>
+        <button id="btn-28" onclick="executeLiveFeature(28, 'リニアスケーリングルーター', 'Super 28')">リニアスケーリングルーター を実動アクティブ化</button>
+      </div>
+
+      <!-- 29 -->
+      <div class="section-block" id="block-29">
+        <div class="sub-heading"><span>29. マルチシグガバナンスコア</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 29]</span></div>
+        <div class="sub-desc">複数組織間の意思決定と資金移動を完全なオンチェーンで自動執行。</div>
+        <button id="btn-29" onclick="executeLiveFeature(29, 'マルチシグガバナンスコア', 'Super 29')">マルチシグガバナンスコア を実動アクティブ化</button>
+      </div>
+
+      <!-- 30 -->
+      <div class="section-block" id="block-30">
+        <div class="sub-heading"><span>30. M2Mトリビューター経済圏</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 30]</span></div>
+        <div class="sub-desc">世界中のIoTデバイスやセンサーが自律的にサトシを支払いデータ売買。</div>
+        <button id="btn-30" onclick="executeLiveFeature(30, 'M2Mトリビューター経済圏', 'Super 30')">M2Mトリビューター経済圏 を実動アクティブ化</button>
+      </div>
+
+      <!-- 31 -->
+      <div class="section-block" id="block-31">
+        <div class="sub-heading"><span>31. P2Pネームスペースレジストリ</span><span style="font-size:6px; color:var(--accent
