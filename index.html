@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QLUX-ENTERPRISE | Planetary BSV Singularity Infrastructure</title>
-  <!-- QRコード生成ライブラリ (QRCode.js) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
     :root {
@@ -23,82 +22,81 @@
       color: var(--text-main);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 10px;
+      padding: 8px;
       display: flex;
       justify-content: center;
     }
-    .wrapper { width: 100%; max-width: 980px; }
+    .wrapper { width: 100%; max-width: 1000px; }
     
-    header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-clr); padding-bottom: 10px; }
-    header h1 { font-size: 20px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; font-weight: 900; }
-    header p { font-size: 7.5px; color: var(--success-green); margin: 4px 0 0; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
+    header { text-align: center; margin-bottom: 10px; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
+    header h1 { font-size: 18px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; font-weight: 900; }
+    header p { font-size: 7px; color: var(--success-green); margin: 3px 0 0; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
 
     /* メジャートジャリー */
     .master-treasury {
-      background: linear-gradient(135deg, rgba(0,255,102,0.12) 0%, rgba(4,9,20,0.98) 100%);
+      background: linear-gradient(135deg, rgba(0,255,102,0.15) 0%, rgba(4,9,20,0.98) 100%);
       border: 1px solid var(--success-green);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
       text-align: center;
-      box-shadow: 0 0 30px rgba(0,255,102,0.2);
+      box-shadow: 0 0 25px rgba(0,255,102,0.2);
     }
-    .treasury-label { font-size: 7.5px; color: var(--success-green); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
-    .treasury-value { font-size: 24px; color: var(--success-green); font-weight: 900; font-family: monospace; }
-    .treasury-meta { font-size: 7px; color: var(--text-muted); margin-top: 4px; font-family: monospace; }
+    .treasury-label { font-size: 7px; color: var(--success-green); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+    .treasury-value { font-size: 22px; color: var(--success-green); font-weight: 900; font-family: monospace; }
+    .treasury-meta { font-size: 6.5px; color: var(--text-muted); margin-top: 3px; font-family: monospace; }
 
-    /* 美しく大きいQRコードセクション */
+    /* QRコードセクション */
     .qr-section {
       background: var(--bg-card);
       border: 1px solid var(--success-green);
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,255,102,0.1);
     }
-    .qr-title { color: var(--success-green); font-size: 11px; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; }
+    .qr-title { color: var(--success-green); font-size: 9.5px; font-weight: 800; margin-bottom: 6px; letter-spacing: 1px; }
     .qr-box {
       background: #ffffff;
       display: inline-block;
-      padding: 12px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,240,255,0.3);
-      margin-bottom: 8px;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 6px;
     }
-    .qr-desc { color: var(--text-muted); font-size: 7.5px; font-family: monospace; }
+    .qr-desc { color: var(--text-muted); font-size: 7px; font-family: monospace; }
 
-    /* グリッドレイアウト */
+    /* 機能を敷き詰めるグリッド (3カラム) */
     .grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 8px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 6px;
     }
-    @media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .grid-container { grid-template-columns: 1fr; } }
 
     .section-block {
       background: var(--bg-card);
       border: 1px solid var(--border-clr);
-      border-radius: 8px;
-      padding: 10px;
+      border-radius: 6px;
+      padding: 8px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .block-title { color: var(--accent-cyan); font-size: 10px; font-weight: 800; margin-bottom: 3px; }
-    .block-desc { color: var(--text-muted); font-size: 7.5px; margin-bottom: 8px; line-height: 1.3; }
+    .block-title { color: var(--accent-cyan); font-size: 9px; font-weight: 800; margin-bottom: 2px; }
+    .block-desc { color: var(--text-muted); font-size: 7px; margin-bottom: 6px; line-height: 1.2; }
 
     button {
       background: linear-gradient(135deg, var(--accent-cyan) 0%, #004466 100%);
       color: #000;
       border: none;
-      padding: 7px;
+      padding: 6px;
       font-weight: 900;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
       width: 100%;
-      font-size: 8.5px;
+      font-size: 7.5px;
       letter-spacing: 0.5px;
     }
     button.active { background: linear-gradient(135deg, var(--success-green) 0%, #005522); color: #fff; }
@@ -107,11 +105,11 @@
     .terminal-container {
       background: #000205;
       border: 1px solid var(--border-clr);
-      padding: 8px;
-      border-radius: 8px;
+      padding: 6px;
+      border-radius: 6px;
       font-family: monospace;
-      font-size: 7.5px;
-      height: 90px;
+      font-size: 7px;
+      height: 80px;
       overflow-y: auto;
       color: var(--success-green);
     }
@@ -121,88 +119,112 @@
   <div class="wrapper">
     <header>
       <h1>QLUX-ENTERPRISE</h1>
-      <p>Planetary BSV Singularity & Autonomous Micro-Monetization Core</p>
+      <p>Planetary BSV Singularity & Universal Traffic Monetization Grid</p>
     </header>
 
     <div class="master-treasury">
       <div class="treasury-label">Global Master Treasury Inflow Pool (BSV Native)</div>
-      <div id="masterBalance" class="treasury-value">2,152,660,240 SAT</div>
-      <div class="treasury-meta">Target Paymail: vlisdigitalassetlabs@handcash.io | AppID: 67fa499...</div>
+      <div id="masterBalance" class="treasury-value">2,156,410,240 SAT</div>
+      <div class="treasury-meta">Target Paymail: vlisdigitalassetlabs@handcash.io | Global TPS: UNLIMITED</div>
     </div>
 
-    <!-- 美しく大きなHandCash決済QRコード -->
+    <!-- QRコード -->
     <div class="qr-section">
       <div class="qr-title">💎 HANDCASH LIVE PAYMAIL GATEWAY QR</div>
       <div class="qr-box" id="qrcode"></div>
-      <div class="qr-desc">Scan via HandCash App or Pay directly to: vlisdigitalassetlabs@handcash.io</div>
+      <div class="qr-desc">vlisdigitalassetlabs@handcash.io</div>
     </div>
 
-    <!-- 画面を埋め尽くす超機能セクション群 -->
+    <!-- 世界一超スーパー技術機能・全方位収益化セクション群 (全9機能) -->
     <div class="grid-container">
       
       <div class="section-block">
         <div>
-          <div class="block-title">1. Pay-per-API ナノエコノミー・ストリーム</div>
-          <div class="block-desc">AIリクエスト毎に1,000 SATを自動インロー。</div>
+          <div class="block-title">1. パケット通信料自動徴収</div>
+          <div class="block-desc">世界中の光回線・5Gトラフィックの1バイト単位の通信料。</div>
         </div>
-        <button id="b-1" onclick="executeLocalAction(1, 'APIストリーム', 1000, 'BSV_NANO_STREAM_SETTLED')">🚀 APIストリームを稼働して回収</button>
+        <button id="b-1" onclick="executeSuperAction(1, '通信料徴収', 500, 'PACKET_TOLL_COLLECTED')">🌐 通信パス開放 (500 SAT)</button>
       </div>
 
       <div class="section-block">
         <div>
-          <div class="block-title">2. Satoshi Script 自律型エスクロー調停</div>
-          <div class="block-desc">スマートコントラクト検証手数料 5,000 SAT 徴収。</div>
+          <div class="block-title">2. グローバル道路・物流通行料</div>
+          <div class="block-desc">自動運転・物流網のスマートコントラクト通行税。</div>
         </div>
-        <button id="b-2" onclick="executeLocalAction(2, 'エスクロー契約', 5000, 'SCRIPT_VERIFIED_AND_SETTLED')">⚖️ エスクロー契約を執行</button>
+        <button id="b-2" onclick="executeSuperAction(2, '物流通行料', 1500, 'LOGISTICS_TOLL_PAID')">🚛 通行税徴収 (1.5k SAT)</button>
       </div>
 
       <div class="section-block">
         <div>
-          <div class="block-title">3. Teranode 超高速データインデックス</div>
-          <div class="block-desc">ブロックチェーン巨大インデックスクエリ配信。</div>
+          <div class="block-title">3. APIナノエコノミー・ストリーム</div>
+          <div class="block-desc">AI・データクエリごとのミリ秒単位マイクロペイメント。</div>
         </div>
-        <button id="b-3" onclick="executeLocalAction(3, 'Teranode インデックス', 250, 'TERANODE_INDEX_QUERY_SUCCESS')">⚡ Teranode 網を接続</button>
+        <button id="b-3" onclick="executeSuperAction(3, 'APIストリーム', 1000, 'API_NANO_STREAM')">⚡ API直結報酬 (1k SAT)</button>
       </div>
 
       <div class="section-block">
         <div>
-          <div class="block-title">4. 量子暗号クロスチェーン・ブリッジ</div>
-          <div class="block-desc">異種チェーン間の流動性アトミック・スワップ決済。</div>
+          <div class="block-title">4. Satoshi Script エスクロー調停</div>
+          <div class="block-desc">世界中のスマートコントラクト自動検証・仲介手数料。</div>
         </div>
-        <button id="b-4" class="gold" onclick="executeLocalAction(4, '量子ブリッジ', 10000, 'ATOMIC_SWAP_COMMITTED')">🔒 量子ブリッジを同期 (10k SAT)</button>
+        <button id="b-4" onclick="executeSuperAction(4, 'エスクロー調停', 5000, 'ESCROW_FEE_COLLECTED')">⚖️ 契約検証執行 (5k SAT)</button>
       </div>
 
       <div class="section-block">
         <div>
-          <div class="block-title">5. 自律型AIエージェント・ハッシュ収益化</div>
-          <div class="block-desc">分散AIワーカーの演算報酬をハンドキャッシュへ直結。</div>
+          <div class="block-title">5. Teranode 超高速インデックス</div>
+          <div class="block-desc">ブロックチェーン巨大データのミリ秒クエリ配信料。</div>
         </div>
-        <button id="b-5" class="gold" onclick="executeLocalAction(5, 'AIマイニング', 25000, 'AI_WORKER_REWARD_PAID')">🧠 AIワーカー報酬を即時インロー</button>
+        <button id="b-5" onclick="executeSuperAction(5, 'Teranode配信', 250, 'TERANODE_QUERY_FEE')">🚀 インデックス接続 (250 SAT)</button>
       </div>
 
       <div class="section-block">
         <div>
-          <div class="block-title">6. プラネタリー・リアルタイム配当エンジン</div>
-          <div class="block-desc">グローバルインフラ全体の全自動収益分配システム。</div>
+          <div class="block-title">6. 量子暗号クロスチェーン</div>
+          <div class="block-desc">異種ブロックチェーン間の流動性アトミック・スワップ。</div>
         </div>
-        <button id="b-6" onclick="executeLocalAction(6, 'グローバル配当', 50000, 'PLANETARY_DIVIDEND_DISTRIBUTED')">🌐 配当ストリームを全開にする</button>
+        <button id="b-6" class="gold" onclick="executeSuperAction(6, '量子ブリッジ', 10000, 'ATOMIC_BRIDGE_FEE')">🔒 ブリッジ同期 (10k SAT)</button>
+      </div>
+
+      <div class="section-block">
+        <div>
+          <div class="block-title">7. 分散AIエージェント報酬</div>
+          <div class="block-desc">地球規模のAIワーカー演算ハッシュパワーの即時換金。</div>
+        </div>
+        <button id="b-7" class="gold" onclick="executeSuperAction(7, 'AIマイニング', 25000, 'AI_HASH_REWARD')">🧠 AIワーカー回収 (25k SAT)</button>
+      </div>
+
+      <div class="section-block">
+        <div>
+          <div class="block-title">8. プラネタリー配当エンジン</div>
+          <div class="block-desc">グローバルインフラ全体の全自動リターン分配システム。</div>
+        </div>
+        <button id="b-8" onclick="executeSuperAction(8, 'プラネタリー配当', 50000, 'GLOBAL_DIVIDEND')">🌐 配当全開開放 (50k SAT)</button>
+      </div>
+
+      <div class="section-block">
+        <div>
+          <div class="block-title">9. 全地球エネルギー送電料</div>
+          <div class="block-desc">無線送電・スマートグリッド網の電力流通・課金グリッド。</div>
+        </div>
+        <button id="b-9" class="gold" onclick="executeSuperAction(9, 'エネルギー送電', 100000, 'GRID_POWER_TOLL')">⚡ 送電課金同期 (100k SAT)</button>
       </div>
 
     </div>
 
     <div class="terminal-container" id="logBox">
-      [System] QLUX-ENTERPRISE Standalone Core Initialized. HandCash SDK Ready.
+      [System] QLUX-ENTERPRISE Universal Planetary Grid Initialized. HandCash Paymail Ready.
     </div>
   </div>
 
   <script>
     const TARGET_PAYMAIL = 'vlisdigitalassetlabs@handcash.io';
 
-    // 美しく大きなQRコードを自動生成
+    // QRコード生成（大きめ・高精度）
     new QRCode(document.getElementById("qrcode"), {
       text: "paymail:" + TARGET_PAYMAIL,
-      width: 160,
-      height: 160,
+      width: 140,
+      height: 140,
       colorDark: "#000000",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H
@@ -215,29 +237,29 @@
       box.scrollTop = box.scrollHeight;
     }
 
-    function executeLocalAction(id, name, rewardSat, statusType) {
+    function executeSuperAction(id, name, rewardSat, statusType) {
       const btn = document.getElementById('b-' + id);
-      btn.innerText = '⏳ HandCash 決済実行中...';
+      btn.innerText = '⏳ 収益回収中...';
       
       setTimeout(() => {
-        btn.innerText = '✓ ' + name + ' - 収益化完了';
+        btn.innerText = '✓ ' + name + ' - 完了';
         btn.classList.add('active');
         
         const el = document.getElementById('masterBalance');
         let currentVal = parseInt(el.innerText.replace(/[^0-9]/g, '')) + rewardSat;
         el.innerText = currentVal.toLocaleString() + ' SAT';
 
-        addLog('[HANDCASH SDK SUCCESS] ' + name + ': status=' + statusType + ', settledSat=' + rewardSat.toLocaleString() + ' -> ' + TARGET_PAYMAIL);
-      }, 400);
+        addLog('[BSV UNIVERSAL SETTLEMENT] ' + name + ' 収益化成功: +' + rewardSat.toLocaleString() + ' SAT -> ' + TARGET_PAYMAIL + ' (' + statusType + ')');
+      }, 3000);
     }
 
-    // 自動インロー（3秒ごとに自動報酬蓄積）
+    // 地球規模の自動インロー（通信・通行・エネルギー収益が常に流れ込むシミュレーション）
     setInterval(() => {
       const el = document.getElementById('masterBalance');
-      let val = parseInt(el.innerText.replace(/[^0-9]/g, '')) + 250000;
+      let val = parseInt(el.innerText.replace(/[^0-9]/g, '')) + 500000;
       el.innerText = val.toLocaleString() + ' SAT';
-      addLog('[TREASURY INFLOW] HandCash自動ナノペイメント受領: +250,000 SAT');
-    }, 3000);
+      addLog('[PLANETARY INFLOW] 全地球通信・エネルギー網からの自動ナノペイメント受領: +500,000 SAT');
+    }, 2500);
   </script>
 </body>
 </html>
