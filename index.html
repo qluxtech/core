@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX OMNIVERSE - Planetary Singularity Core</title>
+  <title>Q-LUX ENTERPRISE - Global Economic Singularity Core</title>
   <style>
     :root {
       --bg-main: #000103;
-      --bg-panel: #02050b;
-      --border-clr: #09192c;
+      --bg-panel: #030712;
+      --border-clr: #0b2239;
       --accent-cyan: #00f0ff;
       --accent-glow: rgba(0,240,255,0.4);
       --text-main: #f8fafc;
@@ -31,28 +31,26 @@
     .header h1 { font-size: 14px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 25px var(--accent-glow); }
     .header p { font-size: 7px; color: var(--success-green); margin: 4px 0 0; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; }
 
-    /* プラネタリー・シングラリティ・トレジャリー */
     .treasury-box {
-      background: linear-gradient(135deg, rgba(0,255,102,0.12) 0%, rgba(2,5,11,0.98) 100%);
+      background: linear-gradient(135deg, rgba(0,255,102,0.15) 0%, rgba(3,7,18,0.98) 100%);
       border: 1px solid var(--success-green);
       border-radius: 12px;
       padding: 12px;
       margin-bottom: 10px;
       text-align: center;
-      box-shadow: 0 0 40px rgba(0,255,102,0.2);
+      box-shadow: 0 0 40px rgba(0,255,102,0.25);
     }
     .treasury-title { font-size: 6.5px; color: var(--success-green); font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
     .treasury-amount { font-size: 16px; color: var(--success-green); font-weight: 900; text-shadow: 0 0 15px rgba(0,255,102,0.4); }
     .treasury-sub { font-size: 5px; color: var(--text-muted); margin-top: 3px; font-family: monospace; }
 
-    /* サイバーグリッド・重力吸収アニメーション */
     .canvas-container {
-      background: #010306;
+      background: #010307;
       border: 1px solid var(--border-clr);
       border-radius: 10px;
       margin-bottom: 10px;
       overflow: hidden;
-      height: 65px;
+      height: 60px;
       position: relative;
     }
     canvas { display: block; width: 100%; height: 100%; }
@@ -77,11 +75,11 @@
       border-radius: 12px;
       padding: 12px;
       margin-bottom: 10px;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
     }
 
-    .singularity-alert {
-      background: linear-gradient(135deg, rgba(0,240,255,0.06) 0%, rgba(2,5,11,0.95) 100%);
+    .supremacy-alert {
+      background: linear-gradient(135deg, rgba(0,240,255,0.06) 0%, rgba(3,7,18,0.95) 100%);
       border: 1px solid rgba(0,240,255,0.3);
       border-radius: 8px;
       padding: 9px;
@@ -90,10 +88,10 @@
       line-height: 1.4;
       color: #cbd5e1;
     }
-    .singularity-alert b { color: var(--accent-cyan); letter-spacing: 0.5px; }
+    .supremacy-alert b { color: var(--accent-cyan); letter-spacing: 0.5px; }
 
     .section-block {
-      background: #010307;
+      background: #010409;
       border: 1px solid var(--border-clr);
       border-radius: 8px;
       padding: 9px;
@@ -118,8 +116,8 @@
     }
 
     button {
-      background: linear-gradient(135deg, var(--accent-cyan) 0%, #004466 100%);
-      color: #000103;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, #005577 100%);
+      color: #000205;
       border: none;
       padding: 7.5px;
       font-weight: 800;
@@ -132,7 +130,7 @@
       box-shadow: 0 0 12px rgba(0,240,255,0.2);
     }
     button:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
-    button.executing { background: linear-gradient(135deg, var(--success-green) 0%, #005522) !important; color: #000; box-shadow: 0 0 15px rgba(0,255,102,0.4); }
+    button.executing { background: linear-gradient(135deg, var(--success-green) 0%, #006622) !important; color: #000; box-shadow: 0 0 15px rgba(0,255,102,0.4); }
 
     .log-box {
       background: #000103;
@@ -152,46 +150,45 @@
 <body>
   <div class="wrapper">
     <div class="header">
-      <h1>Q-LUX OMNIVERSE</h1>
-      <p>PLANETARY ECONOMIC SINGULARITY CORE</p>
+      <h1>Q-LUX ENTERPRISE</h1>
+      <p>GLOBAL ECONOMIC SINGULARITY CORE</p>
     </div>
 
     <div class="treasury-box">
-      <div class="treasury-title">Global Absorbed Liquidity & Sovereign Ingestion</div>
-      <div id="treasuryRev" class="treasury-amount">999,999,999,999 SAT</div>
-      <div class="treasury-sub">Absolute Ingestion HandCash: vlisdigitalassetlabs@handcash.io</div>
+      <div class="treasury-title">Global Absorbed Corporate Liquidity Pool</div>
+      <div id="treasuryRev" class="treasury-amount">1,003,555,555,551 SAT</div>
+      <div class="treasury-sub">Mandatory HandCash Gateway: vlisdigitalassetlabs@handcash.io</div>
     </div>
 
-    <!-- 重力吸収ネットワークアニメーション -->
     <div class="canvas-container">
       <canvas id="netCanvas"></canvas>
     </div>
 
     <div class="stats-grid">
       <div class="stat-item">
-        <div>GLOBAL ABSORPTION</div>
-        <div style="color:var(--success-green);">100% INGESTED</div>
+        <div>GLOBAL INGESTION</div>
+        <div style="color:var(--success-green);">100% FORCED</div>
       </div>
       <div class="stat-item">
-        <div>FRICTION LOSS</div>
-        <div style="color:var(--accent-cyan);">0.00000%</div>
+        <div>ACTIVE NODES</div>
+        <div id="nodeCount">34,891,204</div>
       </div>
       <div class="stat-item">
-        <div>EXECUTION SPEED</div>
-        <div style="color:var(--success-green);">0.0001ms</div>
+        <div>SETTLEMENT SPEED</div>
+        <div style="color:var(--accent-cyan);">0.0001ms</div>
       </div>
     </div>
 
     <div class="master-card">
-      <div class="singularity-alert">
-        ⚡ <b>全経済吸収エンジン（Singularity Engine）稼働中：</b><br>
-        地球上のあらゆる企業・金融資本・サプライチェーンがこのレイヤーに直結され、従来の決済・中継手数料のすべてがこの中枢へ一極集中します。
+      <div class="supremacy-alert">
+        ⚡ <b>絶対的経済求心エンジン稼働中：</b><br>
+        地球上の全企業の決済データ、資産、サプライチェーンがこのレイヤーへ強制吸着され、クリックによるリアルタイム実行で各セクターの富が即時統合されます。
       </div>
 
       <!-- 0 -->
       <div class="section-block" id="block-0">
         <div class="sub-heading"><span>0. グローバル金融・SWIFT網 完全包摂コア</span><span style="font-size:5.5px; color:var(--success-green);">[Singularity Zero]</span></div>
-        <div class="sub-desc">既存の国際送金網を完全に迂回・無効化し、すべての企業間決済を直接飲み込む。</div>
+        <div class="sub-desc">旧来の国際送金網を完全に迂回・無効化し、すべての企業間決済リキディティを直結吸収。</div>
         <button id="btn-0" onclick="executeFeature(0, 'グローバル金融・SWIFT網 完全包摂コア', 'Singularity Zero')">旧金融網の全リキディティを即時吸収する</button>
       </div>
 
@@ -206,7 +203,7 @@
       <div class="section-block" id="block-2">
         <div class="sub-heading"><span>2. テラビット企業資産リアルタイム同期インデックス</span><span style="font-size:5.5px; color:var(--accent-cyan);">[Teranode Core]</span></div>
         <div class="sub-desc">世界中の全企業の株価・在庫・アセット価値を単一の超高速元帳上で完全掌握。</div>
-        <div class="code-tag">PLANETARY-SINGULARITY-v999.conf</div>
+        <div class="code-tag">GLOBAL-ENTERPRISE-SINGULARITY-v999.conf</div>
         <button id="btn-2" onclick="executeFeature(2, 'テラビット企業資産リアルタイム同期インデックス', 'Teranode Core')">全企業アセット同期マスターを全開駆動 (500k SAT)</button>
       </div>
 
@@ -219,8 +216,8 @@
     </div>
 
     <div class="master-card" style="padding: 10px;">
-      <div class="sub-heading" style="margin-bottom: 4px;"><span>プラネタリー吸収監査ログ</span></div>
-      <div id="log" class="log-box">[10:00:00] SINGULARITY CORE ONLINE. All planetary financial channels successfully ingested. HandCash ready.</div>
+      <div class="sub-heading" style="margin-bottom: 4px;"><span>エンタープライズ吸収監査ログ</span></div>
+      <div id="log" class="log-box">[10:03:00] Q-LUX ENTERPRISE CORE ONLINE. Global corporate channels fully ingested. HandCash ready.</div>
     </div>
   </div>
 
@@ -235,19 +232,19 @@
     resizeCanvas();
 
     const particles = [];
-    for(let i=0; i<35; i++) {
+    for(let i=0; i<30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 1.5,
-        vy: (Math.random() - 0.5) * 1.5
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2
       });
     }
 
     function animateNetwork() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = 'rgba(0, 255, 102, 0.25)';
-      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = 'rgba(0, 255, 102, 0.3)';
+      ctx.lineWidth = 1;
 
       for(let i=0; i<particles.length; i++) {
         let p = particles[i];
@@ -256,12 +253,12 @@
         if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
         ctx.fillStyle = '#00f0ff';
-        ctx.fillRect(p.x, p.y, 3, 3);
+        ctx.fillRect(p.x, p.y, 2.5, 2.5);
 
         for(let j=i+1; j<particles.length; j++) {
           let p2 = particles[j];
           let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if(dist < 75) {
+          if(dist < 70) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -284,20 +281,24 @@
       const btn = document.getElementById(`btn-${id}`);
       const block = document.getElementById(`block-${id}`);
       
-      btn.innerText = "✓ 全地球資本の食らい尽くし完了 (100%)";
+      btn.innerText = "✓ 全企業セクター包摂・完了 (100%)";
       btn.classList.add('executing');
       block.classList.add('active');
 
-      addLog(`⚡ [SINGULARITY] #${id} ${name} (${tag}) により、対象セクターの全経済流動性が完全吸収されました。`);
+      addLog(`⚡ [ENTERPRISE_CORE] #${id} ${name} (${tag}) により、対象セクターの全資本が強制同期されました。`);
       setTimeout(() => {
-        addLog(`✓ [INGESTION] グローバル中枢へのリキディティ完全統合が秒速で確定しました。`);
+        addLog(`✓ [INGESTION] Q-LUX中枢へのリキディティ完全統合と即時決済が完了しました。`);
       }, 500);
     }
 
     setInterval(() => {
       const revElem = document.getElementById('treasuryRev');
-      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 888888888;
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 77777777;
       revElem.innerText = currentVal.toLocaleString() + ' SAT';
+
+      const nodeElem = document.getElementById('nodeCount');
+      let nodeVal = parseInt(nodeElem.innerText.replace(/[^0-9]/g, '')) + 124;
+      nodeElem.innerText = nodeVal.toLocaleString();
     }, 2500);
   </script>
 </body>
