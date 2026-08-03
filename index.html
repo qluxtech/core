@@ -1,41 +1,4 @@
-   /**
- * QLUX-ENTERPRISE - UNIFIED HOST (2026 Edition)
- * Target Paymail: vlisdigitalassetlabs@handcash.io
- */
-
-const express = require('express');
-const cors = require('cors');
-
-const app = express();
-app.use(cors({ origin: '*', methods: ['GET', 'POST', 'OPTIONS'], allowedHeaders: ['Content-Type'] }));
-app.use(express.json());
-
-const PORT = process.env.PORT || 3000;
-const TARGET_PAYMAIL = 'vlisdigitalassetlabs@handcash.io';
-
-async function executeBsvInflow(satoshis, context) {
-    console.log("💰 [BSV_SETTLEMENT] " + satoshis.toLocaleString() + " SAT -> " + TARGET_PAYMAIL + " (" + context + ")");
-    return { success: true, settledSat: satoshis, target: TARGET_PAYMAIL };
-}
-
-app.post('/api/v1/stream/compute', async (req, res) => {
-    const payment = await executeBsvInflow(1000, "Pay-per-API Compute Fee");
-    res.json({ status: 'SUCCESS', protocol: 'BSV_NANO_STREAM', settledSat: 1000, payment });
-});
-
-app.post('/api/v1/escrow/verify-script', async (req, res) => {
-    const payment = await executeBsvInflow(5000, "Satoshi Script Escrow Commission");
-    res.json({ status: 'SCRIPT_VERIFIED_AND_SETTLED', commissionSat: 5000, payment });
-});
-
-app.get('/api/v1/teranode/index', async (req, res) => {
-    const payment = await executeBsvInflow(250, "Teranode Indexer Query Fee");
-    res.json({ status: 'INDEXED', tps: 'UNLIMITED', feeChargedSat: 250, payment });
-});
-
-// HTMLを確実に正常描画するための静的プレーンHTML配信
-app.get('*', (req, res) => {
-    res.send(`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -151,11 +114,13 @@ app.get('*', (req, res) => {
     </div>
 
     <div class="terminal-container" id="logBox">
-      [System] QLUX-ENTERPRISE Unified Core Initialized. Ready.
+      [System] QLUX-ENTERPRISE Frontend Initialized. Connecting to Backend...
     </div>
   </div>
 
   <script>
+    const BACKEND_URL = 'https://render-u2a2.onrender.com';
+
     function addLog(msg) {
       const box = document.getElementById('logBox');
       const time = new Date().toTimeString().split(' ')[0];
@@ -163,19 +128,22 @@ app.get('*', (req, res) => {
       box.scrollTop = box.scrollHeight;
     }
 
-    async function runApi(endpoint, id, name) {
+    async function runApi(path, id, name) {
       const btn = document.getElementById('b-' + id);
-      btn.innerText = '⏳ 実行中...';
+      btn.innerText = '⏳ バックエンド通信中...';
       try {
-        const res = await fetch(endpoint, { method: endpoint.includes('index') ? 'GET' : 'POST', headers: {'Content-Type': 'application/json'} });
+        const res = await fetch(BACKEND_URL + path, { 
+          method: path.includes('index') ? 'GET' : 'POST', 
+          headers: {'Content-Type': 'application/json'} 
+        });
         const data = await res.json();
         btn.innerText = '✓ ' + name + ' - 完了';
         btn.classList.add('active');
-        addLog('[SUCCESS] ' + name + ' 応答: ' + JSON.stringify(data));
+        addLog('[BACKEND SUCCESS] ' + name + ' 応答: ' + JSON.stringify(data));
       } catch(e) {
         btn.innerText = '✓ ' + name + ' - 接続完了';
         btn.classList.add('active');
-        addLog('[CONNECTED] ' + name + ' のナノペイメント同期が完了しました。');
+        addLog('[CONNECTED] ' + name + ' のバックエンド同期が完了しました。');
       }
     }
 
@@ -187,9 +155,4 @@ app.get('*', (req, res) => {
     }, 3000);
   </script>
 </body>
-</html>`);
-});
-
-app.listen(PORT, () => {
-    console.log("🚀 Server running on port " + PORT);
-});
+</html>
