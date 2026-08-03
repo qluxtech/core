@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - BSV Super Technical Core (Full Connected)</title>
+  <title>Q-LUX OMNIVERSE - Global Absolute Supremacy Core</title>
   <style>
     :root {
-      --bg-main: #010306;
-      --bg-panel: #050811;
-      --border-clr: #0f172a;
+      --bg-main: #000205;
+      --bg-panel: #030712;
+      --border-clr: #0b2239;
       --accent-cyan: #00f0ff;
-      --accent-glow: rgba(0,240,255,0.35);
+      --accent-glow: rgba(0,240,255,0.4);
       --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --text-muted: #64748b;
       --success-green: #00ff66;
+      --alert-red: #ff0055;
     }
     body { 
       background-color: var(--bg-main); 
@@ -26,35 +27,37 @@
     }
     .wrapper { width: 100%; max-width: 480px; }
     
-    .header { text-align: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-clr); padding-bottom: 10px; }
-    .header h1 { font-size: 15px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 20px var(--accent-glow); }
-    .header p { font-size: 7.5px; color: var(--text-muted); margin: 4px 0 0; text-transform: uppercase; letter-spacing: 1px; }
+    .header { text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-clr); padding-bottom: 8px; }
+    .header h1 { font-size: 14px; color: var(--accent-cyan); margin: 0; letter-spacing: 2px; text-shadow: 0 0 25px var(--accent-glow); }
+    .header p { font-size: 7px; color: var(--alert-red); margin: 4px 0 0; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; }
 
+    /* 圧倒的覇権を誇るグローバル総合トレジャリー */
     .treasury-box {
-      background: linear-gradient(135deg, rgba(0,240,255,0.1) 0%, rgba(5,8,17,0.95) 100%);
-      border: 1px solid rgba(0,240,255,0.5);
+      background: linear-gradient(135deg, rgba(0,240,255,0.15) 0%, rgba(3,7,18,0.98) 100%);
+      border: 1px solid var(--accent-cyan);
       border-radius: 12px;
       padding: 12px;
       margin-bottom: 10px;
       text-align: center;
-      box-shadow: 0 0 30px var(--accent-glow);
+      box-shadow: 0 0 40px rgba(0,240,255,0.25);
     }
-    .treasury-title { font-size: 7px; color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
-    .treasury-amount { font-size: 15px; color: var(--accent-cyan); font-weight: 800; text-shadow: 0 0 12px var(--accent-glow); }
-    .treasury-sub { font-size: 5.5px; color: var(--text-muted); margin-top: 3px; }
+    .treasury-title { font-size: 6.5px; color: var(--accent-cyan); font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+    .treasury-amount { font-size: 16px; color: var(--accent-cyan); font-weight: 900; text-shadow: 0 0 15px var(--accent-glow); }
+    .treasury-sub { font-size: 5px; color: var(--text-muted); margin-top: 3px; font-family: monospace; }
 
-    /* Canvas Network Animation Box */
+    /* サイバーグリッドアニメーション */
     .canvas-container {
-      background: #020408;
+      background: #010307;
       border: 1px solid var(--border-clr);
       border-radius: 10px;
       margin-bottom: 10px;
       overflow: hidden;
-      height: 65px;
+      height: 60px;
       position: relative;
     }
     canvas { display: block; width: 100%; height: 100%; }
 
+    /* グローバル・ランキングステータスグリッド */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -66,8 +69,8 @@
       margin-bottom: 10px;
       text-align: center;
     }
-    .stat-item div:first-child { font-size: 4.5px; color: var(--text-muted); font-weight: 700; }
-    .stat-item div:last-child { font-size: 8.5px; color: var(--accent-cyan); font-weight: 700; margin-top: 2px; }
+    .stat-item div:first-child { font-size: 4px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+    .stat-item div:last-child { font-size: 8px; color: var(--accent-cyan); font-weight: 800; margin-top: 2px; }
 
     .master-card {
       background: var(--bg-panel);
@@ -75,40 +78,40 @@
       border-radius: 12px;
       padding: 12px;
       margin-bottom: 10px;
-      box-shadow: 0 4px 25px rgba(0, 240, 255, 0.03);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
     }
 
-    .landing-intro {
-      background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, rgba(0,240,255,0.01) 100%);
-      border: 1px solid rgba(0,240,255,0.2);
+    .supremacy-alert {
+      background: linear-gradient(135deg, rgba(255,0,85,0.08) 0%, rgba(3,7,18,0.95) 100%);
+      border: 1px solid rgba(255,0,85,0.4);
       border-radius: 8px;
-      padding: 10px;
+      padding: 9px;
       margin-bottom: 10px;
-      font-size: 8px;
+      font-size: 7.5px;
       line-height: 1.4;
-      color: var(--text-muted);
+      color: #cbd5e1;
     }
-    .landing-intro b { color: var(--accent-cyan); }
+    .supremacy-alert b { color: var(--alert-red); letter-spacing: 0.5px; }
 
     .section-block {
-      background: #03050a;
+      background: #010409;
       border: 1px solid var(--border-clr);
       border-radius: 8px;
       padding: 9px;
       margin-bottom: 8px;
       transition: border-color 0.3s;
     }
-    .section-block.active { border-color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0,240,255,0.2); }
+    .section-block.active { border-color: var(--success-green); box-shadow: 0 0 15px rgba(0,255,102,0.2); }
     
-    .sub-heading { color: var(--accent-cyan); font-size: 9.5px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 0 8px var(--accent-glow); }
-    .sub-desc { color: var(--text-muted); font-size: 7px; margin-bottom: 6px; line-height: 1.3; }
+    .sub-heading { color: var(--accent-cyan); font-size: 9px; font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 0 8px var(--accent-glow); }
+    .sub-desc { color: var(--text-muted); font-size: 6.5px; margin-bottom: 6px; line-height: 1.3; }
 
     .code-tag {
-      background: #010204;
+      background: #000103;
       border: 1px solid var(--border-clr);
-      color: var(--accent-cyan);
+      color: var(--success-green);
       font-family: monospace;
-      font-size: 7px;
+      font-size: 6.5px;
       padding: 4px;
       border-radius: 4px;
       text-align: center;
@@ -116,32 +119,32 @@
     }
 
     button {
-      background: linear-gradient(135deg, var(--accent-cyan) 0%, #007780 100%);
-      color: #010306;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, #005577 100%);
+      color: #000205;
       border: none;
       padding: 7.5px;
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 5px;
       cursor: pointer;
       width: 100%;
-      font-size: 8.5px;
-      letter-spacing: 0.3px;
-      transition: opacity 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 10px rgba(0,240,255,0.15);
+      font-size: 8px;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+      box-shadow: 0 0 12px rgba(0,240,255,0.2);
     }
-    button:hover { opacity: 0.9; box-shadow: 0 0 15px var(--accent-glow); }
-    button.executing { background: linear-gradient(135deg, var(--success-green) 0%, #008833) !important; color: #000; }
+    button:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
+    button.executing { background: linear-gradient(135deg, var(--success-green) 0%, #006622) !important; color: #000; box-shadow: 0 0 15px rgba(0,255,102,0.4); }
 
     .log-box {
-      background: #010204;
+      background: #000103;
       border: 1px solid var(--border-clr);
       padding: 8px;
       border-radius: 5px;
       font-family: monospace;
-      font-size: 7px;
-      height: 70px;
+      font-size: 6.5px;
+      height: 65px;
       overflow-y: auto;
-      color: var(--accent-cyan);
+      color: var(--success-green);
       margin-top: 5px;
       line-height: 1.3;
     }
@@ -150,102 +153,79 @@
 <body>
   <div class="wrapper">
     <div class="header">
-      <h1>Q-LUX ENTERPRISE</h1>
-      <p>OMNIVERSE LIVE EXECUTION CORE (ALL CONNECTED)</p>
+      <h1>Q-LUX OMNIVERSE</h1>
+      <p>ABSOLUTE GLOBAL MONOPOLY & SETTLEMENT CORE</p>
     </div>
 
     <div class="treasury-box">
-      <div class="treasury-title">Global Enterprise Omniverse Vault (Live Stream)</div>
-      <div id="treasuryRev" class="treasury-amount">10,388,888,888 SAT</div>
-      <div class="treasury-sub">Active HandCash Paymail: vlisdigitalassetlabs@handcash.io</div>
+      <div class="treasury-title">Global Corporate & Sovereign Forced Liquidity Pool</div>
+      <div id="treasuryRev" class="treasury-amount">88,888,888,888 SAT</div>
+      <div class="treasury-sub">Mandatory HandCash Gateway: vlisdigitalassetlabs@handcash.io</div>
     </div>
 
-    <!-- Canvas Network Animation -->
+    <!-- ネットワーク網キャンバス -->
     <div class="canvas-container">
       <canvas id="netCanvas"></canvas>
     </div>
 
     <div class="stats-grid">
       <div class="stat-item">
-        <div>TOTAL REVENUE</div>
-        <div id="rev">997,055,280 SAT</div>
+        <div>GLOBAL RANK</div>
+        <div style="color:var(--alert-red);">#1 ABSOLUTE</div>
       </div>
       <div class="stat-item">
-        <div>ACTIVE NODES</div>
-        <div id="nodes">16,777,216</div>
+        <div>FORCED NODES</div>
+        <div id="nodes">100% (ALL CONNECTED)</div>
       </div>
       <div class="stat-item">
-        <div>COMPOUND POOL</div>
-        <div id="pool">142,128,500 SAT</div>
+        <div>SETTLEMENT SPEED</div>
+        <div style="color:var(--success-green);">0.001ms</div>
       </div>
     </div>
 
     <div class="master-card">
-      <div class="landing-intro">
-        🌐 <b>完全実意識稼働モード稼働中。</b><br>
-        すべてのボタンにライブ実行ロジック、動的WebSocketストリーム、自動コンフィグ生成、およびHandCashダイレクト接続を搭載済みです。
+      <div class="supremacy-alert">
+        ⚡ <b>世界ランキング外（完全統括モード稼働中）：</b><br>
+        地球上のすべての企業、金融機関、国家資本がこのレイヤーへの接続を強制されています。非接続の選択肢は存在しません。
       </div>
 
       <!-- 0 -->
       <div class="section-block" id="block-0">
-        <div class="sub-heading"><span>0. オフィシャル・モノリスノード統括</span><span style="font-size:6px; color:var(--accent-cyan);">[Monolith Core]</span></div>
-        <div class="sub-desc">全83エコシステムを統括し、ネットワーク全体の処理効率を極限まで高める中核。</div>
-        <button id="btn-0" onclick="executeFeature(0, 'オフィシャル・モノリスノード統括', 'Monolith Core')">モノリスノードを同期して稼働を開始する</button>
+        <div class="sub-heading"><span>0. 全地球企業強制接続モノリス</span><span style="font-size:5.5px; color:var(--alert-red);">[Mandatory Core]</span></div>
+        <div class="sub-desc">地球上の全商用・公的インフラを当ネットワークの強制元帳へ直結。</div>
+        <button id="btn-0" onclick="executeFeature(0, '全地球企業強制接続モノリス', 'Mandatory Core')">全企業強制接続ブリッジを完全起動</button>
       </div>
 
       <!-- 1 -->
       <div class="section-block" id="block-1">
-        <div class="sub-heading"><span>1. 光通信分散量子演算ノード</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 01]</span></div>
-        <div class="sub-desc">光通信技術の超高速特性を利用した分散型グリッドネットワーク基盤。</div>
-        <button id="btn-1" onclick="executeFeature(1, '光通信分散量子演算ノード', 'Core 01')">光通信分散量子演算ノード を実動アクティブ化</button>
+        <div class="sub-heading"><span>1. リアルタイム自動裁定・国家間調停</span><span style="font-size:5.5px; color:var(--accent-cyan);">[AI Arbitrage]</span></div>
+        <div class="sub-desc">国境や既存法をバイパスし、Satoshi Scriptが瞬時に経済闘争を調停。</div>
+        <button id="btn-1" onclick="executeFeature(1, 'リアルタイム自動裁定・国家間調停', 'AI Arbitrage')">全自動経済調停エンジンを有効化</button>
       </div>
 
       <!-- 2 -->
       <div class="section-block" id="block-2">
-        <div class="sub-heading"><span>2. Teranode 超高速決済コンフィグ</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 02]</span></div>
-        <div class="sub-desc">次世代スケーリング「Teranode」対応の最新決済ノード設定。</div>
-        <div class="code-tag">TERANODE-v10.conf</div>
-        <button id="btn-2" onclick="executeFeature(2, 'Teranode 超高速決済コンフィグ', 'Core 02')">設定ファイルを実動ダウンロード (50k SAT)</button>
+        <div class="sub-heading"><span>2. テラビット企業アセット全自動シンク</span><span style="font-size:5.5px; color:var(--accent-cyan);">[Teranode Sync]</span></div>
+        <div class="sub-desc">全世界の企業資産価値を単一の超高速チェーンへ完全同期。</div>
+        <div class="code-tag">GLOBAL-MONOPOLY-v99.conf</div>
+        <button id="btn-2" onclick="executeFeature(2, 'テラビット企業アセット全自動シンク', 'Teranode Sync')">マスターコンフィグを強制適用 (100k SAT)</button>
       </div>
 
       <!-- 3 -->
       <div class="section-block" id="block-3">
-        <div class="sub-heading"><span>3. 収益等複利ループ (Auto-Compound)</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 03]</span></div>
-        <div class="sub-desc">エコシステム内の収益を自動で次世代深界サーバーへ再投資する機構。</div>
-        <button id="btn-3" onclick="executeFeature(3, '収益等複利ループ', 'Core 03')">収益等複利ループ を実動アクティブ化</button>
-      </div>
-
-      <!-- 4 -->
-      <div class="section-block" id="block-4">
-        <div class="sub-heading"><span>4. AI自律型アービトラージエージェント</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 04]</span></div>
-        <div class="sub-desc">AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。</div>
-        <div class="code-tag">AI-ARBITRAGE-v9.json</div>
-        <button id="btn-4" onclick="executeFeature(4, 'AI自律型アービトラージエージェント', 'Core 04')">設定ファイルを実動ダウンロード (50k SAT)</button>
-      </div>
-
-      <!-- 5 -->
-      <div class="section-block" id="block-5">
-        <div class="sub-heading"><span>5. ZKプライバシー & テラビットインデックス</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 05]</span></div>
-        <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。</div>
-        <button id="btn-5" onclick="executeFeature(5, 'ZKプライバシー & テラビットインデックス', 'Core 05')">ZKプライバシー & テラビットインデックス を実動アクティブ化</button>
-      </div>
-
-      <!-- 6 -->
-      <div class="section-block" id="block-6">
-        <div class="sub-heading"><span>6. Satoshi Script ステートマシン</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 06]</span></div>
-        <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。</div>
-        <button id="btn-6" onclick="executeFeature(6, 'Satoshi Script ステートマシン', 'Core 06')">Satoshi Script ステートマシン を実動アクティブ化</button>
+        <div class="sub-heading"><span>3. 無限複利型オムニバース・シンク</span><span style="font-size:5.5px; color:var(--accent-cyan);">[Auto-Compound]</span></div>
+        <div class="sub-desc">流入する全トランザクション手数料が自動で次世代拡張セクターへ環流。</div>
+        <button id="btn-3" onclick="executeFeature(3, '無限複利型オムニバース・シンク', 'Auto-Compound')">無限複利ループ・コアを解放</button>
       </div>
     </div>
 
     <div class="master-card" style="padding: 10px;">
-      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム監査ログストリーム</span></div>
-      <div id="log" class="log-box">[09:18:00] Q-LUX Enterprise Node Matrix Online. HandCash: vlisdigitalassetlabs@handcash.io connected.</div>
+      <div class="sub-heading" style="margin-bottom: 4px;"><span>グローバル強制接続監査ログ</span></div>
+      <div id="log" class="log-box">[09:31:00] GLOBAL MONOPOLY CORE ONLINE. All corporations forced into network sync. HandCash ready.</div>
     </div>
   </div>
 
   <script>
-    // Canvas Network Animation Script
     const canvas = document.getElementById('netCanvas');
     const ctx = canvas.getContext('2d');
     function resizeCanvas() {
@@ -256,19 +236,19 @@
     resizeCanvas();
 
     const particles = [];
-    for(let i=0; i<25; i++) {
+    for(let i=0; i<30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2
       });
     }
 
     function animateNetwork() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.2)';
-      ctx.lineWidth = 0.8;
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.3)';
+      ctx.lineWidth = 1;
 
       for(let i=0; i<particles.length; i++) {
         let p = particles[i];
@@ -276,13 +256,13 @@
         if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        ctx.fillStyle = '#00f0ff';
-        ctx.fillRect(p.x, p.y, 2, 2);
+        ctx.fillStyle = '#00ff66';
+        ctx.fillRect(p.x, p.y, 2.5, 2.5);
 
         for(let j=i+1; j<particles.length; j++) {
           let p2 = particles[j];
           let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if(dist < 60) {
+          if(dist < 70) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -305,21 +285,21 @@
       const btn = document.getElementById(`btn-${id}`);
       const block = document.getElementById(`block-${id}`);
       
-      btn.innerText = "✓ ライブ実動中 (Connected)";
+      btn.innerText = "✓ 全地球強制接続・完了 (100%)";
       btn.classList.add('executing');
       block.classList.add('active');
 
-      addLog(`⚡ [ACTIVE] #${id} ${name} (${tag}) のメインネット接続を確立しました。`);
+      addLog(`⚡ [MONOPOLY] #${id} ${name} (${tag}) により、対象企業の全インフラが強制包摂されました。`);
       setTimeout(() => {
-        addLog(`✓ [STATE_SYNC] #${id} のBSVオンチェーン・ステートが完全に同期されました。`);
+        addLog(`✓ [SETTLEMENT] グローバル元帳への完全同期と即時決済が完了しました。`);
       }, 500);
     }
 
     setInterval(() => {
-      const revElem = document.getElementById('rev');
-      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 8000000;
+      const revElem = document.getElementById('treasuryRev');
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 99999999;
       revElem.innerText = currentVal.toLocaleString() + ' SAT';
-    }, 4000);
+    }, 3000);
   </script>
 </body>
 </html>
