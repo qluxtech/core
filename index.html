@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-LUX ENTERPRISE - BSV Super Technical Core (Max 60)</title>
+  <title>Q-LUX ENTERPRISE - BSV Super Technical Core (Optimized 40)</title>
   <style>
     :root {
       --bg-main: #010306;
@@ -43,17 +43,6 @@
     .treasury-amount { font-size: 15px; color: var(--accent-cyan); font-weight: 800; text-shadow: 0 0 12px var(--accent-glow); }
     .treasury-sub { font-size: 5.5px; color: var(--text-muted); margin-top: 3px; }
 
-    .net-box {
-      background: var(--bg-panel);
-      border: 1px solid var(--border-clr);
-      border-radius: 10px;
-      height: 60px;
-      overflow: hidden;
-      margin-bottom: 10px;
-      box-shadow: inset 0 0 15px rgba(0,240,255,0.05);
-    }
-    canvas { width: 100%; height: 100%; display: block; }
-
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -76,18 +65,6 @@
       margin-bottom: 10px;
       box-shadow: 0 4px 25px rgba(0, 240, 255, 0.03);
     }
-
-    .landing-intro {
-      background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, rgba(0,240,255,0.01) 100%);
-      border: 1px solid rgba(0,240,255,0.2);
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 8px;
-      line-height: 1.4;
-      color: var(--text-muted);
-    }
-    .landing-intro b { color: var(--accent-cyan); }
 
     .section-block {
       background: #03050a;
@@ -113,10 +90,6 @@
       text-align: center;
       margin-bottom: 5px;
     }
-
-    .qr-section { text-align: center; margin: 6px 0; }
-    .qr-wrapper { background: #fff; padding: 3px; display: inline-block; border-radius: 4px; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
-    .qr-wrapper img { width: 50px; height: 50px; display: block; }
 
     button {
       background: linear-gradient(135deg, var(--accent-cyan) 0%, #007780 100%);
@@ -154,17 +127,13 @@
   <div class="wrapper">
     <div class="header">
       <h1>Q-LUX ENTERPRISE</h1>
-      <p>BSV Super Technical Core (Optimized 60)</p>
+      <p>BSV SUPER TECHNICAL CORE (OPTIMIZED 40)</p>
     </div>
 
     <div class="treasury-box">
       <div class="treasury-title">Global Enterprise Omniverse Vault (Live Stream)</div>
       <div id="treasuryRev" class="treasury-amount">8,888,888,888 SAT</div>
       <div class="treasury-sub">Active HandCash Paymail: vlisdigitalassetlabs@handcash.io</div>
-    </div>
-
-    <div class="net-box">
-      <canvas id="netCanvas"></canvas>
     </div>
 
     <div class="stats-grid">
@@ -183,23 +152,18 @@
     </div>
 
     <div class="master-card">
-      <div class="landing-intro">
-        🌐 <b>厳選スーパーBSV超技術（0〜59項目）展開モード。</b><br>
-        スマートフォンでの動作負荷を完全に最適化し、主要な最先端コアモジュールを網羅しています。
-      </div>
-
       <!-- 0 -->
       <div class="section-block" id="block-0">
         <div class="sub-heading"><span>0. オフィシャル・モノリスノード統括</span><span style="font-size:6px; color:var(--accent-cyan);">[Monolith Core]</span></div>
-        <div class="sub-desc">全エコシステムを統率し、ネットワーク全体の処理効率を極限まで高める中枢。</div>
-        <button id="btn-0" onclick="executeLiveFeature(0, 'オフィシャル・モノリスノードの統括起動', 'MONOLITH_SYNC')">モノリスノードを同期して稼働を開始する</button>
+        . <div class="sub-desc">全エコシステムを統括し、ネットワーク全体の処理効率を極限まで高める中核。</div>
+        <button id="btn-0" onclick="executeFeature(0, 'オフィシャル・モノリスノード統括', 'Monolith Core')">モノリスノードを同期して稼働を開始する</button>
       </div>
 
       <!-- 1 -->
       <div class="section-block" id="block-1">
         <div class="sub-heading"><span>1. 光通信分散量子演算ノード</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 01]</span></div>
-        <div class="sub-desc">光通信技術の超低遅延特性を利用した分散型グリッドネットワーク基盤。</div>
-        <button id="btn-1" onclick="executeLiveFeature(1, '光通信分散量子演算ノード', 'Core 01')">光通信分散量子演算ノード を実動アクティブ化</button>
+        <div class="sub-desc">光通信技術の超高速特性を利用した分散型グリッドネットワーク基盤。</div>
+        <button id="btn-1" onclick="executeFeature(1, '光通信分散量子演算ノード', 'Core 01')">光通信分散量子演算ノード を実動アクティブ化</button>
       </div>
 
       <!-- 2 -->
@@ -207,14 +171,14 @@
         <div class="sub-heading"><span>2. Teranode 超高速決済コンフィグ</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 02]</span></div>
         <div class="sub-desc">次世代スケーリング「Teranode」対応の最新決済ノード設定。</div>
         <div class="code-tag">TERANODE-v10.conf</div>
-        <button id="btn-2" onclick="executeLiveFeature(2, 'Teranode 超高速決済コンフィグ', 'Core 02')">設定ファイルを実動ダウンロード (50k SAT)</button>
+        <button id="btn-2" onclick="executeFeature(2, 'Teranode 超高速決済コンフィグ', 'Core 02')">設定ファイルを実動ダウンロード (50k SAT)</button>
       </div>
 
       <!-- 3 -->
       <div class="section-block" id="block-3">
         <div class="sub-heading"><span>3. 収益等複利ループ (Auto-Compound)</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 03]</span></div>
-        <div class="sub-desc">エコシステム内の収益を自動で次世代演算サーバー拡張へ再投資する機構。</div>
-        <button id="btn-3" onclick="executeLiveFeature(3, '収益等複利ループ', 'Core 03')">収益等複利ループ を実動アクティブ化</button>
+        <div class="sub-desc">エコシステム内の収益を自動で次世代深界サーバーへ再投資する機構。</div>
+        <button id="btn-3" onclick="executeFeature(3, '収益等複利ループ', 'Core 03')">収益等複利ループ を実動アクティブ化</button>
       </div>
 
       <!-- 4 -->
@@ -222,192 +186,93 @@
         <div class="sub-heading"><span>4. AI自律型アービトラージエージェント</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 04]</span></div>
         <div class="sub-desc">AIがグローバルな流動性の歪みや価格差を自動でリアルタイム仲介。</div>
         <div class="code-tag">AI-ARBITRAGE-v9.json</div>
-        <button id="btn-4" onclick="executeLiveFeature(4, 'AI自律型アービトラージエージェント', 'Core 04')">設定ファイルを実動ダウンロード (50k SAT)</button>
+        <button id="btn-4" onclick="executeFeature(4, 'AI自律型アービトラージエージェント', 'Core 04')">設定ファイルを実動ダウンロード (50k SAT)</button>
       </div>
 
       <!-- 5 -->
       <div class="section-block" id="block-5">
-        <div class="sub-heading"><span>5. ZKプライバシー &amp; テラビットインデックス</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 05]</span></div>
+        <div class="sub-heading"><span>5. ZKプライバシー & テラビットインデックス</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 05]</span></div>
         <div class="sub-desc">ゼロ知識証明（ZK）をBSV層に融合した完全プライバシー保護。</div>
-        <button id="btn-5" onclick="executeLiveFeature(5, 'ZKプライバシー & テラビットインデックス', 'Core 05')">ZKプライバシー &amp; テラビットインデックス を実動アクティブ化</button>
+        <button id="btn-5" onclick="executeFeature(5, 'ZKプライバシー & テラビットインデックス', 'Core 05')">ZKプライバシー & テラビットインデックス を実動アクティブ化</button>
       </div>
 
       <!-- 6 -->
       <div class="section-block" id="block-6">
         <div class="sub-heading"><span>6. Satoshi Script ステートマシン</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 06]</span></div>
         <div class="sub-desc">Bitcoinネイティブスクリプトによる高度なステートフル・コントラクト。</div>
-        <button id="btn-6" onclick="executeLiveFeature(6, 'Satoshi Script ステートマシン', 'Core 06')">Satoshi Script ステートマシン を実動アクティブ化</button>
+        <button id="btn-6" onclick="executeFeature(6, 'Satoshi Script ステートマシン', 'Core 06')">Satoshi Script ステートマシン を実動アクティブ化</button>
       </div>
 
       <!-- 7 -->
       <div class="section-block" id="block-7">
-        <div class="sub-heading"><span>7. オーバレイネットワーク &amp; SPV検証</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 07]</span></div>
+        <div class="sub-heading"><span>7. オーベイレイネットワーク & SPV検証</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 07]</span></div>
         <div class="sub-desc">Overlay ServicesとSPV検証による超軽量データ整合性チェック。</div>
-        <button id="btn-7" onclick="executeLiveFeature(7, 'オーバレイネットワーク & SPV検証', 'Core 07')">オーバレイネットワーク &amp; SPV検証 を実動アクティブ化</button>
+        <button id="btn-7" onclick="executeFeature(7, 'オーベイレイネットワーク & SPV検証', 'Core 07')">オーベイレイネットワーク & SPV検証 を実動アクティブ化</button>
       </div>
 
       <!-- 8 -->
       <div class="section-block" id="block-8">
         <div class="sub-heading"><span>8. アトミッククロスチェーンエンジン</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 08]</span></div>
-        <div class="sub-desc">HTLCを用いた安全かつ完全トラストレスなクロスチェーン交換機構。</div>
-        <button id="btn-8" onclick="executeLiveFeature(8, 'アトミッククロスチェーンエンジン', 'Core 08')">アトミッククロスチェーンエンジン を実動アクティブ化</button>
+        <div class="sub-desc">他ブロックチェーン間との信託不要なアトミック資産スワップ層。</div>
+        <button id="btn-8" onclick="executeFeature(8, 'アトミッククロスチェーンエンジン', 'Core 08')">アトミッククロスチェーンエンジン を実動アクティブ化</button>
       </div>
 
       <!-- 9 -->
       <div class="section-block" id="block-9">
-        <div class="sub-heading"><span>9. メタレジャー &amp; 1Sat Ordinals</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 09]</span></div>
-        <div class="sub-desc">巨大データやデジタルアセットをBSV上に直接永続保存するストレージ。</div>
-        <button id="btn-9" onclick="executeLiveFeature(9, 'メタレジャー & 1Sat Ordinals', 'Core 09')">メタレジャー &amp; 1Sat Ordinals を実動アクティブ化</button>
+        <div class="sub-heading"><span>9. マイクロサトシ・ストリーミング・コア</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 09]</span></div>
+        <div class="sub-desc">データ通信量に応じた超高速・微少単位のストリーミング決済網。</div>
+        <button id="btn-9" onclick="executeFeature(9, 'マイクロサトシ・ストリーミング・コア', 'Core 09')">マイクロサトシ・ストリーミング・コア を実動アクティブ化</button>
       </div>
 
-      <!-- 10 -->
-      <div class="section-block" id="block-10">
-        <div class="sub-heading"><span>10. P2Pマイクロペイメント・ストリーミング</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 10]</span></div>
-        <div class="sub-desc">秒間数千回の超微小決済（サトシ単位）を流し続けるストリーミング機能。</div>
-        <button id="btn-10" onclick="executeLiveFeature(10, 'P2Pマイクロペイメント・ストリーミング', 'Core 10')">P2Pマイクロペイメント・ストリーミング を実動アクティブ化</button>
+      <!-- 10~40代表ブロックを一括簡潔に網羅 -->
+      <div class="section-block" id="block-10-40">
+        <div class="sub-heading"><span>10 〜 40. 高度サブネット・エクステンション群</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 10-40]</span></div>
+        <div class="sub-desc">量子暗号分散ストレージ、自動バリデータ、AI分散ガバナンスまでの全30レイヤーをまとめて一括アクティブ化します。</div>
+        <button id="btn-batch" onclick="executeBatchActive()">全30サブネット (10〜40番) を一括アクティブ化</button>
       </div>
+    </div>
 
-      <!-- 11 -->
-      <div class="section-block" id="block-11">
-        <div class="sub-heading"><span>11. DID &amp; VC認証ゲートウェイ</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 11]</span></div>
-        <div class="sub-desc">ブロックチェーン基盤のトラストレスな身元証明とアクセス権限制御。</div>
-        <button id="btn-11" onclick="executeLiveFeature(11, 'DID & VC認証ゲートウェイ', 'Core 11')">DID &amp; VC認証ゲートウェイ を実動アクティブ化</button>
-      </div>
+    <div class="master-card" style="padding: 10px;">
+      <div class="sub-heading" style="margin-bottom: 4px;"><span>リアルタイム監査ログストリーム</span></div>
+      <div id="log" class="log-box">[09:14:00] Q-LUX Core (Optimized 40 Mode) Initialized. Ready for activation.</div>
+    </div>
+  </div>
 
-      <!-- 12 -->
-      <div class="section-block" id="block-12">
-        <div class="sub-heading"><span>12. ジェネシス・セーフティモニター</span><span style="font-size:6px; color:var(--accent-cyan);">[Core 12]</span></div>
-        <div class="sub-desc">コンセンサス状態やノード間の同期遅延を常時監視・自律修復するシステム。</div>
-        <button id="btn-12" onclick="executeLiveFeature(12, 'ジェネシス・セーフティモニター', 'Core 12')">ジェネシス・セーフティモニター を実動アクティブ化</button>
-      </div>
+  <script>
+    function addLog(msg) {
+      const log = document.getElementById('log');
+      const time = new Date().toTimeString().split(' ')[0];
+      log.innerHTML += '<br>[' + time + '] ' + msg;
+      log.scrollTop = log.scrollHeight;
+    }
 
-      <!-- 13 -->
-      <div class="section-block" id="block-13">
-        <div class="sub-heading"><span>13. 無限ステートチェイン・メガブロックビルダー</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 13]</span></div>
-        <div class="sub-desc">テラバイト級のメガブロックを瞬時に生成し、ネットワーク上の遅延をゼロ化。</div>
-        <button id="btn-13" onclick="executeLiveFeature(13, '無限ステートチェイン・メガブロックビルダー', 'Super 13')">無限ステートチェイン・メガブロックビルダー を実動アクティブ化</button>
-      </div>
+    function executeFeature(id, name, tag) {
+      const btn = document.getElementById(`btn-${id}`);
+      const block = document.getElementById(`block-${id}`);
+      
+      btn.innerText = "✓ 実動稼働中 (Active)";
+      btn.classList.add('executing');
+      block.classList.add('active');
 
-      <!-- 14 -->
-      <div class="section-block" id="block-14">
-        <div class="sub-heading"><span>14. オムニチェーン資産液化トランスポーター</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 14]</span></div>
-        <div class="sub-desc">ブロックチェーン間の垣根を取り払い、あらゆるアセットをBSVへ流動化。</div>
-        <button id="btn-14" onclick="executeLiveFeature(14, 'オムニチェーン資産液化トランスポーター', 'Super 14')">オムニチェーン資産液化トランスポーター を実動アクティブ化</button>
-      </div>
+      addLog(`⚡ [ACTIVE] #${id} ${name} (${tag}) のメインネット接続を確立しました。`);
+    }
 
-      <!-- 15 -->
-      <div class="section-block" id="block-15">
-        <div class="sub-heading"><span>15. 量子耐性・次世代サトシ署名バリデータ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 15]</span></div>
-        <div class="sub-desc">次世代の暗号脅威を完全無効化する、超堅牢な署名検証モジュール。</div>
-        <button id="btn-15" onclick="executeLiveFeature(15, '量子耐性・次世代サトシ署名バリデータ', 'Super 15')">量子耐性・次世代サトシ署名バリデータ を実動アクティブ化</button>
-      </div>
+    function executeBatchActive() {
+      const btn = document.getElementById('btn-batch');
+      btn.innerText = "✓ 10〜40番サブネット全稼働中";
+      btn.classList.add('executing');
+      
+      addLog('⚡ [BATCH] 10番〜40番までの高度サブネット・エクステンション群が一括同期されました。');
+      setTimeout(() => {
+        addLog('✓ [SUCCESS] すべてのバックグラウンドノードが最適化完了。');
+      }, 800);
+    }
 
-      <!-- 16 -->
-      <div class="section-block" id="block-16">
-        <div class="sub-heading"><span>16. マイクロペイメント・トルネード</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 16]</span></div>
-        <div class="sub-desc">秒間数百万件の決済ストリームを摩擦ゼロで並列処理し世界中へ配当。</div>
-        <button id="btn-16" onclick="executeLiveFeature(16, 'マイクロペイメント・トルネード', 'Super 16')">マイクロペイメント・トルネード を実動アクティブ化</button>
-      </div>
-
-      <!-- 17 -->
-      <div class="section-block" id="block-17">
-        <div class="sub-heading"><span>17. 完全分散型ZKオラクルシンジケート</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 17]</span></div>
-        <div class="sub-desc">現実世界のデータをトラストレスなゼロ知識証明で安全にオンチェーン化。</div>
-        <button id="btn-17" onclick="executeLiveFeature(17, '完全分散型ZKオラクルシンジケート', 'Super 17')">完全分散型ZKオラクルシンジケート を実動アクティブ化</button>
-      </div>
-
-      <!-- 18 -->
-      <div class="section-block" id="block-18">
-        <div class="sub-heading"><span>18. 生体ニューラルネットワークリンク</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 18]</span></div>
-        <div class="sub-desc">ユーザーのデバイス信号と直接同期し思考のスピードでウォレット実行。</div>
-        <button id="btn-18" onclick="executeLiveFeature(18, '生体ニューラルネットワークリンク', 'Super 18')">生体ニューラルネットワークリンク を実動アクティブ化</button>
-      </div>
-
-      <!-- 19 -->
-      <div class="section-block" id="block-19">
-        <div class="sub-heading"><span>19. 自律進化型ジェネシスエンジン</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 19]</span></div>
-        <div class="sub-desc">AIが環境の変化を自ら検知しコントラクトコードをリアルタイム自己修復。</div>
-        <button id="btn-19" onclick="executeLiveFeature(19, '自律進化型ジェネシスエンジン', 'Super 19')">自律進化型ジェネシスエンジン を実動アクティブ化</button>
-      </div>
-
-      <!-- 20 -->
-      <div class="section-block" id="block-20">
-        <div class="sub-heading"><span>20. 超高精度タイムスタンプ・レジストリ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 20]</span></div>
-        <div class="sub-desc">あらゆる法制、契約、知財の所有権を永遠に改ざん不能な形で刻印。</div>
-        <button id="btn-20" onclick="executeLiveFeature(20, '超高精度タイムスタンプ・レジストリ', 'Super 20')">超高精度タイムスタンプ・レジストリ を実動アクティブ化</button>
-      </div>
-
-      <!-- 21 -->
-      <div class="section-block" id="block-21">
-        <div class="sub-heading"><span>21. プラズマ級1Sat圧縮アーカイブ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 21]</span></div>
-        <div class="sub-desc">膨大なマルチメディアやシステムコードを限界まで圧縮し1サトシで保存。</div>
-        <button id="btn-21" onclick="executeLiveFeature(21, 'プラズマ級1Sat圧縮アーカイブ', 'Super 21')">プラズマ級1Sat圧縮アーカイブ を実動アクティブ化</button>
-      </div>
-
-      <!-- 22 -->
-      <div class="section-block" id="block-22">
-        <div class="sub-heading"><span>22. アイギス・ディフェンスシステム</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 22]</span></div>
-        <div class="sub-desc">不正アクセスやDDoS攻撃をミリ秒単位で察知し自動迎撃・無効化。</div>
-        <button id="btn-22" onclick="executeLiveFeature(22, 'アイギス・ディフェンスシステム', 'Super 22')">アイギス・ディフェンスシステム を実動アクティブ化</button>
-      </div>
-
-      <!-- 23 -->
-      <div class="section-block" id="block-23">
-        <div class="sub-heading"><span>23. ストリーミング・エスクロー</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 23]</span></div>
-        <div class="sub-desc">マイクロペイメントを時限式エスクローに組み込み条件達成で自動執行。</div>
-        <button id="btn-23" onclick="executeLiveFeature(23, 'ストリーミング・エスクロー', 'Super 23')">ストリーミング・エスクロー を実動アクティブ化</button>
-      </div>
-
-      <!-- 24 -->
-      <div class="section-block" id="block-24">
-        <div class="sub-heading"><span>24. AIトランザクションパイプライン</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 24]</span></div>
-        <div class="sub-desc">メンプルの混雑状況やフィーレートをAIが先読みし最速かつ最小コスト化。</div>
-        <button id="btn-24" onclick="executeLiveFeature(24, 'AIトランザクションパイプライン', 'Super 24')">AIトランザクションパイプライン を実動アクティブ化</button>
-      </div>
-
-      <!-- 25 -->
-      <div class="section-block" id="block-25">
-        <div class="sub-heading"><span>25. ZKコンプライアンスブリッジ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 25]</span></div>
-        <div class="sub-desc">個人情報を一切明かすことなく規制要件を満たしたトラストレス検証。</div>
-        <button id="btn-25" onclick="executeLiveFeature(25, 'ZKコンプライアンスブリッジ', 'Super 25')">ZKコンプライアンスブリッジ を実動アクティブ化</button>
-      </div>
-
-      <!-- 26 -->
-      <div class="section-block" id="block-26">
-        <div class="sub-heading"><span>26. ネイティブアセットエクスチェンジ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 26]</span></div>
-        <div class="sub-desc">仲介者を挟まずSatoshi Script上で直接アセットを高速交換するDEX。</div>
-        <button id="btn-26" onclick="executeLiveFeature(26, 'ネイティブアセットエクスチェンジ', 'Super 26')">ネイティブアセットエクスチェンジ を実動アクティブ化</button>
-      </div>
-
-      <!-- 27 -->
-      <div class="section-block" id="block-27">
-        <div class="sub-heading"><span>27. マルチメディア・インスクリプション</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 27]</span></div>
-        <div class="sub-desc">高精細4K映像や巨大3D空間データを分割し1サトシ単位で永久保存。</div>
-        <button id="btn-27" onclick="executeLiveFeature(27, 'マルチメディア・インスクリプション', 'Super 27')">マルチメディア・インスクリプション を実動アクティブ化</button>
-      </div>
-
-      <!-- 28 -->
-      <div class="section-block" id="block-28">
-        <div class="sub-heading"><span>28. リニアスケーリングルーター</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 28]</span></div>
-        <div class="sub-desc">ノード間データ伝播経路をダイナミックに再構築し遅延を完全相殺。</div>
-        <button id="btn-28" onclick="executeLiveFeature(28, 'リニアスケーリングルーター', 'Super 28')">リニアスケーリングルーター を実動アクティブ化</button>
-      </div>
-
-      <!-- 29 -->
-      <div class="section-block" id="block-29">
-        <div class="sub-heading"><span>29. マルチシグガバナンスコア</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 29]</span></div>
-        <div class="sub-desc">複数組織間の意思決定と資金移動を完全なオンチェーンで自動執行。</div>
-        <button id="btn-29" onclick="executeLiveFeature(29, 'マルチシグガバナンスコア', 'Super 29')">マルチシグガバナンスコア を実動アクティブ化</button>
-      </div>
-
-      <!-- 30 -->
-      <div class="section-block" id="block-30">
-        <div class="sub-heading"><span>30. M2Mトリビューター経済圏</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 30]</span></div>
-        <div class="sub-desc">世界中のIoTデバイスやセンサーが自律的にサトシを支払いデータ売買。</div>
-        <button id="btn-30" onclick="executeLiveFeature(30, 'M2Mトリビューター経済圏', 'Super 30')">M2Mトリビューター経済圏 を実動アクティブ化</button>
-      </div>
-
-      <!-- 31 -->
-      <div class="section-block" id="block-31">
-        <div class="sub-heading"><span>31. P2Pネームスペースレジストリ</span><span style="font-size:6px; color:var(--accent-cyan);">[Super 31]</span></div>
-        <div
+    setInterval(() => {
+      const revElem = document.getElementById('rev');
+      let currentVal = parseInt(revElem.innerText.replace(/[^0-9]/g, '')) + 5000000;
+      revElem.innerText = currentVal.toLocaleString() + ' SAT';
+    }, 5000);
+  </script>
+</body>
+</html>
